@@ -1,0 +1,13 @@
+include ../svg-icon/svg-icon
+
+mixin main-link(data)
+  -console.log(data)
+  a(href= data.href class= data.modifier ? data.modifier : '').main-link
+    if data.icon
+      +svg-icon({
+        name: data.icon,
+        iconW: data.iconW ? data.iconW : 20,
+        iconH: data.iconH ? data.iconH : 20,
+      })
+    if data.text
+      span!= data.text

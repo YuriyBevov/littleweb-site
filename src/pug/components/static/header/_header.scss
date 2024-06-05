@@ -1,0 +1,56 @@
+:root {
+  --header-top-bg-color: #252323;
+  --header-bg-color: var(--site-bg-color);
+}
+
+.header {
+  background-color: var(--header-bg-color);
+
+  &__top {
+    display: none;
+
+    @include media-up($mobile-width) {
+      display: block;
+    }
+
+    padding: var(--gap-s) 0;
+    background-color: var(--header-top-bg-color);
+
+    & .container {
+      @extend %flex-align;
+
+      gap: var(--gap-l);
+    }
+
+    .main-link {
+      font-size: 14px;
+      line-height: 1;
+    }
+
+    .company-worktime {
+      margin-right: auto;
+    }
+  }
+
+  &__bottom {
+    padding: var(--gap-s) 0;
+
+    & .container {
+      @extend %flex-align;
+
+      gap: var(--gap-l);
+    }
+
+    .main-logo {
+      margin-right: auto;
+    }
+  }
+
+  &__callback-btn {
+    display: none;
+
+    @include media-up($tablet-width) {
+      display: flex;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+mixin social(data)
+  .social
+    ul.social__list
+      each social in data.list
+        li
+          a(href= social.href rel="noopener nofollow norefferer" target="_blank")
+            if social.icon
+              img(src=`./assets/images/${social.icon}` alt!= social.name width= social.iconW height= social.iconH)
+

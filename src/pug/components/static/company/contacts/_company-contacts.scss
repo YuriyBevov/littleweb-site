@@ -1,0 +1,17 @@
+.company-worktime {
+  @extend %flex-column;
+
+  b {
+    color: var(--primary);
+  }
+
+  display: flex;
+  font-size: 12px;
+  gap: var(--gap-xs);
+
+  @include media-up($tablet-width) {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--gap-l);
+  }
+}

@@ -1,0 +1,32 @@
+.main-logo {
+  @extend %flex-column;
+
+  justify-content: center;
+  gap: 2px;
+  width: 150px;
+  height: auto;
+  min-height: 40px;
+
+  @include media-up($mobile-width) {
+    width: 205px;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  span {
+    display: none;
+    white-space: nowrap;
+    padding-left: 4px;
+    font-family: var(--secondary-font);
+    font-size: var(--fs-xxs);
+    color: var(--secondary);
+
+    @include media-up($mobile-width) {
+      display: inline-block;
+    }
+  }
+}

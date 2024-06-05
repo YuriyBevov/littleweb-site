@@ -1,0 +1,14 @@
+.social {
+  &__list {
+    @extend %list-reset;
+    @extend %flex-align;
+
+    gap: var(--gap-s);
+
+    li {
+      a {
+        @extend %flex-centered-content;
+      }
+    }
+  }
+}

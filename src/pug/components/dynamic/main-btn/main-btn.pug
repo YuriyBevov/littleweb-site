@@ -1,0 +1,14 @@
+include ../svg-icon/svg-icon
+
+mixin main-btn(data)
+  button(type="button" data-modal-opener= data.modal ? data.modal : null class= data.class ? data.class : '').main-btn
+    if data.icon
+      +svg-icon({
+        name: data.icon,
+        iconW: data.iconW ? data.iconW : 20,
+        iconH: data.iconH ? data.iconH : 20
+      })
+
+    if data.text
+      span!= data.text
+

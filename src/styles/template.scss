@@ -1,0 +1,16 @@
+@import './libs';
+@import './variables';
+@import './mixins';
+@import './fonts';
+@import './base';
+@import './extends';
+@import './global';
+@import './components/ui';
+
+// components
+@import '../pug/components/static/header/header';
+@import '../pug/components/static/company/logo/main-logo';
+@import '../pug/components/dynamic/nav/nav';
+@import '../pug/components/dynamic/links/main-link';
+@import '../pug/components/dynamic/social/social';
+@import '../pug/components/static/company/contacts/company-contacts';

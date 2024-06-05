@@ -1,0 +1,18 @@
+:root {
+  --lw-main-link-svg-fill-color: var(--primary);
+  --lw-main-link-color: var(--secondary);
+}
+
+.main-link {
+  @extend %flex-align;
+
+  gap: var(--gap-xs);
+
+  span {
+    color: var(--lw-main-link-color);
+  }
+
+  svg {
+    fill: var(--lw-main-link-svg-fill-color);
+  }
+}

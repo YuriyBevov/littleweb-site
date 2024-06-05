@@ -1,0 +1,44 @@
+mixin nav(data)
+
+  if data.links
+    nav.nav(class= data.class ? data.class : null)
+      .nav__wrapper
+        +main-btn({
+          icon: 'close',
+          iconW: 20,
+          iconH: 20,
+          class: 'nav-closer'
+        })
+
+        ul.nav__list
+          each link in data.links
+            li.nav__list-item
+              a(href= link.href)!= link.text
+
+        +social({
+          list: [
+            {
+              href: 'mailto:info@littleweb.ru',
+              name: 'mail',
+              icon: 'icon-mail.svg',
+              iconW: 24,
+              iconH: 24
+            },
+            {
+              href: 'https://telegram.me/+79062723744',
+              name: 'telegram',
+              icon: 'icon-tg.svg',
+              iconW: 24,
+              iconH: 24
+            },
+            {
+              href: 'https://wa.me/79062723744',
+              name: 'whatsapp',
+              icon: 'icon-whatsapp.svg',
+              iconW: 24,
+              iconH: 24
+            },
+          ]
+        })
+
+        include ../../static/company/contacts/company-worktime
