@@ -5,12 +5,18 @@
 @import './base';
 @import './extends';
 @import './global';
-@import './components/ui';
+
+// layouts
+@import '../pug/layouts/base-section/base-section';
 
 // components
 @import '../pug/components/static/header/header';
 @import '../pug/components/static/company/logo/main-logo';
 @import '../pug/components/dynamic/nav/nav';
 @import '../pug/components/dynamic/links/main-link';
+@import '../pug/components/dynamic/main-btn/main-btn';
 @import '../pug/components/dynamic/social/social';
 @import '../pug/components/static/company/contacts/company-contacts';
+
+// sections
+@import '../pug/sections/index-page/hero';

@@ -1,0 +1,21 @@
+.base-section {
+  padding: clamp(50px, 6vw, 100px) 0;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: clamp(20px, 4vw, 50px);
+
+    @include media-up($laptop-width) {
+      grid-template-columns: 8fr 10fr;
+    }
+
+    &-side {
+      outline: 1px solid red;
+
+      .base-title {
+        margin-bottom: clamp(30px, 4.6vw, 60px);
+      }
+    }
+  }
+}

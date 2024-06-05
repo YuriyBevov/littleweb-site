@@ -11,6 +11,10 @@
     width: 205px;
   }
 
+  @include media-up($laptop-width) {
+    width: 250px;
+  }
+
   img {
     width: 100%;
     height: auto;
@@ -27,6 +31,10 @@
 
     @include media-up($mobile-width) {
       display: inline-block;
+    }
+
+    @include media-up($laptop-width) {
+      font-size: var(--fs-xs);
     }
   }
 }

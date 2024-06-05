@@ -40,4 +40,8 @@ $main-btn-outlined-border-color: var(--primary);
     background-color: $main-btn-outlined-bg;
     border-color: $main-btn-outlined-border-color;
   }
+
+  @include media-up($mobile-width) {
+    font-size: 14px;
+  }
 }

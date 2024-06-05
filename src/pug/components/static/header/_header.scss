@@ -4,7 +4,17 @@
 }
 
 .header {
+  position: sticky;
+  top: 0;
   background-color: var(--header-bg-color);
+
+  @include media-up($mobile-width) {
+    top: -61px;
+  }
+
+  @include media-up($tablet-width) {
+    top: -48px;
+  }
 
   &__top {
     display: none;

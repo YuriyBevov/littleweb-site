@@ -1,4 +1,3 @@
 mixin svg-icon(data)
-  - console.log(data)
   svg(width= data.iconW ? data.iconW : 20 height= data.iconH ? data.iconH : 20 )
     use(xlink:href=`./assets/svg-sprite.svg#icon-${data.name}`)

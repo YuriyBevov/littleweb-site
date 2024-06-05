@@ -1,0 +1,13 @@
+extends ../../layouts/base-section/base-section.pug
+include ../../components/dynamic/links/main-link
+
+block left
+  h1.base-title Наши работы
+
+  +main-link({
+    href: 'portfolio.html',
+    text: 'Подробнее',
+  })
+
+block right
+  p test2

@@ -1,0 +1,14 @@
+extends ../../layouts/base-section/base-section.pug
+include ../../components/dynamic/main-btn/main-btn
+
+block left
+  h1.base-title Отзывы наших клиентов
+
+  +main-btn({
+    class: 'main-btn--outlined',
+    text: 'Оставить отзыв',
+    modal: 'reviews'
+  })
+
+block right
+  p test2

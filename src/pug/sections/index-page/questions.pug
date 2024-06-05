@@ -1,0 +1,15 @@
+extends ../../layouts/base-section/base-section.pug
+include ../../components/dynamic/main-btn/main-btn
+
+block left
+  h1.base-title Ответы на частые вопросы
+
+
+  +main-btn({
+    class: 'main-btn--outlined',
+    text: 'Оставить отзыв',
+    modal: 'callback'
+  })
+
+block right
+  p test2

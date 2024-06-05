@@ -1,3 +1,5 @@
+$mobile-view-width: 1180px;
+
 .nav {
   &__list {
     @extend %list-reset;
@@ -12,7 +14,7 @@
     a {
       @extend %flex-centered-content;
 
-      font-size: var(--fs-xs);
+      font-size: var(--fs-s);
       padding: var(--gap-xs);
 
       &.current {
@@ -23,7 +25,7 @@
 
   display: none;
 
-  @include media-up($laptop-width) {
+  @include media-up($mobile-view-width) {
     display: flex;
     flex-grow: 1;
     margin: 0 var(--gap-m);
@@ -39,7 +41,7 @@
     }
   }
 
-  @include media-down($laptop-width) {
+  @include media-down($mobile-view-width) {
     &.mobile-active {
       display: flex;
       position: fixed;
@@ -121,7 +123,7 @@
 .nav-opener {
   display: flex;
 
-  @include media-up($laptop-width) {
+  @include media-up($mobile-view-width) {
     display: none;
   }
 }
