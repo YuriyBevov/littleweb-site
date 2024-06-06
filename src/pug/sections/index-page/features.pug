@@ -1,7 +1,16 @@
 extends ../../layouts/base-section/base-section.pug
 
+block variables
+  - sectionClass = "features"
+
 block left
   h1.base-title Наши преимущества
 
 block right
-  p test2
+  include ../../content/feature-list
+  include ../../components/dynamic/cards/info-card/info-card
+
+  ul.features__list
+    each feature in featureList
+      li
+        +info-card(feature)

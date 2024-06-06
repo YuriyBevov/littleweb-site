@@ -104,9 +104,10 @@ $mobile-view-width: 1180px;
       top: clamp(24px, 5vw, 40px);
       right: clamp(24px, 5vw, 40px);
       padding: 10px;
+      background: none;
 
       svg {
-        fill: var(--dark);
+        fill: var(--primary);
       }
     }
 

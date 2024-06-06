@@ -1,7 +1,16 @@
 extends ../../layouts/base-section/base-section.pug
 
+block variables
+  - sectionClass = "about"
+
 block left
   h1.base-title Что мы делаем
 
 block right
-  p test2
+  include ../../content/about-list
+  include ../../components/dynamic/cards/info-card/info-card
+
+  ul.about__list
+    each about in aboutList
+      li
+        +info-card(about)

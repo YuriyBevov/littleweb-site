@@ -11,7 +11,16 @@
     }
 
     &-side {
-      outline: 1px solid red;
+      height: fit-content;
+
+      @include media-up($laptop-width) {
+        position: sticky;
+        top: 120px;
+
+        &:first-child {
+          padding-top: var(--gap-m);
+        }
+      }
 
       .base-title {
         margin-bottom: clamp(30px, 4.6vw, 60px);

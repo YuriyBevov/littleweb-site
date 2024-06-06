@@ -1,6 +1,9 @@
 extends ../../layouts/base-section/base-section.pug
 include ../../components/dynamic/main-btn/main-btn
 
+block variables
+  - sectionClass = "workflow"
+
 block left
   h1.base-title Как происходит рабочий процесс
 
@@ -11,4 +14,10 @@ block left
   })
 
 block right
-  p test2
+  include ../../content/workflow-list
+  include ../../components/dynamic/cards/info-card/info-card
+
+  ul.workflow__list
+    each workflow in workflowList
+      li
+        +info-card(workflow)

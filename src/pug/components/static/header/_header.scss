@@ -1,12 +1,13 @@
 :root {
   --header-top-bg-color: #252323;
-  --header-bg-color: var(--site-bg-color);
+  --header-bg-color: var(--dark);
 }
 
 .header {
   position: sticky;
   top: 0;
   background-color: var(--header-bg-color);
+  z-index: 5;
 
   @include media-up($mobile-width) {
     top: -61px;
