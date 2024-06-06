@@ -1,0 +1,47 @@
+$input-type-text-max-width: 220px;
+$input-type-text-box-shadow: none;
+$input-type-text-font-size: 12px;
+$input-type-text-border: 2px solid;
+$input-type-text-color: var(--primary);
+$input-type-text-bg: transparent;
+$input-type-text-border-radius: 30px;
+$input-type-text-border-color: var(--primary);
+$input-type-text-placeholder-color: var(--primary);
+$input-type-text-invalid-color: var(--danger);
+
+input[type='text'] {
+  @extend %btn-reset;
+  @extend %flex-centered-content;
+
+  width: 100%;
+  max-width: $input-type-text-max-width;
+  min-height: 40px;
+  padding: 10px 20px;
+  font-family: var(--secondary-font);
+  font-size: $input-type-text-font-size;
+  background: $input-type-text-bg;
+  box-shadow: $input-type-text-box-shadow;
+  border: $input-type-text-border;
+  border-color: $input-type-text-border-color;
+  border-radius: $input-type-text-border-radius;
+  color: $input-type-text-color;
+
+  &::placeholder {
+    color: $input-type-text-placeholder-color;
+  }
+
+  @include media-up($mobile-width) {
+    font-size: 14px;
+  }
+
+  &.invalid-control {
+    color: $input-type-text-invalid-color;
+    border-color: $input-type-text-invalid-color;
+
+    &::placeholder {
+      color: $input-type-text-invalid-color;
+    }
+
+    @extend %shaker;
+  }
+}

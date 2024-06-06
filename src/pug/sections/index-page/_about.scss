@@ -1,8 +1,5 @@
 .about {
   &__list {
-    @extend %list-reset;
-    @extend %flex-column;
-
-    gap: var(--gap-xl);
+    @extend %base-section-list;
   }
 }

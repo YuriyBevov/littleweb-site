@@ -13,11 +13,15 @@
 @import '../pug/components/static/header/header';
 @import '../pug/components/static/company/logo/main-logo';
 @import '../pug/components/dynamic/nav/nav';
-@import '../pug/components/dynamic/links/main-link';
-@import '../pug/components/dynamic/main-btn/main-btn';
 @import '../pug/components/dynamic/social/social';
 @import '../pug/components/static/company/contacts/company-contacts';
 @import '../pug/components/dynamic/cards/info-card/info-card';
+@import '../pug/components/static/forms/offer-form';
+
+// controls
+@import '../pug/components/dynamic/links/main-link';
+@import '../pug/components/dynamic/main-btn/main-btn';
+@import '../pug/components/dynamic/controls/input-type-text/input-type-text';
 
 // sections
 @import '../pug/sections/index-page/hero';

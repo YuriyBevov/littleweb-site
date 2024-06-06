@@ -21,3 +21,9 @@ block right
     each workflow in workflowList
       li
         +info-card(workflow)
+
+  +main-btn({
+    class: 'main-btn--outlined',
+    text: 'Связаться с нами',
+    modal: 'callback'
+  })

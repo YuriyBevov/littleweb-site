@@ -1,7 +1,7 @@
 include ../svg-icon/svg-icon
 
 mixin main-btn(data)
-  button(type="button" data-modal-opener= data.modal ? data.modal : null class= data.class ? data.class : '').main-btn
+  button(type= data.type ? data.type : 'button' data-modal-opener= data.modal ? data.modal : null class= data.class ? data.class : '').main-btn
     if data.icon
       +svg-icon({
         name: data.icon,

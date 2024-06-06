@@ -1,10 +1,16 @@
 extends ../../layouts/base-section/base-section.pug
+include ../../components/dynamic/main-btn/main-btn
 
 block variables
   - sectionClass = "about"
 
 block left
   h1.base-title Что мы делаем
+  +main-btn({
+    class: 'main-btn--outlined',
+    text: 'Связаться с нами',
+    modal: 'callback'
+  })
 
 block right
   include ../../content/about-list
@@ -14,3 +20,9 @@ block right
     each about in aboutList
       li
         +info-card(about)
+
+  +main-btn({
+    class: 'main-btn--outlined',
+    text: 'Связаться с нами',
+    modal: 'callback'
+  })

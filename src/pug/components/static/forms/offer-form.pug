@@ -1,0 +1,26 @@
+include ../../dynamic/controls/input-type-text/input-type-text
+include ../../dynamic/main-btn/main-btn
+
+.offer-form
+  p.base-text Оставьте заявку и мы свяжемся с Вами в ближайшее время !
+
+  form(action="mail.php" method="POST")
+    //- поле для капчи v.3
+    input(type="hidden" name="recaptcha").g-recaptcha-response
+
+    .flex-row
+      +input-type-text({
+        label: 'Ваше имя',
+        id: 'user_name'
+      })
+
+      +input-type-text({
+        label: 'Телефон',
+        id: 'user_phone',
+        type: 'phone'
+      })
+
+    +main-btn({
+      type: 'submit',
+      text: 'Отправить заявку',
+    })
