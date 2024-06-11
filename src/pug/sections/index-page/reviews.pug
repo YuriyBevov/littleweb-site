@@ -11,4 +11,17 @@ block left
   })
 
 block right
-  p test2
+  include ../../content/review-list
+  include ../../components/dynamic/sliders/main-slider/main-slider
+
+  +main-slider({
+    cls: 'review-slider',
+    options: {
+      navigation: true,
+      pagination: true
+    },
+    type: 'review',
+    slides: reviewList
+  })
+
+

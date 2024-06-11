@@ -1,6 +1,9 @@
 extends ../../layouts/base-section/base-section.pug
 include ../../components/dynamic/main-btn/main-btn
 
+block variables
+  - sectionClass = "questions"
+
 block left
   h1.base-title Ответы на частые вопросы
 
@@ -12,4 +15,7 @@ block left
   })
 
 block right
-  p test2
+  include ../../content/question-list
+  include ../../components/dynamic/accordeons/main-accordeon/main-accordeon
+
+  +main-accordeon(questionList)

@@ -12,7 +12,11 @@
   }
 
   @include media-up($laptop-width) {
-    width: 250px;
+    width: 225px;
+  }
+
+  @include media-up($desktop-width) {
+    width: 275px;
   }
 
   img {
@@ -27,7 +31,10 @@
     padding-left: 4px;
     font-family: var(--secondary-font);
     font-size: var(--fs-xxs);
+    font-weight: var(--fw-xl);
+    letter-spacing: 0.05em;
     color: var(--secondary);
+    opacity: 0.6;
 
     @include media-up($mobile-width) {
       display: inline-block;

@@ -22,7 +22,7 @@ const config = {
 
   pug: {
     src: `${SOURCE_PATH}pug/*.pug`,
-    watch: `${SOURCE_PATH}pug/**/*.{pug,scss,md}`,
+    watch: `${SOURCE_PATH}pug/**/*.{pug,scss,md,js}`,
     dest: BUILD_PATH,
   },
 

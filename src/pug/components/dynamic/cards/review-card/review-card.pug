@@ -1,0 +1,19 @@
+include ../../main-btn/main-btn
+
+mixin review-card(review)
+  .review-card
+    .review-card__header
+      span!= review.text
+
+      +main-btn({
+        class: 'review-card__opener-btn main-btn--outlined',
+        type: 'button',
+        modal: 'full-review',
+        text: 'Весь отзыв',
+      })
+
+    .review-card__footer
+      if review.user.name
+        span.review-card__user-name!= review.user.name
+      if review.user.desc
+        small.review-card__user-desc!= review.user.desc

@@ -29,7 +29,7 @@ export const cleanCss = cleanUnusedCss;
 
 watch(config.staticResources.watch, series(copyStatic, refresh));
 watch(config.fonts.watch, series(fonts, refresh));
-watch(config.pug.watch, series(parallel(pug, sass), refresh));
+watch(config.pug.watch, series(parallel(pug, sass, scripts), refresh));
 watch(config.styles.watch, series(sass, refresh));
 watch(config.scripts.watch, series(scripts, refresh));
 watch(config.images.watch, series(images, refresh));

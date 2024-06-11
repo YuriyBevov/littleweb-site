@@ -1,0 +1,58 @@
+.accordeon {
+  @extend %flex-column;
+
+  gap: var(--gap-xl);
+  padding: var(--gap-m);
+  margin-top: calc(-1 * var(--gap-m));
+
+  &__item {
+    &-header {
+      position: relative;
+      cursor: pointer;
+      padding-right: 35px;
+
+      &::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        content: '';
+        width: 20px;
+        height: 20px;
+        background-image: url('../assets/images/icon-accordeon-arrow.svg');
+        background-size: 16px;
+        background-position: center;
+        background-repeat: no-repeat;
+        transition: transform var(--base-transition);
+      }
+    }
+
+    &-content {
+      visibility: hidden;
+      opacity: 0;
+      height: 0;
+      padding: var(--gap-m);
+      margin-top: calc(-1 * (var(--gap-m) * 2));
+      font-style: italic;
+      font-family: var(--secondary-font);
+      font-weight: var(--fw-l);
+      transition: opacity var(--base-transition);
+
+      a {
+        color: var(--primary);
+      }
+    }
+
+    &.expanded {
+      .accordeon__item-header::after {
+        transform: rotate(180deg);
+      }
+
+      .accordeon__item-content {
+        visibility: visible;
+        height: auto;
+        opacity: 1;
+        margin-top: 0;
+      }
+    }
+  }
+}

@@ -12,6 +12,7 @@
 
     &-side {
       height: fit-content;
+      min-width: 100%;
 
       @include media-up($laptop-width) {
         position: sticky;

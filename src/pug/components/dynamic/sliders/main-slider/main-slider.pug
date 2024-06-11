@@ -1,0 +1,20 @@
+include ../../cards/review-card/review-card
+
+mixin main-slider(data)
+  .swiper.main-slider(class= data.cls ? data.cls : null)
+    .swiper-wrapper
+      each slide in data.slides
+        .swiper-slide
+          if data.type === 'review'
+            +review-card(slide)
+
+    .swiper-controls
+      if data.options.pagination
+        .swiper-pagination
+
+      if data.options.navigation
+        .swiper-navigation
+          .swiper-button-prev
+          .swiper-button-next
+
+
