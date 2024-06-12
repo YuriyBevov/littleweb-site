@@ -4,15 +4,16 @@ include ../../components/dynamic/links/main-link
 block left
   h1.base-title Наши работы
 
-  +main-link({
-    href: 'portfolio.html',
-    text: 'Подробнее',
-  })
-
 block right
-  p test2
+  include ../../content/portfolio-list
+  include ../../components/dynamic/sliders/main-slider/main-slider
 
-  +main-link({
-    href: 'portfolio.html',
-    text: 'Подробнее',
+  +main-slider({
+    cls: 'portfolio-slider',
+    options: {
+      navigation: true,
+      pagination: true
+    },
+    type: 'portfolio',
+    slides: portfolioList
   })

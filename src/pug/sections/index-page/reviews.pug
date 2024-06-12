@@ -5,7 +5,7 @@ block left
   h1.base-title Отзывы наших клиентов
 
   +main-btn({
-    class: 'main-btn--outlined',
+    class: 'main-btn--outlined hidden-laptop-down',
     text: 'Оставить отзыв',
     modal: 'reviews'
   })
@@ -22,6 +22,12 @@ block right
     },
     type: 'review',
     slides: reviewList
+  })
+
+  +main-btn({
+    class: 'main-btn--outlined hidden-laptop-up',
+    text: 'Оставить отзыв',
+    modal: 'reviews'
   })
 
 

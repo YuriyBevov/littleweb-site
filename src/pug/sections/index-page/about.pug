@@ -7,7 +7,7 @@ block variables
 block left
   h1.base-title Что мы делаем
   +main-btn({
-    class: 'main-btn--outlined',
+    class: 'main-btn--outlined hidden-laptop-down',
     text: 'Связаться с нами',
     modal: 'callback'
   })
@@ -22,7 +22,7 @@ block right
         +info-card(about)
 
   +main-btn({
-    class: 'main-btn--outlined',
+    class: 'main-btn--outlined hidden-laptop-up',
     text: 'Связаться с нами',
     modal: 'callback'
   })

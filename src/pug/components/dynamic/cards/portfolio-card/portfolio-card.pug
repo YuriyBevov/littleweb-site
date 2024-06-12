@@ -1,0 +1,15 @@
+include ../../links/main-link
+
+mixin portfolio-card(data)
+  .portfolio-card
+    .portfolio-card__header
+      img(src=`./assets/images/mock/${data.img.name}` alt= data.img.alt width="420" height="260")
+    .portfolio-card__footer
+      span.portfolio-card__title!= data.title
+      span.portfolio-card__text!= data.text
+
+      +main-link({
+        href: 'portfolio-detail.html',
+        text: 'Подробнее',
+        class: 'portfolio-card__link'
+      })

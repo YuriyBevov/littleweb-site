@@ -76,3 +76,15 @@ address {
 picture {
   display: flex;
 }
+
+.hidden-laptop-down {
+  @include media-down($laptop-width) {
+    display: none;
+  }
+}
+
+.hidden-laptop-up {
+  @include media-up($laptop-width) {
+    display: none;
+  }
+}

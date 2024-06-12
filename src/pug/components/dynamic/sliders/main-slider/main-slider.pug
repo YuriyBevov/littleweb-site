@@ -1,4 +1,5 @@
 include ../../cards/review-card/review-card
+include ../../cards/portfolio-card/portfolio-card
 
 mixin main-slider(data)
   .swiper.main-slider(class= data.cls ? data.cls : null)
@@ -7,6 +8,8 @@ mixin main-slider(data)
         .swiper-slide
           if data.type === 'review'
             +review-card(slide)
+          if data.type === 'portfolio'
+            +portfolio-card(slide)
 
     .swiper-controls
       if data.options.pagination

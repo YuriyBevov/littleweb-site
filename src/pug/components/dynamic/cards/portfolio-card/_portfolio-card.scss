@@ -1,0 +1,42 @@
+.portfolio-card {
+  @extend %flex-column;
+
+  gap: var(--gap-s);
+
+  &__title {
+    display: inline-block;
+    font-family: var(--secondary-font);
+  }
+
+  &__text {
+    display: inline-block;
+    font-family: var(--secondary-font);
+    font-weight: var(--fw-l);
+    font-style: italic;
+    font-size: 14px;
+  }
+
+  &__link {
+    font-size: 14px;
+    font-weight: var(--fw-l);
+    color: var(--primary);
+
+    span {
+      color: var(--primary);
+    }
+  }
+
+  &__header {
+    img {
+      width: 420px;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+
+  &__footer {
+    @extend %flex-column;
+
+    gap: var(--gap-s);
+  }
+}

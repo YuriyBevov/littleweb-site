@@ -9,7 +9,7 @@ block left
 
 
   +main-btn({
-    class: 'main-btn--outlined',
+    class: 'main-btn--outlined hidden-laptop-down',
     text: 'Оставить отзыв',
     modal: 'callback'
   })
@@ -19,3 +19,9 @@ block right
   include ../../components/dynamic/accordeons/main-accordeon/main-accordeon
 
   +main-accordeon(questionList)
+
+  +main-btn({
+    class: 'main-btn--outlined hidden-laptop-up',
+    text: 'Оставить отзыв',
+    modal: 'callback'
+  })

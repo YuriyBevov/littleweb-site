@@ -24,28 +24,28 @@
         margin-top: var(--gap-xl);
       }
 
-      &:first-child {
-        .main-btn:not(button[type='submit']),
-        .main-link {
-          display: none;
-        }
-      }
+      // &:first-child {
+      //   .main-btn:not(button[type='submit']),
+      //   .main-link {
+      //     display: none;
+      //   }
+      // }
 
-      @include media-up($laptop-width) {
-        &:first-child {
-          .main-btn:not(button[type='submit']),
-          .main-link {
-            display: flex;
-          }
-        }
+      // @include media-up($laptop-width) {
+      //   &:first-child {
+      //     .main-btn:not(button[type='submit']),
+      //     .main-link {
+      //       display: flex;
+      //     }
+      //   }
 
-        &:last-child {
-          .main-btn:not(button[type='submit']),
-          .main-link {
-            display: none;
-          }
-        }
-      }
+      //   &:last-child {
+      //     .main-btn:not(button[type='submit']),
+      //     .main-link {
+      //       display: none;
+      //     }
+      //   }
+      // }
 
       .base-title {
         margin-bottom: var(--gap-xxl);
