@@ -2,6 +2,7 @@ include ../../dynamic/nav/nav
 include ../../dynamic/main-btn/main-btn
 include ../../dynamic/links/main-link
 include ../../dynamic/social/social
+include ../../dynamic/logos/main-logo/main-logo
 
 header.header
   .header__top
@@ -36,13 +37,13 @@ header.header
 
   .header__bottom
     .container
-      include ../company/logo/main-logo
+      +main-logo(true)
 
       +nav({
         links: [
           {
-            href: 'news.html',
-            text: 'Новости'
+            href: 'services.html',
+            text: 'Услуги'
           },
           {
             href: 'cases.html',

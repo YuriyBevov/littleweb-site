@@ -4,6 +4,8 @@
   gap: var(--gap-xl);
   padding: var(--gap-m);
   margin-top: calc(-1 * var(--gap-m));
+  margin-left: calc(-1 * var(--gap-m));
+  font-family: var(--secondary-font);
 
   &__item {
     &-header {
@@ -33,7 +35,7 @@
       padding: var(--gap-m);
       margin-top: calc(-1 * (var(--gap-m) * 2));
       font-style: italic;
-      font-family: var(--secondary-font);
+
       font-weight: var(--fw-l);
       transition: opacity var(--base-transition);
 

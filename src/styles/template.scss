@@ -17,15 +17,17 @@
 
 // components
 @import '../pug/components/static/header/header';
-@import '../pug/components/static/company/logo/main-logo';
+@import '../pug/components/dynamic/logos/main-logo/main-logo';
 @import '../pug/components/dynamic/nav/nav';
 @import '../pug/components/dynamic/social/social';
 @import '../pug/components/static/company/contacts/company-contacts';
+@import '../pug/components/static/company/law-info/law';
 @import '../pug/components/dynamic/cards/info-card/info-card';
 @import '../pug/components/dynamic/cards/review-card/review-card';
 @import '../pug/components/dynamic/cards/portfolio-card/portfolio-card';
 @import '../pug/components/static/forms/offer-form';
 @import '../pug/components/dynamic/accordeons/main-accordeon/main-accordeon';
+@import '../pug/components/static/footer/footer';
 
 // sections
 @import '../pug/sections/index-page/hero';

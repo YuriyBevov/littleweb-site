@@ -33,6 +33,7 @@ const config = {
   },
 
   scripts: {
+    entry: `${SOURCE_PATH}scripts/entry.js`,
     src: `${SOURCE_PATH}scripts/*.js`,
     watch: `${SOURCE_PATH}scripts/**/*.js`,
     dest: `${BUILD_PATH}assets/`,
