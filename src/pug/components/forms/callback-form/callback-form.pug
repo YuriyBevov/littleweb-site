@@ -1,0 +1,26 @@
+include ../../controls/main-input/main-input
+include ../../main-btn/main-btn
+
+mixin callback-form(data)
+  form(action="mail.php" ).callback-form
+    input(type="hidden" name="Заполненная форма:" value= data.formName)
+    input(type="hidden" name="recaptcha").g-recaptcha-response
+
+    each row in data.rows
+      fieldset.flex-row
+        each ctrl in row
+          +main-input({
+            type: ctrl.type,
+            label: ctrl.label,
+            id: ctrl.id,
+            dataType: ctrl.dataType,
+            required: ctrl.required
+          })
+
+    +main-btn({
+      type: 'submit',
+      text: data.submitBtnText,
+    })
+
+    small *Отправляя форму Вы соглашаетесь с условиями обработки персональных данных.
+

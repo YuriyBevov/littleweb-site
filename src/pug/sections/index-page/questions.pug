@@ -1,5 +1,5 @@
 extends ../../layouts/base-section/base-section.pug
-include ../../components/dynamic/main-btn/main-btn
+include ../../components/main-btn/main-btn
 
 block variables
   - sectionClass = "questions"
@@ -16,7 +16,7 @@ block left
 
 block right
   include ../../content/question-list
-  include ../../components/dynamic/accordeons/main-accordeon/main-accordeon
+  include ../../components/accordeons/main-accordeon/main-accordeon
 
   +main-accordeon(questionList)
 

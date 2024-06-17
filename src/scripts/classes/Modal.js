@@ -3,10 +3,9 @@ import { gsap } from 'gsap';
 
 export class Modal {
   constructor(modal, options = {}) {
-    (this.preventBodyLock = options.preventBodyLock ? true : false),
-      (this.modal = modal);
-    this.overlay = this.modal.querySelector('.modal__overlay');
-    this.content = this.modal.querySelector('.modal__content');
+    this.preventBodyLock = options.preventBodyLock ? true : false;
+    this.modal = modal;
+    this.overlay = this.modal.parentNode;
     this.close = this.modal.querySelector('.modal-closer');
 
     this.id = this.modal.getAttribute('id');
@@ -102,14 +101,14 @@ export class Modal {
     }
 
     gsap.fromTo(
-      this.modal,
+      this.overlay,
       { display: 'flex' },
       {
         opacity: 0,
+        display: 'none',
         duration: 0.6,
         ease: 'ease-in',
         onComplete: () => {
-          this.modal.style.display = 'none';
           //если в модалке есть форма, при закрытии обнуляю поля
           this.modal.querySelectorAll('form').forEach((f) => f.reset());
         },
@@ -144,32 +143,11 @@ export class Modal {
   };
 
   openModal = (evt) => {
-    // const title = this.modal.querySelector(".lw-section-title");
-    // const desc = this.modal.querySelector(".modal__header-text");
-    // const formName = this.modal.querySelector('input[type="hidden"]');
-
-    // if (title) {
-    //   if (evt.currentTarget.dataset.modalTitle) {
-    //     title.innerHTML = evt.currentTarget.dataset.modalTitle;
-    //     formName.value = title.innerText;
-    //   } else {
-    //     title.innerHTML = "Связаться с менеджером";
-    //   }
-    // }
-
-    // if (desc) {
-    //   if (evt.currentTarget.dataset.modalText) {
-    //     desc.innerHTML = evt.currentTarget.dataset.modalText;
-    //   } else {
-    //     desc.innerHTML = "Заполните форму, и мы перезвоним Вам";
-    //   }
-    // }
-
     evt.preventDefault();
 
     this.bodyLocker(true);
     gsap.fromTo(
-      this.modal,
+      this.overlay,
       { display: 'none', opacity: 0 },
       {
         display: 'flex',
@@ -185,10 +163,9 @@ export class Modal {
   };
 
   show = () => {
-    // this.bodyLocked ? this.bodyLocker(true) : null;
-
+    this.bodyLocker(true);
     gsap.fromTo(
-      this.modal,
+      this.overlay,
       { display: 'none', opacity: 0 },
       {
         display: 'flex',
@@ -206,8 +183,6 @@ export class Modal {
   init() {
     if (this.openers) {
       this.isInited = true;
-      console.log(this.openers, this.id);
-
       this.openers.forEach((opener) => {
         opener.addEventListener('click', this.openModal);
       });

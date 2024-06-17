@@ -7,27 +7,29 @@
 @import './global';
 
 // controls
-@import '../pug/components/dynamic/links/main-link';
-@import '../pug/components/dynamic/main-btn/main-btn';
-@import '../pug/components/dynamic/controls/input-type-text/input-type-text';
-@import '../pug/components/dynamic/sliders/main-slider/main-slider';
+@import '../pug/components/links/main-link';
+@import '../pug/components/main-btn/main-btn';
+@import '../pug/components/controls/main-input/main-input';
+@import '../pug/components/sliders/main-slider/main-slider';
 
 // layouts
 @import '../pug/layouts/base-section/base-section';
 
 // components
-@import '../pug/components/static/header/header';
-@import '../pug/components/dynamic/logos/main-logo/main-logo';
-@import '../pug/components/dynamic/nav/nav';
-@import '../pug/components/dynamic/social/social';
-@import '../pug/components/static/company/contacts/company-contacts';
-@import '../pug/components/static/company/law-info/law';
-@import '../pug/components/dynamic/cards/info-card/info-card';
-@import '../pug/components/dynamic/cards/review-card/review-card';
-@import '../pug/components/dynamic/cards/portfolio-card/portfolio-card';
-@import '../pug/components/static/forms/offer-form';
-@import '../pug/components/dynamic/accordeons/main-accordeon/main-accordeon';
-@import '../pug/components/static/footer/footer';
+@import '../pug/components/loaders/loader';
+@import '../pug/modals/modal';
+@import '../pug/components/header/header';
+@import '../pug/components/logos/main-logo/main-logo';
+@import '../pug/components/nav/nav';
+@import '../pug/components/social/social';
+@import '../pug/components/company/contacts/company-contacts';
+@import '../pug/components/company/law-info/law';
+@import '../pug/components/cards/info-card/info-card';
+@import '../pug/components/cards/review-card/review-card';
+@import '../pug/components/cards/portfolio-card/portfolio-card';
+@import '../pug/components/forms/callback-form/callback-form';
+@import '../pug/components/accordeons/main-accordeon/main-accordeon';
+@import '../pug/components/footer/footer';
 
 // sections
 @import '../pug/sections/index-page/hero';

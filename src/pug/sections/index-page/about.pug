@@ -1,5 +1,5 @@
 extends ../../layouts/base-section/base-section.pug
-include ../../components/dynamic/main-btn/main-btn
+include ../../components/main-btn/main-btn
 
 block variables
   - sectionClass = "about"
@@ -14,7 +14,7 @@ block left
 
 block right
   include ../../content/about-list
-  include ../../components/dynamic/cards/info-card/info-card
+  include ../../components/cards/info-card/info-card
 
   ul.about__list
     each about in aboutList

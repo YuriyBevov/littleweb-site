@@ -1,12 +1,12 @@
 extends ../../layouts/base-section/base-section.pug
-include ../../components/dynamic/links/main-link
+include ../../components/links/main-link
 
 block left
   h1.base-title Наши работы
 
 block right
   include ../../content/portfolio-list
-  include ../../components/dynamic/sliders/main-slider/main-slider
+  include ../../components/sliders/main-slider/main-slider
 
   +main-slider({
     cls: 'portfolio-slider',

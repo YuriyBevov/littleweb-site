@@ -1,5 +1,5 @@
 extends ../../layouts/base-section/base-section.pug
-include ../../components/dynamic/main-btn/main-btn
+include ../../components/main-btn/main-btn
 
 block left
   h1.base-title Отзывы наших клиентов
@@ -12,7 +12,7 @@ block left
 
 block right
   include ../../content/review-list
-  include ../../components/dynamic/sliders/main-slider/main-slider
+  include ../../components/sliders/main-slider/main-slider
 
   +main-slider({
     cls: 'review-slider',

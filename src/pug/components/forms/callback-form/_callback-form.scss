@@ -1,0 +1,29 @@
+.callback-form {
+  fieldset {
+    @extend %fieldset-reset;
+  }
+
+  input[type='text'],
+  input[type='tel'] {
+    width: initial;
+    max-width: initial;
+    flex-grow: 1;
+  }
+
+  button[type='submit'] {
+    margin: 1.5em 0;
+    width: 100%;
+
+    @include media-up($mobile-width) {
+      width: fit-content;
+      min-width: calc(50% - 8px);
+    }
+  }
+
+  small {
+    display: inline-block;
+    font-family: var(--secondary-font);
+    font-size: var(--fs-xs);
+    line-height: 1.1;
+  }
+}
