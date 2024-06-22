@@ -47,10 +47,11 @@
     height: 40px;
     border-radius: 50%;
     border: 1px solid var(--primary);
-    background-image: url('../assets/images/icon-arrow.svg');
-    background-size: 16px;
-    background-position: center;
-    background-repeat: no-repeat;
+
+    // background-image: url('../assets/images/icon-arrow.svg');
+    // background-size: 16px;
+    // background-position: center;
+    // background-repeat: no-repeat;
 
     &::after {
       display: none;

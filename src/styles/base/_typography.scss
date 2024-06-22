@@ -53,6 +53,7 @@ h6 {
   display: block;
   font-size: var(--base-title-fs);
   font-weight: var(--base-title-fw);
+  margin-bottom: clamp(calc(var(--gap-xxl) * 1.1), 7vw, var(--gap-xxxl));
   color: var(--base-title-color);
 }
 

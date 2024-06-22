@@ -3,17 +3,9 @@ include ../../components/main-btn/main-btn
 
 block variables
   - sectionClass = "workflow"
+  - sectionTitle = 'Как происходит рабочий процесс'
 
-block left
-  h1.base-title Как происходит рабочий процесс
-
-  +main-btn({
-    class: 'main-btn--outlined hidden-laptop-down',
-    text: 'Связаться с нами',
-    modal: 'callback'
-  })
-
-block right
+block content
   include ../../content/workflow-list
   include ../../components/cards/info-card/info-card
 
@@ -23,7 +15,7 @@ block right
         +info-card(workflow)
 
   +main-btn({
-    class: 'main-btn--outlined hidden-laptop-up',
+    class: 'main-btn--outlined base-section__btn',
     text: 'Связаться с нами',
     modal: 'callback'
   })

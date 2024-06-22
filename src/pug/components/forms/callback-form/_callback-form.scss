@@ -1,6 +1,8 @@
 .callback-form {
   fieldset {
     @extend %fieldset-reset;
+
+    max-width: 800px;
   }
 
   input[type='text'],
@@ -15,8 +17,8 @@
     width: 100%;
 
     @include media-up($mobile-width) {
-      width: fit-content;
-      min-width: calc(50% - 8px);
+      width: calc(50% - 8px);
+      max-width: 220px;
     }
   }
 

@@ -1,10 +1,12 @@
 block variables
   - sectionClass = ''
+  - sectionTitle = ''
+  - sectionText  = ''
 
 section.base-section(class= sectionClass)
   .container
-    .base-section__grid
-      .base-section__grid-side
-        block left
-      .base-section__grid-side
-        block right
+    if sectionTitle
+      h2.base-title!= sectionTitle
+    if sectionText
+      h2.base-text!= sectionText
+    block content

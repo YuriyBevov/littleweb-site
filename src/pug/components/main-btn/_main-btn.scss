@@ -1,13 +1,5 @@
-$main-btn-color: var(--dark);
-$main-btn-bg: conic-gradient(
-  from 180deg at 50% 50%,
-  #a2d729 0deg,
-  #a2d729 33.43deg,
-  #a2d729 93.36deg,
-  #9fff3e 170.63deg,
-  #a2d729 236.3deg,
-  #a2d729 360deg
-);
+$main-btn-color: var(--light);
+$main-btn-bg: var(--primary);
 $main-btn-box-shadow: none;
 $main-btn-border-radius: 30px;
 $main-btn-font-size: 12px;

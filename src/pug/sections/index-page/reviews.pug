@@ -1,16 +1,10 @@
 extends ../../layouts/base-section/base-section.pug
 include ../../components/main-btn/main-btn
 
-block left
-  h1.base-title Отзывы наших клиентов
+block variables
+  - sectionTitle = 'Отзывы наших клиентов'
 
-  +main-btn({
-    class: 'main-btn--outlined hidden-laptop-down',
-    text: 'Оставить отзыв',
-    modal: 'reviews'
-  })
-
-block right
+block content
   include ../../content/review-list
   include ../../components/sliders/main-slider/main-slider
 
@@ -25,7 +19,7 @@ block right
   })
 
   +main-btn({
-    class: 'main-btn--outlined hidden-laptop-up',
+    class: 'main-btn--outlined base-section__btn',
     text: 'Оставить отзыв',
     modal: 'reviews'
   })

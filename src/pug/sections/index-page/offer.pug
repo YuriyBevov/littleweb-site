@@ -1,9 +1,9 @@
 extends ../../layouts/base-section/base-section.pug
 
-block left
-  h1.base-title Интересно ?
+block variables
+  - sectionTitle = 'Давайте работать над вашим проектом вместе!'
 
-block right
+block content
   p.base-text Оставьте заявку и мы свяжемся с Вами в ближайшее время !
   include ../../components/forms/callback-form/callback-form
 

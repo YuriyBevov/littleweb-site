@@ -1,5 +1,7 @@
 :root {
-  --primary: #a2d729;
+  --white: #fff;
+  --black: #000;
+  --primary: #7899d4;
   --secondary: #fffce1;
 
   // --success: #28a745;
@@ -7,12 +9,10 @@
   --danger: #dc3545;
 
   // --info: #17a2b8;
-  // --light: #f8f9fa;
+  --light: var(--white);
   --dark: #161414;
 
   // --muted: #6c757d;
-  --white: #fff;
-  --black: #000;
   --site-bg-color: var(--dark);
   --site-text-color: var(--secondary);
 }

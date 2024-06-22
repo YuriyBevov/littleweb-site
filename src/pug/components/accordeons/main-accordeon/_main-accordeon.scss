@@ -1,13 +1,17 @@
 .accordeon {
   @extend %flex-column;
 
-  gap: var(--gap-xl);
+  gap: var(--gap-m);
   padding: var(--gap-m);
   margin-top: calc(-1 * var(--gap-m));
   margin-left: calc(-1 * var(--gap-m));
   font-family: var(--secondary-font);
 
   &__item {
+    border-radius: 4px;
+    border: 1px solid var(--white);
+    padding: var(--gap-s);
+
     &-header {
       position: relative;
       cursor: pointer;
@@ -32,10 +36,8 @@
       visibility: hidden;
       opacity: 0;
       height: 0;
-      padding: var(--gap-m);
-      margin-top: calc(-1 * (var(--gap-m) * 2));
       font-style: italic;
-
+      font-size: 14px;
       font-weight: var(--fw-l);
       transition: opacity var(--base-transition);
 
@@ -54,6 +56,7 @@
         height: auto;
         opacity: 1;
         margin-top: 0;
+        padding-top: var(--gap-m);
       }
     }
   }

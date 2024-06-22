@@ -3,16 +3,9 @@ include ../../components/main-btn/main-btn
 
 block variables
   - sectionClass = "about"
+  - sectionTitle = 'Что мы делаем'
 
-block left
-  h1.base-title Что мы делаем
-  +main-btn({
-    class: 'main-btn--outlined hidden-laptop-down',
-    text: 'Связаться с нами',
-    modal: 'callback'
-  })
-
-block right
+block content
   include ../../content/about-list
   include ../../components/cards/info-card/info-card
 
@@ -21,8 +14,10 @@ block right
       li
         +info-card(about)
 
+  p.base-text А еще мы можем добавить анимации любой сложности, сделать полный аудит сайта, интегрирровать необходимые Вашему бизнесу решения, исправить технические проблемы на Вашем текущем сайте.
+
   +main-btn({
-    class: 'main-btn--outlined hidden-laptop-up',
-    text: 'Связаться с нами',
+    class: 'main-btn--outlined base-section__btn',
+    text: 'Оставить заявку',
     modal: 'callback'
   })

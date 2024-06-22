@@ -3,25 +3,16 @@ include ../../components/main-btn/main-btn
 
 block variables
   - sectionClass = "questions"
+  - sectionTitle = 'Ответы на частые вопросы'
 
-block left
-  h1.base-title Ответы на частые вопросы
-
-
-  +main-btn({
-    class: 'main-btn--outlined hidden-laptop-down',
-    text: 'Оставить отзыв',
-    modal: 'callback'
-  })
-
-block right
+block content
   include ../../content/question-list
   include ../../components/accordeons/main-accordeon/main-accordeon
 
   +main-accordeon(questionList)
 
   +main-btn({
-    class: 'main-btn--outlined hidden-laptop-up',
+    class: 'main-btn--outlined base-section__btn',
     text: 'Оставить отзыв',
     modal: 'callback'
   })

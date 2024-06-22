@@ -5,6 +5,7 @@ $border-radius: 10px;
 .info-card {
   @extend %flex-column;
 
+  height: 100%;
   gap: var(--gap-l);
   padding: 0;
   border-radius: $border-radius;
@@ -15,6 +16,7 @@ $border-radius: 10px;
     @extend %flex-column;
 
     gap: var(--gap-s);
+    height: 100%;
 
     a {
       padding: var(--gap-s) 0;
@@ -28,6 +30,10 @@ $border-radius: 10px;
     object-fit: contain;
   }
 
+  svg {
+    fill: var(--primary);
+  }
+
   &-title {
     font-family: var(--primary-font);
     font-size: var(--fs-md);
@@ -35,18 +41,17 @@ $border-radius: 10px;
 
   &-text {
     font-family: var(--secondary-font);
-    font-size: var(--fs-sm);
+    font-size: 16px;
     font-weight: var(--fw-l);
-  }
+    margin-top: auto;
 
-  small {
-    display: inline-block;
-    margin-top: 10px;
-    font-size: var(--fs-xs);
-  }
-
-  @include media-up($mobile-width) {
-    flex-direction: row;
+    & + small {
+      display: inline-block;
+      font-family: var(--secondary-font);
+      font-size: var(--fs-xs);
+      margin-top: auto;
+      padding-top: var(--gap-xs);
+    }
   }
 
   &--vertical {

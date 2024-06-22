@@ -1,5 +1,10 @@
 .workflow {
   &__list {
     @extend %base-section-list;
+
+    // @extend %list-reset;
+    // display: grid;
+    // grid-template-columns: repeat(3, 1fr);
+    // gap: var(--gap-xxl);
   }
 }

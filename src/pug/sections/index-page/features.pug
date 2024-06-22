@@ -2,11 +2,9 @@ extends ../../layouts/base-section/base-section.pug
 
 block variables
   - sectionClass = "features"
+  - sectionTitle = 'Наши преимущества'
 
-block left
-  h1.base-title Наши преимущества
-
-block right
+block content
   include ../../content/feature-list
   include ../../components/cards/info-card/info-card
 

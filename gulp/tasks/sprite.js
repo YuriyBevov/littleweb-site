@@ -4,11 +4,12 @@ const { config } = _config;
 import { src, dest } from 'gulp';
 
 import svgmin from 'gulp-svgmin';
-import svgstore from 'gulp-svgstore';
+// import svgstore from 'gulp-svgstore';
 import cheerio from 'gulp-cheerio';
 import replace from 'gulp-replace';
 import diffableHtml from 'gulp-diffable-html';
 import gulpif from 'gulp-if';
+import svgSprite from 'gulp-svg-sprite';
 
 export const sprite = (done) => {
   src(config.sprite.src)
@@ -25,9 +26,20 @@ export const sprite = (done) => {
     )
     // sometimes cheerio plugin create unnecessary string '&gt;', so replace it.
     .pipe(replace('&gt;', '>'))
+    // .pipe(
+    //   svgstore({
+    //     inlineSvg: true,
+    //   })
+    // )
     .pipe(
-      svgstore({
-        inlineSvg: true,
+      svgSprite({
+        mode: {
+          stack: {
+            symbol: true, // Activate the «symbol» mode*/
+            sprite: 'svg-sprite.svg',
+            dest: '',
+          },
+        },
       })
     )
     .pipe(gulpif(config.isDev, diffableHtml()))

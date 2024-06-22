@@ -1,10 +1,10 @@
 extends ../../layouts/base-section/base-section.pug
 include ../../components/links/main-link
 
-block left
-  h1.base-title Наши работы
+block variables
+  - sectionTitle = 'Наши работы'
 
-block right
+block content
   include ../../content/portfolio-list
   include ../../components/sliders/main-slider/main-slider
 

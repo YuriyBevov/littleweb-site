@@ -1,72 +1,7 @@
 .base-section {
   padding: clamp(50px, 6vw, 100px) 0;
 
-  &__grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: clamp(20px, 4vw, 50px);
-
-    @include media-up($laptop-width) {
-      grid-template-columns: 8fr 10fr;
-    }
-
-    &-side {
-      height: fit-content;
-      min-width: 100%;
-
-      @include media-up($laptop-width) {
-        position: sticky;
-        top: 120px;
-      }
-
-      .main-btn:not(button[type='submit']),
-      .main-link {
-        margin-top: var(--gap-xl);
-      }
-
-      // &:first-child {
-      //   .main-btn:not(button[type='submit']),
-      //   .main-link {
-      //     display: none;
-      //   }
-      // }
-
-      // @include media-up($laptop-width) {
-      //   &:first-child {
-      //     .main-btn:not(button[type='submit']),
-      //     .main-link {
-      //       display: flex;
-      //     }
-      //   }
-
-      //   &:last-child {
-      //     .main-btn:not(button[type='submit']),
-      //     .main-link {
-      //       display: none;
-      //     }
-      //   }
-      // }
-
-      .base-title {
-        margin-bottom: var(--gap-xxl);
-        position: relative;
-
-        &::after {
-          position: absolute;
-          bottom: -15px;
-          left: 0;
-          content: '';
-          width: 30%;
-          height: 1px;
-          background-color: var(--primary);
-        }
-
-        @include media-up($laptop-width) {
-          &::after {
-            display: none;
-          }
-        }
-      }
-    }
+  &__btn {
+    margin-top: var(--gap-xl);
   }
 }
