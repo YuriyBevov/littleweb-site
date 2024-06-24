@@ -5,6 +5,12 @@
   font-family: var(--secondary-font);
   width: 100%;
   height: 100%;
+  border: 1px solid white;
+  padding: var(--gap-m);
+
+  @include media-up($desktop-width) {
+    padding: var(--gap-l);
+  }
 
   &__header {
     @extend %flex-column;

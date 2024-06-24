@@ -48,17 +48,14 @@
     border-radius: 50%;
     border: 1px solid var(--primary);
 
-    // background-image: url('../assets/images/icon-arrow.svg');
-    // background-size: 16px;
-    // background-position: center;
-    // background-repeat: no-repeat;
+    svg {
+      width: 16px;
+      height: 16px;
+      fill: var(--primary);
+    }
 
     &::after {
       display: none;
     }
-  }
-
-  .swiper-button-next {
-    transform: rotate(180deg);
   }
 }

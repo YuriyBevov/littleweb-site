@@ -4,12 +4,10 @@ include ../social/social
 
 footer.footer
   .container
-    .footer__row
-      +main-logo(false)
-    .footer__row
-      .footer__col
+    .footer__top
+      .footer__side
+        +main-logo(false)
         include ../company/law-info/law
-
         +social({
           list: [
             {
@@ -36,27 +34,29 @@ footer.footer
           ]
         })
 
-      .footer__col
-        .footer__nav
-          ul.footer__nav-list
-            li
-              a(href="#") Услуги
-            li
-              a(href="#") Новости
-            li
-              a(href="#") Кейсы
-            li
-              a(href="#") Заполнить бриф
-            li
-              a(href="#") Задать вопрос
-      .footer__col
-        .footer__contacts
-          include ../company/contacts/company-phone
-          include ../company/contacts/company-mail
-          include ../company/contacts/company-worktime
+
+      .footer__nav
+        ul.footer__nav-list
+          li
+            a(href="#") Услуги
+          li
+            a(href="#") Новости
+          li
+            a(href="#") Кейсы
+          li
+            a(href="#") Заполнить бриф
+          li
+            a(href="#") Задать вопрос
+
+      .footer__contacts
+        include ../company/contacts/company-worktime
+        include ../company/contacts/company-phone
+        include ../company/contacts/company-mail
 
 
-    .footer__bottom.footer__row
+
+
+    .footer__bottom
       span © 2024. Все права защищены
 
 

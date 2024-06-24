@@ -14,6 +14,16 @@ if (sliders.length) {
       slidesPerView: 1,
       spaceBetween: '30',
 
+      breakpoints: {
+        767: {
+          slidesPerView: 2,
+        },
+
+        1139: {
+          slidesPerView: 3,
+        },
+      },
+
       navigation: {
         nextEl: nextEl ? nextEl : null,
         prevEl: prevEl ? prevEl : null,

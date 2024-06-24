@@ -36,3 +36,12 @@
 @import '../pug/sections/index-page/features';
 @import '../pug/sections/index-page/about';
 @import '../pug/sections/index-page/workflow';
+
+.grid-section-line {
+  width: 1px;
+  height: 100%;
+  background-color: white;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}

@@ -2,7 +2,7 @@ mixin info-card(data)
   .info-card(class= data.modifier ? `info-card--${data.modifier}` : null)
     if data.icon
       svg(width="50" height="50")
-        use(xlink:href=`../assets/svg-sprite.svg#icon-${data.icon}`)
+        use(xlink:href=`./assets/svg-sprite.svg#icon-${data.icon}`)
       //- img(src=`./assets/images/mock/${data.icon}` alt="Иконка преимущества" width="50" height="50").info-card-icon
     .info-card__content
         span.info-card-title!= data.title

@@ -2,7 +2,7 @@ $main-btn-color: var(--light);
 $main-btn-bg: var(--primary);
 $main-btn-box-shadow: none;
 $main-btn-border-radius: 30px;
-$main-btn-font-size: 12px;
+$main-btn-font-size: 18px;
 $main-btn-border: 2px solid;
 $main-btn-border-color: transparent;
 
@@ -31,9 +31,5 @@ $main-btn-outlined-border-color: var(--primary);
     background: none;
     background-color: $main-btn-outlined-bg;
     border-color: $main-btn-outlined-border-color;
-  }
-
-  @include media-up($mobile-width) {
-    font-size: 14px;
   }
 }

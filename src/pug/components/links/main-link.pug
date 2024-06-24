@@ -5,8 +5,8 @@ mixin main-link(data)
     if data.icon
       +svg-icon({
         name: data.icon,
-        iconW: data.iconW ? data.iconW : 20,
-        iconH: data.iconH ? data.iconH : 20,
+        iconW: data.iconW ? data.iconW : 16,
+        iconH: data.iconH ? data.iconH : 16,
       })
     if data.text
       span!= data.text

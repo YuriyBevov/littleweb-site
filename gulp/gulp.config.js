@@ -47,7 +47,7 @@ const config = {
 
   sprite: {
     src: `${SOURCE_PATH}assets/svg-sprite/**/icon-*.svg`,
-    name: `sprite.svg`,
+    name: `svg-sprite.svg`,
     watch: `${SOURCE_PATH}assets/svg-sprite/**/icon-*.svg`,
     dest: `${BUILD_PATH}assets/`,
   },
