@@ -5,5 +5,6 @@ mixin social(data)
         li
           a(href= social.href rel="noopener nofollow norefferer" target="_blank")
             if social.icon
-              img(src=`./assets/images/${social.icon}` alt!= social.name width= social.iconW height= social.iconH)
+              svg(width="34" height="34")
+                use(xlink:href=`./assets/svg-sprite.svg#icon-${social.icon}`)
 
