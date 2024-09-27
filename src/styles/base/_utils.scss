@@ -3,3 +3,7 @@
 
   gap: var(--gap-m);
 }
+
+.inner-top-section {
+  @extend %section-top-offset;
+}

@@ -1,0 +1,28 @@
+.contacts {
+  &__main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(30px, 3vw, 50px);
+    max-width: 800px;
+    margin-bottom: 60px;
+
+    @include media-down($tablet-width) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__item {
+    @extend %flex-align;
+    gap: 12px;
+    text-transform: uppercase;
+    color: var(--white);
+    svg {
+      fill: var(--primary);
+    }
+  }
+
+  &__social {
+    @extend %flex-wrap;
+    gap: 10px;
+  }
+}

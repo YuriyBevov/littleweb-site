@@ -27,7 +27,7 @@ body {
   flex-direction: column;
   font-family: var(--primary-font);
   font-weight: var(--fw-r);
-  line-height: var(--base-line-height);
+  line-height: 1.5;
   letter-spacing: 0.1em;
   overflow-x: hidden !important;
   background-color: var(--site-bg-color);
@@ -86,5 +86,18 @@ picture {
 .hidden-laptop-up {
   @include media-up($laptop-width) {
     display: none;
+  }
+}
+
+.page-top-section {
+  padding: clamp(40px, 8vw, 80px) 0;
+}
+
+.btn-row {
+  max-width: 600px;
+  padding: clamp(20px, 4vw, 40px) 0;
+
+  .main-btn {
+    flex-grow: 1;
   }
 }

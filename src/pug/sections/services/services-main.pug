@@ -1,0 +1,13 @@
+include ../../components/main-btn/main-btn
+include ../../components/links/main-link
+include ../../content/services-list
+include ../../components/cards/info-card/info-card
+
+section.services-main.page-top-section
+  .container
+    h1.main-title Наши услуги
+
+    ul.services-main__list
+      each service in serviceList
+        li.services__main-list-item
+          +info-card(service)

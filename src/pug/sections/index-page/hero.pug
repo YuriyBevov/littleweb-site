@@ -1,21 +1,21 @@
 include ../../components/main-btn/main-btn
 include ../../components/links/main-link
 
-section.hero
+section.page-top-section.hero
   .container
-    h1.main-title Создание и продвижение интернет-сайтов
+    h1.main-title Создание и продвижение сайтов под ключ
 
-    p.main-text Ваш сайт - ваша визитная карточка в мире интернета! Доверьте его создание нам и захватите взгляды!
+    p.main-text Разработаем и запустим проект, отвечающий специфике Вашего бизнеса, выведем его в ТОП поисковых систем Яндекс и Google.
 
-    .flex-row
+    .btn-row
       +main-btn({
         class: 'main-btn--outlined',
         text: 'Связаться с нами',
         modal: 'callback'
       })
 
-      +main-link({
-        href: 'brief.html',
-        text: 'Заполнить бриф',
-        class: 'main-btn'
-      })
+      //- +main-link({
+      //-   href: 'brief.html',
+      //-   text: 'Заполнить бриф',
+      //-   class: 'main-btn'
+      //- })

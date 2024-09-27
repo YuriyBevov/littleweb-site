@@ -1,0 +1,17 @@
+include ../../components/main-btn/main-btn
+include ../../components/links/main-link
+//- include ../../content/services-list
+//- include ../../components/cards/info-card/info-card
+
+section.services-detail.page-top-section
+  .container
+    h1.main-title Оптимизация и продвижение сайтов
+
+    p.main-text Ищете качественное продвижение сайта? Наши эксперты помогут увеличить вашу видимость в Яндекс и Google!
+
+    .btn-row
+      +main-btn({
+        class: 'main-btn--outlined',
+        text: 'Связаться с нами',
+        modal: 'callback'
+      })

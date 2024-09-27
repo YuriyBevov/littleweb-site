@@ -1,0 +1,30 @@
+extends ../../layouts/base-section/base-section.pug
+include ../../components/main-btn/main-btn
+
+block variables
+  - sectionTitle = 'Наши контакты'
+block content
+  .contacts__main
+    a(href="tel:+79062723744").contacts__item
+      svg(width="40" height="40")
+        use(xlink:href=`./assets/svg-sprite.svg#icon-phone-simple`)
+      | +7 (906) 272-37-44
+    span.contacts__item
+      svg(width="40" height="40")
+        use(xlink:href=`./assets/svg-sprite.svg#icon-pin-simple`)
+      | г. Санкт-Петербург
+    a(href="mailto:info@littleweb.ru").contacts__item
+      svg(width="40" height="40")
+        use(xlink:href=`./assets/svg-sprite.svg#icon-mail-simple`)
+      | info@littleweb.ru
+    span.contacts__item
+      svg(width="40" height="40")
+        use(xlink:href=`./assets/svg-sprite.svg#icon-calendar-simple`)
+      | Пн - пт: 10:00 - 19:00
+  .contacts__social
+    a(href="https://wa.me/+79062723744" target="_blank" rel="noopener nofolow norefferer" aria-label="whatsapp").contacts__item
+      svg(width="40" height="40")
+        use(xlink:href=`./assets/svg-sprite.svg#icon-whatsapp-simple`)
+    a(href="https://telegram.me/+79062723744" target="_blank" rel="noopener nofolow norefferer" aria-label="telegram").contacts__item
+      svg(width="40" height="40")
+        use(xlink:href=`./assets/svg-sprite.svg#icon-tg-simple`)
