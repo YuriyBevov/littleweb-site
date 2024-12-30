@@ -1,6 +1,16 @@
-$mobile-view-width: 1200px;
+$mobile-view-width: 1360px;
 
 .nav {
+  &__header {
+    @extend %flex-align;
+    position: relative;
+    gap: 24px;
+
+    @include media-up($mobile-view-width) {
+      display: none;
+    }
+  }
+
   &__list {
     @extend %list-reset;
     @extend %flex-wrap;
@@ -11,14 +21,71 @@ $mobile-view-width: 1200px;
   }
 
   &__list-item {
-    a {
+    position: relative;
+    & > a {
       @extend %flex-centered-content;
+    }
 
+    a {
       font-size: var(--fs-s);
       padding: var(--gap-xs);
 
       &.current {
         color: var(--primary);
+      }
+    }
+
+    ul {
+      list-style: square;
+      padding: 12px;
+      padding-left: 32px;
+      margin: 0;
+    }
+
+    @include media-up($mobile-view-width) {
+      ul {
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: fit-content;
+        min-width: 260px;
+        background-color: var(--site-bg-color);
+        box-shadow: 10px 20px 10px rgba(100, 94, 112, 0.3);
+        border: 1px solid var(--primary);
+        border-radius: 6px;
+        transform: translateY(16px);
+        transition:
+          opacity var(--base-transition),
+          transform var(--base-transition),
+          visibility var(--base-transition);
+
+        li {
+          a {
+            display: flex;
+            align-items: center;
+            padding-left: 0;
+          }
+        }
+      }
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        ul {
+          visibility: visible;
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    }
+
+    &:focus {
+      ul {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
       }
     }
   }
@@ -34,7 +101,6 @@ $mobile-view-width: 1200px;
       margin: 0 auto;
     }
 
-    .nav-closer,
     .company-worktime,
     .social {
       display: none;
@@ -67,7 +133,7 @@ $mobile-view-width: 1200px;
       max-width: 700px;
       background-color: var(--dark);
       overflow-y: auto;
-      padding: 100px clamp(24px, 5vw, 40px) clamp(24px, 5vw, 40px);
+      padding: var(--gap-s) clamp(24px, 5vw, 40px) clamp(24px, 5vw, 40px);
     }
 
     &__list {
@@ -77,9 +143,9 @@ $mobile-view-width: 1200px;
       margin: auto 0;
       padding: clamp(24px, 5vw, 40px) 0;
 
-      &-item a {
+      &-item > a {
         position: relative;
-        font-size: var(--fs-lg);
+        font-size: var(--fs-md);
         justify-content: flex-start;
         padding-left: 1.4em;
 
@@ -102,13 +168,16 @@ $mobile-view-width: 1200px;
 
     .nav-closer {
       position: absolute;
-      top: clamp(24px, 5vw, 40px);
-      right: clamp(24px, 5vw, 40px);
+      top: 50%;
+      transform: translateY(-50%);
+      right: calc(-1 * clamp(24px, 5vw, 40px));
       padding: 10px;
-      background: none;
+      background-color: var(--primary);
+      width: 80px;
+      border-radius: 20px 0px 0px 20px;
 
       svg {
-        fill: var(--primary);
+        fill: var(--white);
       }
     }
 
@@ -124,6 +193,9 @@ $mobile-view-width: 1200px;
 
 .nav-opener {
   display: flex;
+  padding-right: calc(var(--container-offset) + 20px);
+  margin-right: calc(-1 * var(--container-offset));
+  border-radius: 20px 0 0 20px;
 
   @include media-up($mobile-view-width) {
     display: none;

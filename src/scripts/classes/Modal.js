@@ -146,6 +146,7 @@ export class Modal {
     evt.preventDefault();
 
     this.bodyLocker(true);
+
     gsap.fromTo(
       this.overlay,
       { display: 'none', opacity: 0 },
@@ -164,6 +165,7 @@ export class Modal {
 
   show = () => {
     this.bodyLocker(true);
+
     gsap.fromTo(
       this.overlay,
       { display: 'none', opacity: 0 },

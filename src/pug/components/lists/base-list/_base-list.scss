@@ -1,0 +1,11 @@
+.base-list {
+  @extend %base-section-list;
+
+  &--2cols {
+    @extend %base-section-list--2cols;
+  }
+
+  &--3cols {
+    @extend %base-section-list--3cols;
+  }
+}

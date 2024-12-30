@@ -1,0 +1,20 @@
+.content-block {
+  font-family: var(--secondary-font);
+  font-size: 16px;
+  margin-bottom: 30px;
+
+  a {
+    color: var(--primary);
+  }
+
+  ul {
+    li {
+      padding: 5px 0;
+
+      strong {
+        text-transform: uppercase;
+        color: var(--primary);
+      }
+    }
+  }
+}

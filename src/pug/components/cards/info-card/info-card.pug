@@ -7,8 +7,11 @@ mixin info-card(data)
         span.info-card-title!= data.title
         span.info-card-text!= data.text
 
-        if data.link
-          a(href= data.link)!= data.linkText
-
         if data.note
           small!= data.note
+
+        if data.price
+          .info-card-price
+            span!= data.price
+        if data.link
+          a(href= data.link).info-card-bottom-link!= data.linkText

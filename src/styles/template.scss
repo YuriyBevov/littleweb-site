@@ -14,6 +14,7 @@
 
 // layouts
 @import '../pug/layouts/base-section/base-section';
+@import '../pug/layouts/content-block';
 
 // components
 @import '../pug/components/loaders/loader';
@@ -24,6 +25,7 @@
 @import '../pug/components/social/social';
 @import '../pug/components/company/contacts/company-contacts';
 @import '../pug/components/company/law-info/law';
+@import '../pug/components/lists/base-list/base-list';
 @import '../pug/components/cards/info-card/info-card';
 @import '../pug/components/cards/review-card/review-card';
 @import '../pug/components/cards/portfolio-card/portfolio-card';
@@ -32,11 +34,6 @@
 @import '../pug/components/footer/footer';
 
 // sections
-@import '../pug/sections/index-page/hero';
-@import '../pug/sections/index-page/features';
-@import '../pug/sections/index-page/about';
-@import '../pug/sections/index-page/workflow';
-
 @import '../pug/sections/services/services-main';
 @import '../pug/sections/services/services-detail';
 @import '../pug/sections/contacts/contacts';

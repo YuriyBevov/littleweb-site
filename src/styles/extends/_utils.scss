@@ -29,6 +29,27 @@
   }
 }
 
+%base-section-list--3cols {
+  @include media-up($tablet-lg-width) {
+    grid-template-columns: repeat(2, 2fr);
+  }
+  @include media-up($laptop-lg-width) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @include media-up($desktop-lg-width) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @include media-up($desktop-width) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+%base-section-list--2cols {
+  @include media-up($tablet-lg-width) {
+    grid-template-columns: repeat(2, 2fr);
+  }
+}
+
 %shaker {
   animation: shaker 0.5s ease-in-out;
 }

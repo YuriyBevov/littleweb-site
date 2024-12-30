@@ -3,17 +3,24 @@ mixin nav(data)
   if data.links
     nav.nav(class= data.class ? data.class : null)
       .nav__wrapper
-        +main-btn({
-          icon: 'close',
-          iconW: 20,
-          iconH: 20,
-          class: 'nav-closer'
-        })
+        .nav__header
+          +main-logo(true)
+          +main-btn({
+            icon: 'close',
+            iconW: 20,
+            iconH: 20,
+            class: 'nav-closer'
+          })
 
         ul.nav__list
           each link in data.links
             li.nav__list-item
               a(href= link.href)!= link.text
+              if link.inner
+                ul
+                  each inner in link.inner
+                    li
+                      a(href= inner.href)!= inner.text
 
         +social({
           list: [
