@@ -1,0 +1,24 @@
+include ../../components/main-btn/main-btn
+include ../../content/question-list
+include ../../components/accordeons/main-accordeon/main-accordeon
+
+block content
+  section.page-top-section.fag
+    .container
+      h1.main-title FAQ
+      p.base-text Здесь вы найдёте ответы на часто задаваемые вопросы.
+
+      +main-accordeon(questionList)
+
+      .fag__wrapper   
+        +main-btn({
+          class: 'main-btn--outlined base-section__btn',
+          text: 'Связаться с нами',
+          modal: 'callback'
+        })
+
+        +main-btn({
+          class: 'main-btn base-section__btn',
+          text: 'Задать вопрос',
+          modal: 'callback'
+        })

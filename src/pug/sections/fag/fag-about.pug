@@ -1,0 +1,21 @@
+extends ../../layouts/base-section/base-section.pug
+include ../../components/main-btn/main-btn
+
+block variables
+  - sectionClass = "about"
+  - sectionTitle = 'Мы успешно разрабатываем:'
+
+block content
+  include ../../content/about-list
+  include ../../components/cards/info-card/info-card
+
+  ul.base-list
+    each about in aboutList
+      li
+        +info-card(about)
+
+  +main-btn({
+    class: 'main-btn--outlined base-section__btn',
+    text: 'Оставить заявку',
+    modal: 'callback'
+  })

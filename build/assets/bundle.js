@@ -423,7 +423,7 @@
 	var imagesLoaded = /*@__PURE__*/getDefaultExportFromCjs(imagesloadedExports);
 
 	function _assertThisInitialized(self) {
-	  if (self === void 0) {
+	  if (self === undefined) {
 	    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
 	  }
 	  return self;
@@ -697,10 +697,10 @@
 	    return child;
 	  },
 	  _removeLinkedListItem = function _removeLinkedListItem(parent, child, firstProp, lastProp) {
-	    if (firstProp === void 0) {
+	    if (firstProp === undefined) {
 	      firstProp = "_first";
 	    }
-	    if (lastProp === void 0) {
+	    if (lastProp === undefined) {
 	      lastProp = "_last";
 	    }
 	    var prev = child._prev,
@@ -802,7 +802,7 @@
 	          t = t._dp;
 	        }
 	      }
-	      timeline._zTime = -_tinyNum; // helps ensure that the next render() will be forced (crossingStart = true in render()), even if the duration hasn't changed (we're adding a child which would need to get rendered). Definitely an edge case. Note: we MUST do this AFTER the loop above where the totalTime() might trigger a render() because this _addToTimeline() method gets called from the Animation constructor, BEFORE tweens even record their targets, etc. so we wouldn't want things to get triggered in the wrong order.
+	      timeline._zTime = -1e-8; // helps ensure that the next render() will be forced (crossingStart = true in render()), even if the duration hasn't changed (we're adding a child which would need to get rendered). Definitely an edge case. Note: we MUST do this AFTER the loop above where the totalTime() might trigger a render() because this _addToTimeline() method gets called from the Animation constructor, BEFORE tweens even record their targets, etc. so we wouldn't want things to get triggered in the wrong order.
 	    }
 	  },
 	  _addToTimeline = function _addToTimeline(timeline, child, position, skipChecks) {
@@ -1002,7 +1002,7 @@
 	    return value && _isObject(value) && "length" in value && (!nonEmpty && !value.length || value.length - 1 in value && _isObject(value[0])) && !value.nodeType && value !== _win$1;
 	  },
 	  _flatten = function _flatten(ar, leaveStrings, accumulator) {
-	    if (accumulator === void 0) {
+	    if (accumulator === undefined) {
 	      accumulator = [];
 	    }
 	    return ar.forEach(function (value) {
@@ -1070,7 +1070,7 @@
 	      if (!distances) {
 	        wrapAt = vars.grid === "auto" ? 0 : (vars.grid || [1, _bigNum$1])[1];
 	        if (!wrapAt) {
-	          max = -_bigNum$1;
+	          max = -1e8;
 	          while (max < (max = a[wrapAt++].getBoundingClientRect().left) && wrapAt < l) {}
 	          wrapAt--;
 	        }
@@ -1715,12 +1715,12 @@
 	    return !ease ? defaultEase : (_isFunction(ease) ? ease : _easeMap[ease] || _configEaseFromString(ease)) || defaultEase;
 	  },
 	  _insertEase = function _insertEase(names, easeIn, easeOut, easeInOut) {
-	    if (easeOut === void 0) {
+	    if (easeOut === undefined) {
 	      easeOut = function easeOut(p) {
 	        return 1 - easeIn(1 - p);
 	      };
 	    }
-	    if (easeInOut === void 0) {
+	    if (easeInOut === undefined) {
 	      easeInOut = function easeInOut(p) {
 	        return p < .5 ? easeIn(p * 2) / 2 : 1 - easeIn((1 - p) * 2) / 2;
 	      };
@@ -1764,7 +1764,7 @@
 	    return ease;
 	  },
 	  _configBack = function _configBack(type, overshoot) {
-	    if (overshoot === void 0) {
+	    if (overshoot === undefined) {
 	      overshoot = 1.70158;
 	    }
 	    var easeOut = function easeOut(p) {
@@ -1828,7 +1828,7 @@
 	_insertEase("Back", _configBack("in"), _configBack("out"), _configBack());
 	_easeMap.SteppedEase = _easeMap.steps = _globals.SteppedEase = {
 	  config: function config(steps, immediateStart) {
-	    if (steps === void 0) {
+	    if (steps === undefined) {
 	      steps = 1;
 	    }
 	    var p1 = 1 / steps,
@@ -1959,7 +1959,7 @@
 	  ;
 	  _proto.timeScale = function timeScale(value) {
 	    if (!arguments.length) {
-	      return this._rts === -_tinyNum ? 0 : this._rts; // recorded timeScale. Special case: if someone calls reverse() on an animation with timeScale of 0, we assign it -_tinyNum to remember it's reversed.
+	      return this._rts === -1e-8 ? 0 : this._rts; // recorded timeScale. Special case: if someone calls reverse() on an animation with timeScale of 0, we assign it -_tinyNum to remember it's reversed.
 	    }
 	    if (this._rts === value) {
 	      return this;
@@ -1970,7 +1970,7 @@
 	    // prioritize rendering where the parent's playhead lines up instead of this._tTime because there could be a tween that's animating another tween's timeScale in the same rendering loop (same parent), thus if the timeScale tween renders first, it would alter _start BEFORE _tTime was set on that tick (in the rendering loop), effectively freezing it until the timeScale tween finishes.
 
 	    this._rts = +value || 0;
-	    this._ts = this._ps || value === -_tinyNum ? 0 : this._rts; // _ts is the functional timeScale which would be 0 if the animation is paused.
+	    this._ts = this._ps || value === -1e-8 ? 0 : this._rts; // _ts is the functional timeScale which would be 0 if the animation is paused.
 
 	    this.totalTime(_clamp(-this._delay, this._tDur, tTime), true);
 	    _setEnd(this); // if parent.smoothChildTiming was false, the end time didn't get updated in the _alignPlayhead() method, so do it here.
@@ -2014,7 +2014,7 @@
 	    return !parent ? this._tTime : wrapRepeats && (!this._ts || this._repeat && this._time && this.totalProgress() < 1) ? this._tTime % (this._dur + this._rDelay) : !this._ts ? this._tTime : _parentToChildTotalTime(parent.rawTime(wrapRepeats), this);
 	  };
 	  _proto.revert = function revert(config) {
-	    if (config === void 0) {
+	    if (config === undefined) {
 	      config = _revertConfig;
 	    }
 	    var prevIsReverting = _reverting$1;
@@ -2082,7 +2082,7 @@
 	  };
 	  _proto.reversed = function reversed(value) {
 	    if (arguments.length) {
-	      !!value !== this.reversed() && this.timeScale(-this._rts || (value ? -_tinyNum : 0)); // in case timeScale is zero, reversing would have no effect so we use _tinyNum.
+	      !!value !== this.reversed() && this.timeScale(-this._rts || (value ? -1e-8 : 0)); // in case timeScale is zero, reversing would have no effect so we use _tinyNum.
 
 	      return this;
 	    }
@@ -2090,7 +2090,7 @@
 	  };
 	  _proto.invalidate = function invalidate() {
 	    this._initted = this._act = 0;
-	    this._zTime = -_tinyNum;
+	    this._zTime = -1e-8;
 	    return this;
 	  };
 	  _proto.isActive = function isActive() {
@@ -2152,7 +2152,7 @@
 	  _ts: 1,
 	  _dp: 0,
 	  ratio: 0,
-	  _zTime: -_tinyNum,
+	  _zTime: -1e-8,
 	  _prom: 0,
 	  _ps: false,
 	  _rts: 1
@@ -2167,7 +2167,7 @@
 	  _inheritsLoose(Timeline, _Animation);
 	  function Timeline(vars, position) {
 	    var _this;
-	    if (vars === void 0) {
+	    if (vars === undefined) {
 	      vars = {};
 	    }
 	    _this = _Animation.call(this, vars) || this;
@@ -2317,7 +2317,7 @@
 	          tDur = this._tDur;
 	          if (doesWrap) {
 	            this._lock = 2;
-	            prevTime = rewinding ? dur : -0.0001;
+	            prevTime = rewinding ? dur : -1e-4;
 	            this.render(prevTime, true);
 	            this.vars.repeatRefresh && !isYoyo && this.invalidate();
 	          }
@@ -2365,7 +2365,7 @@
 	            if (time !== this._time || !this._ts && !prevPaused) {
 	              //in case a tween pauses or seeks the timeline when rendering, like inside of an onUpdate/onComplete
 	              pauseTween = 0;
-	              next && (tTime += this._zTime = -_tinyNum); // it didn't finish rendering, so flag zTime as negative so that so that the next time render() is called it'll be forced (to render any remaining children)
+	              next && (tTime += this._zTime = -1e-8); // it didn't finish rendering, so flag zTime as negative so that so that the next time render() is called it'll be forced (to render any remaining children)
 
 	              break;
 	            }
@@ -2388,7 +2388,7 @@
 	            if (time !== this._time || !this._ts && !prevPaused) {
 	              //in case a tween pauses or seeks the timeline when rendering, like inside of an onUpdate/onComplete
 	              pauseTween = 0;
-	              next && (tTime += this._zTime = adjustedTime ? -_tinyNum : _tinyNum); // it didn't finish rendering, so adjust zTime so that so that the next time render() is called it'll be forced (to render any remaining children)
+	              next && (tTime += this._zTime = adjustedTime ? -1e-8 : _tinyNum); // it didn't finish rendering, so adjust zTime so that so that the next time render() is called it'll be forced (to render any remaining children)
 
 	              break;
 	            }
@@ -2398,7 +2398,7 @@
 	      }
 	      if (pauseTween && !suppressEvents) {
 	        this.pause();
-	        pauseTween.render(time >= prevTime ? 0 : -_tinyNum)._zTime = time >= prevTime ? 1 : -1;
+	        pauseTween.render(time >= prevTime ? 0 : -1e-8)._zTime = time >= prevTime ? 1 : -1;
 	        if (this._ts) {
 	          //the callback resumed playback! So since we may have held back the playhead due to where the pause is positioned, go ahead and jump to where it's SUPPOSED to be (if no pause happened).
 	          this._start = prevStart; //if the pause was at an earlier time and the user resumed in the callback, it could reposition the timeline (changing its startTime), throwing things off slightly, so we make sure the _start doesn't shift.
@@ -2442,17 +2442,17 @@
 	    return this !== child ? _addToTimeline(this, child, position) : this; //don't allow a timeline to be added to itself as a child!
 	  };
 	  _proto2.getChildren = function getChildren(nested, tweens, timelines, ignoreBeforeTime) {
-	    if (nested === void 0) {
+	    if (nested === undefined) {
 	      nested = true;
 	    }
-	    if (tweens === void 0) {
+	    if (tweens === undefined) {
 	      tweens = true;
 	    }
-	    if (timelines === void 0) {
+	    if (timelines === undefined) {
 	      timelines = true;
 	    }
-	    if (ignoreBeforeTime === void 0) {
-	      ignoreBeforeTime = -_bigNum$1;
+	    if (ignoreBeforeTime === undefined) {
+	      ignoreBeforeTime = -1e8;
 	    }
 	    var a = [],
 	      child = this._first;
@@ -2602,13 +2602,13 @@
 	    return this._recent;
 	  };
 	  _proto2.nextLabel = function nextLabel(afterTime) {
-	    if (afterTime === void 0) {
+	    if (afterTime === undefined) {
 	      afterTime = this._time;
 	    }
 	    return _getLabelInDirection(this, _parsePosition(this, afterTime));
 	  };
 	  _proto2.previousLabel = function previousLabel(beforeTime) {
-	    if (beforeTime === void 0) {
+	    if (beforeTime === undefined) {
 	      beforeTime = this._time;
 	    }
 	    return _getLabelInDirection(this, _parsePosition(this, beforeTime), 1);
@@ -2617,7 +2617,7 @@
 	    return arguments.length ? this.seek(value, true) : this.previousLabel(this._time + _tinyNum);
 	  };
 	  _proto2.shiftChildren = function shiftChildren(amount, adjustLabels, ignoreBeforeTime) {
-	    if (ignoreBeforeTime === void 0) {
+	    if (ignoreBeforeTime === undefined) {
 	      ignoreBeforeTime = 0;
 	    }
 	    var child = this._first,
@@ -2649,7 +2649,7 @@
 	    return _Animation.prototype.invalidate.call(this, soft);
 	  };
 	  _proto2.clear = function clear(includeLabels) {
-	    if (includeLabels === void 0) {
+	    if (includeLabels === undefined) {
 	      includeLabels = true;
 	    }
 	    var child = this._first,
@@ -2698,7 +2698,7 @@
 	            self._time -= start;
 	            self._tTime -= start;
 	          }
-	          self.shiftChildren(-start, false, -1e999);
+	          self.shiftChildren(-start, false, -Infinity);
 	          prevStart = 0;
 	        }
 	        child._end > max && child._ts && (max = child._end);
@@ -3250,7 +3250,7 @@
 	    vars.reversed && _this3.reverse();
 	    vars.paused && _this3.paused(true);
 	    if (immediateRender || !duration && !keyframes && _this3._start === _roundPrecise(parent._time) && _isNotFalse(immediateRender) && _hasNoPausedAncestors(_assertThisInitialized(_this3)) && parent.data !== "nested") {
-	      _this3._tTime = -_tinyNum; //forces a render without having to set the render() "force" parameter to true because we want to allow lazying by default (using the "force" parameter always forces an immediate full render)
+	      _this3._tTime = -1e-8; //forces a render without having to set the render() "force" parameter to true because we want to allow lazying by default (using the "force" parameter always forces an immediate full render)
 
 	      _this3.render(Math.max(0, -delay) || 0); //in case delay is negative
 	    }
@@ -3358,7 +3358,7 @@
 	        pt.r(ratio, pt.d);
 	        pt = pt._next;
 	      }
-	      timeline && timeline.render(totalTime < 0 ? totalTime : !time && isYoyo ? -_tinyNum : timeline._dur * timeline._ease(time / this._dur), suppressEvents, force) || this._startAt && (this._zTime = totalTime);
+	      timeline && timeline.render(totalTime < 0 ? totalTime : !time && isYoyo ? -1e-8 : timeline._dur * timeline._ease(time / this._dur), suppressEvents, force) || this._startAt && (this._zTime = totalTime);
 	      if (this._onUpdate && !suppressEvents) {
 	        isNegative && _rewindStartAt(this, totalTime, suppressEvents, force); //note: for performance reasons, we tuck this conditional logic inside less traveled areas (most tweens don't have an onUpdate). We'd just have it at the end before the onComplete, but the values should be updated before any onUpdate is called, so we ALSO put it here and then if it's not called, we do so later near the onComplete.
 
@@ -3414,7 +3414,7 @@
 	    return this.render(0);
 	  };
 	  _proto3.kill = function kill(targets, vars) {
-	    if (vars === void 0) {
+	    if (vars === undefined) {
 	      vars = "all";
 	    }
 	    if (!targets && (!vars || vars === "all")) {
@@ -3996,7 +3996,7 @@
 	    return _globalTimeline.getById(id);
 	  },
 	  exportRoot: function exportRoot(vars, includeDelayedCalls) {
-	    if (vars === void 0) {
+	    if (vars === undefined) {
 	      vars = {};
 	    }
 	    var tl = new Timeline(vars),
@@ -4256,7 +4256,7 @@
 	  //if units change, we need a way to render the original unit/value when the tween goes all the way back to the beginning (ratio:0)
 	  _renderRoundedCSSProp = function _renderRoundedCSSProp(ratio, data) {
 	    var value = data.s + data.c * ratio;
-	    data.set(data.t, data.p, ~~(value + (value < 0 ? -.5 : .5)) + data.u, data);
+	    data.set(data.t, data.p, ~~(value + (value < 0 ? -0.5 : .5)) + data.u, data);
 	  },
 	  _renderNonTweeningValue = function _renderNonTweeningValue(ratio, data) {
 	    return data.set(data.t, data.p, ratio ? data.e : data.b, data);
@@ -5251,7 +5251,7 @@
 	      if (direction === "short") {
 	        change %= cap;
 	        if (change !== change % (cap / 2)) {
-	          change += change < 0 ? cap : -cap;
+	          change += change < 0 ? cap : -360;
 	        }
 	      }
 	      if (direction === "cw" && change < 0) {
@@ -5845,10 +5845,10 @@
 	  return obj !== null && typeof obj === 'object' && 'constructor' in obj && obj.constructor === Object;
 	}
 	function extend$1(target, src) {
-	  if (target === void 0) {
+	  if (target === undefined) {
 	    target = {};
 	  }
-	  if (src === void 0) {
+	  if (src === undefined) {
 	    src = {};
 	  }
 	  Object.keys(src).forEach(key => {
@@ -5974,7 +5974,7 @@
 	}
 
 	function classesToTokens(classes) {
-	  if (classes === void 0) {
+	  if (classes === undefined) {
 	    classes = '';
 	  }
 	  return classes.trim().split(' ').filter(c => !!c.trim());
@@ -5995,7 +5995,7 @@
 	  });
 	}
 	function nextTick(callback, delay) {
-	  if (delay === void 0) {
+	  if (delay === undefined) {
 	    delay = 0;
 	  }
 	  return setTimeout(callback, delay);
@@ -6018,7 +6018,7 @@
 	  return style;
 	}
 	function getTranslate(el, axis) {
-	  if (axis === void 0) {
+	  if (axis === undefined) {
 	    axis = 'x';
 	  }
 	  const window = getWindow();
@@ -6150,10 +6150,41 @@
 	  animate();
 	}
 	function elementChildren(element, selector) {
-	  if (selector === void 0) {
+	  if (selector === undefined) {
 	    selector = '';
 	  }
-	  return [...element.children].filter(el => el.matches(selector));
+	  const window = getWindow();
+	  const children = [...element.children];
+	  if (window.HTMLSlotElement && element instanceof HTMLSlotElement) {
+	    children.push(...element.assignedElements());
+	  }
+	  if (!selector) {
+	    return children;
+	  }
+	  return children.filter(el => el.matches(selector));
+	}
+	function elementIsChildOfSlot(el, slot) {
+	  // Breadth-first search through all parent's children and assigned elements
+	  const elementsQueue = [slot];
+	  while (elementsQueue.length > 0) {
+	    const elementToCheck = elementsQueue.shift();
+	    if (el === elementToCheck) {
+	      return true;
+	    }
+	    elementsQueue.push(...elementToCheck.children, ...(elementToCheck.shadowRoot?.children || []), ...(elementToCheck.assignedElements?.() || []));
+	  }
+	}
+	function elementIsChildOf(el, parent) {
+	  const window = getWindow();
+	  let isChild = parent.contains(el);
+	  if (!isChild && window.HTMLSlotElement && parent instanceof HTMLSlotElement) {
+	    const children = [...parent.assignedElements()];
+	    isChild = children.includes(el);
+	    if (!isChild) {
+	      isChild = elementIsChildOfSlot(el, parent);
+	    }
+	  }
+	  return isChild;
 	}
 	function showWarning(text) {
 	  try {
@@ -6164,7 +6195,7 @@
 	  }
 	}
 	function createElement(tag, classes) {
-	  if (classes === void 0) {
+	  if (classes === undefined) {
 	    classes = [];
 	  }
 	  const el = document.createElement(tag);
@@ -6252,7 +6283,7 @@
 	function calcDevice(_temp) {
 	  let {
 	    userAgent
-	  } = _temp === void 0 ? {} : _temp;
+	  } = _temp === undefined ? {} : _temp;
 	  const support = getSupport();
 	  const window = getWindow();
 	  const platform = window.navigator.platform;
@@ -6292,7 +6323,7 @@
 	  return device;
 	}
 	function getDevice(overrides) {
-	  if (overrides === void 0) {
+	  if (overrides === undefined) {
 	    overrides = {};
 	  }
 	  if (!deviceCached) {
@@ -6410,7 +6441,7 @@
 	  const observers = [];
 	  const window = getWindow();
 	  const attach = function (target, options) {
-	    if (options === void 0) {
+	    if (options === undefined) {
 	      options = {};
 	    }
 	    const ObserverFunc = window.MutationObserver || window.WebkitMutationObserver;
@@ -6434,7 +6465,7 @@
 	    });
 	    observer.observe(target, {
 	      attributes: typeof options.attributes === 'undefined' ? true : options.attributes,
-	      childList: typeof options.childList === 'undefined' ? true : options.childList,
+	      childList: swiper.isElement || (typeof options.childList === 'undefined' ? true : options).childList,
 	      characterData: typeof options.characterData === 'undefined' ? true : options.characterData
 	    });
 	    observers.push(observer);
@@ -6818,7 +6849,7 @@
 	      allSlidesSize += slideSizeValue + (spaceBetween || 0);
 	    });
 	    allSlidesSize -= spaceBetween;
-	    const maxSnap = allSlidesSize - swiperSize;
+	    const maxSnap = allSlidesSize > swiperSize ? allSlidesSize - swiperSize : 0;
 	    snapGrid = snapGrid.map(snap => {
 	      if (snap <= 0) return -offsetBefore;
 	      if (snap > maxSnap) return maxSnap + offsetAfter;
@@ -6942,7 +6973,7 @@
 	  }
 	};
 	function updateSlidesProgress(translate) {
-	  if (translate === void 0) {
+	  if (translate === undefined) {
 	    translate = this && this.translate || 0;
 	  }
 	  const swiper = this;
@@ -7082,9 +7113,9 @@
 	    }
 	  } else {
 	    if (gridEnabled) {
-	      activeSlide = slides.filter(slideEl => slideEl.column === activeIndex)[0];
-	      nextSlide = slides.filter(slideEl => slideEl.column === activeIndex + 1)[0];
-	      prevSlide = slides.filter(slideEl => slideEl.column === activeIndex - 1)[0];
+	      activeSlide = slides.find(slideEl => slideEl.column === activeIndex);
+	      nextSlide = slides.find(slideEl => slideEl.column === activeIndex + 1);
+	      prevSlide = slides.find(slideEl => slideEl.column === activeIndex - 1);
 	    } else {
 	      activeSlide = slides[activeIndex];
 	    }
@@ -7247,7 +7278,7 @@
 	  if (swiper.virtual && params.virtual.enabled && params.loop) {
 	    realIndex = getVirtualRealIndex(activeIndex);
 	  } else if (gridEnabled) {
-	    const firstSlideInColumn = swiper.slides.filter(slideEl => slideEl.column === activeIndex)[0];
+	    const firstSlideInColumn = swiper.slides.find(slideEl => slideEl.column === activeIndex);
 	    let activeSlideIndex = parseInt(firstSlideInColumn.getAttribute('data-swiper-slide-index'), 10);
 	    if (Number.isNaN(activeSlideIndex)) {
 	      activeSlideIndex = Math.max(swiper.slides.indexOf(firstSlideInColumn), 0);
@@ -7333,7 +7364,7 @@
 	  updateClickedSlide
 	};
 	function getSwiperTranslate(axis) {
-	  if (axis === void 0) {
+	  if (axis === undefined) {
 	    axis = this.isHorizontal() ? 'x' : 'y';
 	  }
 	  const swiper = this;
@@ -7407,16 +7438,16 @@
 	  return -this.snapGrid[this.snapGrid.length - 1];
 	}
 	function translateTo(translate, speed, runCallbacks, translateBounds, internal) {
-	  if (translate === void 0) {
+	  if (translate === undefined) {
 	    translate = 0;
 	  }
-	  if (speed === void 0) {
+	  if (speed === undefined) {
 	    speed = this.params.speed;
 	  }
-	  if (runCallbacks === void 0) {
+	  if (runCallbacks === undefined) {
 	    runCallbacks = true;
 	  }
-	  if (translateBounds === void 0) {
+	  if (translateBounds === undefined) {
 	    translateBounds = true;
 	  }
 	  const swiper = this;
@@ -7533,7 +7564,7 @@
 	  }
 	}
 	function transitionStart(runCallbacks, direction) {
-	  if (runCallbacks === void 0) {
+	  if (runCallbacks === undefined) {
 	    runCallbacks = true;
 	  }
 	  const swiper = this;
@@ -7552,7 +7583,7 @@
 	  });
 	}
 	function transitionEnd(runCallbacks, direction) {
-	  if (runCallbacks === void 0) {
+	  if (runCallbacks === undefined) {
 	    runCallbacks = true;
 	  }
 	  const swiper = this;
@@ -7575,10 +7606,10 @@
 	  transitionEnd
 	};
 	function slideTo(index, speed, runCallbacks, internal, initial) {
-	  if (index === void 0) {
+	  if (index === undefined) {
 	    index = 0;
 	  }
-	  if (runCallbacks === void 0) {
+	  if (runCallbacks === undefined) {
 	    runCallbacks = true;
 	  }
 	  if (typeof index === 'string') {
@@ -7644,8 +7675,11 @@
 	  let direction;
 	  if (slideIndex > activeIndex) direction = 'next';else if (slideIndex < activeIndex) direction = 'prev';else direction = 'reset';
 
+	  // initial virtual
+	  const isVirtual = swiper.virtual && swiper.params.virtual.enabled;
+	  const isInitialVirtual = isVirtual && initial;
 	  // Update Index
-	  if (rtl && -translate === swiper.translate || !rtl && translate === swiper.translate) {
+	  if (!isInitialVirtual && (rtl && -translate === swiper.translate || !rtl && translate === swiper.translate)) {
 	    swiper.updateActiveIndex(slideIndex);
 	    // Update Height
 	    if (params.autoHeight) {
@@ -7665,7 +7699,6 @@
 	    const isH = swiper.isHorizontal();
 	    const t = rtl ? translate : -translate;
 	    if (speed === 0) {
-	      const isVirtual = swiper.virtual && swiper.params.virtual.enabled;
 	      if (isVirtual) {
 	        swiper.wrapperEl.style.scrollSnapType = 'none';
 	        swiper._immediateVirtual = true;
@@ -7725,10 +7758,10 @@
 	  return true;
 	}
 	function slideToLoop(index, speed, runCallbacks, internal) {
-	  if (index === void 0) {
+	  if (index === undefined) {
 	    index = 0;
 	  }
-	  if (runCallbacks === void 0) {
+	  if (runCallbacks === undefined) {
 	    runCallbacks = true;
 	  }
 	  if (typeof index === 'string') {
@@ -7750,7 +7783,7 @@
 	      let targetSlideIndex;
 	      if (gridEnabled) {
 	        const slideIndex = newIndex * swiper.params.grid.rows;
-	        targetSlideIndex = swiper.slides.filter(slideEl => slideEl.getAttribute('data-swiper-slide-index') * 1 === slideIndex)[0].column;
+	        targetSlideIndex = swiper.slides.find(slideEl => slideEl.getAttribute('data-swiper-slide-index') * 1 === slideIndex).column;
 	      } else {
 	        targetSlideIndex = swiper.getSlideIndexByData(newIndex);
 	      }
@@ -7785,7 +7818,7 @@
 	      }
 	      if (gridEnabled) {
 	        const slideIndex = newIndex * swiper.params.grid.rows;
-	        newIndex = swiper.slides.filter(slideEl => slideEl.getAttribute('data-swiper-slide-index') * 1 === slideIndex)[0].column;
+	        newIndex = swiper.slides.find(slideEl => slideEl.getAttribute('data-swiper-slide-index') * 1 === slideIndex).column;
 	      } else {
 	        newIndex = swiper.getSlideIndexByData(newIndex);
 	      }
@@ -7799,7 +7832,7 @@
 
 	/* eslint no-unused-vars: "off" */
 	function slideNext(speed, runCallbacks, internal) {
-	  if (runCallbacks === void 0) {
+	  if (runCallbacks === undefined) {
 	    runCallbacks = true;
 	  }
 	  const swiper = this;
@@ -7840,7 +7873,7 @@
 
 	/* eslint no-unused-vars: "off" */
 	function slidePrev(speed, runCallbacks, internal) {
-	  if (runCallbacks === void 0) {
+	  if (runCallbacks === undefined) {
 	    runCallbacks = true;
 	  }
 	  const swiper = this;
@@ -7908,7 +7941,7 @@
 
 	/* eslint no-unused-vars: "off" */
 	function slideReset(speed, runCallbacks, internal) {
-	  if (runCallbacks === void 0) {
+	  if (runCallbacks === undefined) {
 	    runCallbacks = true;
 	  }
 	  const swiper = this;
@@ -7921,10 +7954,10 @@
 
 	/* eslint no-unused-vars: "off" */
 	function slideToClosest(speed, runCallbacks, internal, threshold) {
-	  if (runCallbacks === void 0) {
+	  if (runCallbacks === undefined) {
 	    runCallbacks = true;
 	  }
-	  if (threshold === void 0) {
+	  if (threshold === undefined) {
 	    threshold = 0.5;
 	  }
 	  const swiper = this;
@@ -8063,7 +8096,7 @@
 	    activeSlideIndex,
 	    byController,
 	    byMousewheel
-	  } = _temp === void 0 ? {} : _temp;
+	  } = _temp === undefined ? {} : _temp;
 	  const swiper = this;
 	  if (!swiper.params.loop) return;
 	  swiper.emit('beforeLoopFix');
@@ -8120,7 +8153,7 @@
 	  const appendSlidesIndexes = [];
 	  let activeIndex = swiper.activeIndex;
 	  if (typeof activeSlideIndex === 'undefined') {
-	    activeSlideIndex = swiper.getSlideIndex(slides.filter(el => el.classList.contains(params.slideActiveClass))[0]);
+	    activeSlideIndex = swiper.getSlideIndex(slides.find(el => el.classList.contains(params.slideActiveClass)));
 	  } else {
 	    activeIndex = activeSlideIndex;
 	  }
@@ -8322,7 +8355,7 @@
 
 	// Modified from https://stackoverflow.com/questions/54520554/custom-element-getrootnode-closest-function-crossing-multiple-parent-shadowd
 	function closestElement(selector, base) {
-	  if (base === void 0) {
+	  if (base === undefined) {
 	    base = this;
 	  }
 	  function __closestFrom(el) {
@@ -8386,7 +8419,7 @@
 	  }
 	  let targetEl = e.target;
 	  if (params.touchEventsTarget === 'wrapper') {
-	    if (!swiper.wrapperEl.contains(targetEl)) return;
+	    if (!elementIsChildOf(targetEl, swiper.wrapperEl)) return;
 	  }
 	  if ('which' in e && e.which === 3) return;
 	  if ('button' in e && e.button > 0) return;
@@ -8441,7 +8474,7 @@
 	      data.isTouched = false;
 	    }
 	  }
-	  if (document.activeElement && document.activeElement.matches(data.focusableElements) && document.activeElement !== targetEl) {
+	  if (document.activeElement && document.activeElement.matches(data.focusableElements) && document.activeElement !== targetEl && (e.pointerType === 'mouse' || e.pointerType !== 'mouse' && !targetEl.matches(data.focusableElements))) {
 	    document.activeElement.blur();
 	  }
 	  const shouldPreventDefault = preventDefault && swiper.allowTouchMove && params.touchStartPreventDefault;
@@ -8474,7 +8507,7 @@
 	  }
 	  let targetTouch;
 	  if (e.type === 'touchmove') {
-	    targetTouch = [...e.changedTouches].filter(t => t.identifier === data.touchId)[0];
+	    targetTouch = [...e.changedTouches].find(t => t.identifier === data.touchId);
 	    if (!targetTouch || targetTouch.identifier !== data.touchId) return;
 	  } else {
 	    targetTouch = e;
@@ -8518,6 +8551,9 @@
 	    } else if (pageX < touches.startX && swiper.translate <= swiper.maxTranslate() || pageX > touches.startX && swiper.translate >= swiper.minTranslate()) {
 	      return;
 	    }
+	  }
+	  if (document.activeElement && document.activeElement.matches(data.focusableElements) && document.activeElement !== e.target && e.pointerType !== 'mouse') {
+	    document.activeElement.blur();
 	  }
 	  if (document.activeElement) {
 	    if (e.target === document.activeElement && e.target.matches(data.focusableElements)) {
@@ -8612,7 +8648,6 @@
 	    }
 	    swiper.emit('sliderFirstMove', e);
 	  }
-	  let loopFixed;
 	  new Date().getTime();
 	  if (data.isMoved && data.allowThresholdMove && prevTouchesDirection !== swiper.touchesDirection && isLoop && allowLoopFix && Math.abs(diff) >= 1) {
 	    Object.assign(touches, {
@@ -8635,7 +8670,7 @@
 	    resistanceRatio = 0;
 	  }
 	  if (diff > 0) {
-	    if (isLoop && allowLoopFix && !loopFixed && data.allowThresholdMove && data.currentTranslate > (params.centeredSlides ? swiper.minTranslate() - swiper.slidesSizesGrid[swiper.activeIndex + 1] : swiper.minTranslate())) {
+	    if (isLoop && allowLoopFix && true && data.allowThresholdMove && data.currentTranslate > (params.centeredSlides ? swiper.minTranslate() - swiper.slidesSizesGrid[swiper.activeIndex + 1] - (params.slidesPerView !== 'auto' && swiper.slides.length - params.slidesPerView >= 2 ? swiper.slidesSizesGrid[swiper.activeIndex + 1] + swiper.params.spaceBetween : 0) - swiper.params.spaceBetween : swiper.minTranslate())) {
 	      swiper.loopFix({
 	        direction: 'prev',
 	        setTranslate: true,
@@ -8649,7 +8684,7 @@
 	      }
 	    }
 	  } else if (diff < 0) {
-	    if (isLoop && allowLoopFix && !loopFixed && data.allowThresholdMove && data.currentTranslate < (params.centeredSlides ? swiper.maxTranslate() + swiper.slidesSizesGrid[swiper.slidesSizesGrid.length - 1] : swiper.maxTranslate())) {
+	    if (isLoop && allowLoopFix && true && data.allowThresholdMove && data.currentTranslate < (params.centeredSlides ? swiper.maxTranslate() + swiper.slidesSizesGrid[swiper.slidesSizesGrid.length - 1] + swiper.params.spaceBetween + (params.slidesPerView !== 'auto' && swiper.slides.length - params.slidesPerView >= 2 ? swiper.slidesSizesGrid[swiper.slidesSizesGrid.length - 1] + swiper.params.spaceBetween : 0) : swiper.maxTranslate())) {
 	      swiper.loopFix({
 	        direction: 'next',
 	        setTranslate: true,
@@ -8721,7 +8756,7 @@
 	    if (e.pointerId !== data.pointerId) return;
 	    targetTouch = e;
 	  } else {
-	    targetTouch = [...e.changedTouches].filter(t => t.identifier === data.touchId)[0];
+	    targetTouch = [...e.changedTouches].find(t => t.identifier === data.touchId);
 	    if (!targetTouch || targetTouch.identifier !== data.touchId) return;
 	  }
 	  if (['pointercancel', 'pointerout', 'pointerleave', 'contextmenu'].includes(e.type)) {
@@ -9088,9 +9123,12 @@
 	  } = swiper;
 	  const breakpoints = params.breakpoints;
 	  if (!breakpoints || breakpoints && Object.keys(breakpoints).length === 0) return;
+	  const document = getDocument();
 
-	  // Get breakpoint for window width and update parameters
-	  const breakpoint = swiper.getBreakpoint(breakpoints, swiper.params.breakpointsBase, swiper.el);
+	  // Get breakpoint for window/container width and update parameters
+	  const breakpointsBase = params.breakpointsBase === 'window' || !params.breakpointsBase ? params.breakpointsBase : 'container';
+	  const breakpointContainer = ['window', 'container'].includes(params.breakpointsBase) || !params.breakpointsBase ? swiper.el : document.querySelector(params.breakpointsBase);
+	  const breakpoint = swiper.getBreakpoint(breakpoints, breakpointsBase, breakpointContainer);
 	  if (!breakpoint || swiper.currentBreakpoint === breakpoint) return;
 	  const breakpointOnlyParams = breakpoint in breakpoints ? breakpoints[breakpoint] : undefined;
 	  const breakpointParams = breakpointOnlyParams || swiper.originalParams;
@@ -9163,7 +9201,7 @@
 	  swiper.emit('breakpoint', breakpointParams);
 	}
 	function getBreakpoint(breakpoints, base, containerEl) {
-	  if (base === void 0) {
+	  if (base === undefined) {
 	    base = 'window';
 	  }
 	  if (!breakpoints || base === 'container' && !containerEl) return undefined;
@@ -9424,7 +9462,7 @@
 	};
 	function moduleExtendParams(params, allModulesParams) {
 	  return function extendParams(obj) {
-	    if (obj === void 0) {
+	    if (obj === undefined) {
 	      obj = {};
 	    }
 	    const moduleParamName = Object.keys(obj)[0];
@@ -9658,7 +9696,7 @@
 	    return elementIndex(slideEl) - firstSlideIndex;
 	  }
 	  getSlideIndexByData(index) {
-	    return this.getSlideIndex(this.slides.filter(slideEl => slideEl.getAttribute('data-swiper-slide-index') * 1 === index)[0]);
+	    return this.getSlideIndex(this.slides.find(slideEl => slideEl.getAttribute('data-swiper-slide-index') * 1 === index));
 	  }
 	  recalcSlides() {
 	    const swiper = this;
@@ -9726,10 +9764,10 @@
 	    swiper.emit('_slideClasses', updates);
 	  }
 	  slidesPerViewDynamic(view, exact) {
-	    if (view === void 0) {
+	    if (view === undefined) {
 	      view = 'current';
 	    }
-	    if (exact === void 0) {
+	    if (exact === undefined) {
 	      exact = false;
 	    }
 	    const swiper = this;
@@ -9831,7 +9869,7 @@
 	    swiper.emit('update');
 	  }
 	  changeDirection(newDirection, needUpdate) {
-	    if (needUpdate === void 0) {
+	    if (needUpdate === undefined) {
 	      needUpdate = true;
 	    }
 	    const swiper = this;
@@ -9989,10 +10027,10 @@
 	    return swiper;
 	  }
 	  destroy(deleteInstance, cleanStyles) {
-	    if (deleteInstance === void 0) {
+	    if (deleteInstance === undefined) {
 	      deleteInstance = true;
 	    }
-	    if (cleanStyles === void 0) {
+	    if (cleanStyles === undefined) {
 	      cleanStyles = true;
 	    }
 	    const swiper = this;
@@ -10125,7 +10163,7 @@
 	  function getEl(el) {
 	    let res;
 	    if (el && typeof el === 'string' && swiper.isElement) {
-	      res = swiper.el.querySelector(el);
+	      res = swiper.el.querySelector(el) || swiper.hostEl.querySelector(el);
 	      if (res) return res;
 	    }
 	    if (el) {
@@ -10297,7 +10335,7 @@
 	}
 
 	function classesToSelector(classes) {
-	  if (classes === void 0) {
+	  if (classes === undefined) {
 	    classes = '';
 	  }
 	  return `.${classes.trim().replace(/([\.:!+\/])/g, '\\$1') // eslint-disable-line
@@ -10367,6 +10405,16 @@
 	      }
 	    }
 	  }
+	  function getMoveDirection(prevIndex, nextIndex, length) {
+	    prevIndex = prevIndex % length;
+	    nextIndex = nextIndex % length;
+	    if (nextIndex === prevIndex + 1) {
+	      return 'next';
+	    } else if (nextIndex === prevIndex - 1) {
+	      return 'previous';
+	    }
+	    return;
+	  }
 	  function onBulletClick(e) {
 	    const bulletEl = e.target.closest(classesToSelector(swiper.params.pagination.bulletClass));
 	    if (!bulletEl) {
@@ -10376,7 +10424,14 @@
 	    const index = elementIndex(bulletEl) * swiper.params.slidesPerGroup;
 	    if (swiper.params.loop) {
 	      if (swiper.realIndex === index) return;
-	      swiper.slideToLoop(index);
+	      const moveDirection = getMoveDirection(swiper.realIndex, index, swiper.slides.length);
+	      if (moveDirection === 'next') {
+	        swiper.slideNext();
+	      } else if (moveDirection === 'previous') {
+	        swiper.slidePrev();
+	      } else {
+	        swiper.slideToLoop(index);
+	      }
 	    } else {
 	      swiper.slideTo(index);
 	    }
@@ -10592,10 +10647,10 @@
 	      el = [...swiper.el.querySelectorAll(params.el)];
 	      // check if it belongs to another nested Swiper
 	      if (el.length > 1) {
-	        el = el.filter(subEl => {
+	        el = el.find(subEl => {
 	          if (elementParents(subEl, '.swiper')[0] !== swiper.el) return false;
 	          return true;
-	        })[0];
+	        });
 	      }
 	    }
 	    if (Array.isArray(el) && el.length === 1) el = el[0];
@@ -10781,7 +10836,7 @@
 	/** Checks if value is object */
 	function isObject(obj) {
 	  var _obj$constructor;
-	  return typeof obj === 'object' && obj != null && (obj == null || (_obj$constructor = obj.constructor) == null ? void 0 : _obj$constructor.name) === 'Object';
+	  return typeof obj === 'object' && obj != null && (obj == null || (_obj$constructor = obj.constructor) == null ? undefined : _obj$constructor.name) === 'Object';
 	}
 	function pick(obj, keys) {
 	  if (Array.isArray(keys)) return pick(obj, (_, k) => keys.includes(k));
@@ -11112,7 +11167,7 @@
 	  }
 	  get rootElement() {
 	    var _this$input$getRootNo, _this$input$getRootNo2, _this$input;
-	    return (_this$input$getRootNo = (_this$input$getRootNo2 = (_this$input = this.input).getRootNode) == null ? void 0 : _this$input$getRootNo2.call(_this$input)) != null ? _this$input$getRootNo : document;
+	    return (_this$input$getRootNo = (_this$input$getRootNo2 = (_this$input = this.input).getRootNode) == null ? undefined : _this$input$getRootNo2.call(_this$input)) != null ? _this$input$getRootNo : document;
 	  }
 
 	  /** Is element in focus */
@@ -11282,7 +11337,7 @@
 	    return this.go(-1);
 	  }
 	  redo() {
-	    return this.go(+1);
+	    return this.go(1);
 	  }
 	  clear() {
 	    this.states.length = 0;
@@ -11325,7 +11380,7 @@
 	  }
 	  maskEquals(mask) {
 	    var _this$masked;
-	    return mask == null || ((_this$masked = this.masked) == null ? void 0 : _this$masked.maskEquals(mask));
+	    return mask == null || ((_this$masked = this.masked) == null ? undefined : _this$masked.maskEquals(mask));
 	  }
 
 	  /** Masked */
@@ -11436,7 +11491,7 @@
 	  }
 
 	  /** Stores current selection */
-	  _saveSelection( /* ev */
+	  _saveSelection(/* ev */
 	  ) {
 	    if (this.displayValue !== this.el.value) {
 	      console.warn('Element value was changed outside of mask. Syncronize mask using `mask.updateValue()` to work properly.'); // eslint-disable-line no-console
@@ -11683,10 +11738,10 @@
 	  /** Start position */
 
 	  constructor(value, from, stop) {
-	    if (value === void 0) {
+	    if (value === undefined) {
 	      value = '';
 	    }
-	    if (from === void 0) {
+	    if (from === undefined) {
 	      from = 0;
 	    }
 	    this.value = value;
@@ -11808,7 +11863,7 @@
 
 	  /** Resolve new value */
 	  resolve(value, flags) {
-	    if (flags === void 0) {
+	    if (flags === undefined) {
 	      flags = {
 	        input: true
 	      };
@@ -11860,10 +11915,10 @@
 	    return cursorPos;
 	  }
 	  totalInputPositions(fromPos, toPos) {
-	    if (fromPos === void 0) {
+	    if (fromPos === undefined) {
 	      fromPos = 0;
 	    }
-	    if (toPos === void 0) {
+	    if (toPos === undefined) {
 	      toPos = this.displayValue.length;
 	    }
 	    return Math.min(this.displayValue.length, toPos - fromPos);
@@ -11871,10 +11926,10 @@
 
 	  /** Extracts value in range considering flags */
 	  extractInput(fromPos, toPos, flags) {
-	    if (fromPos === void 0) {
+	    if (fromPos === undefined) {
 	      fromPos = 0;
 	    }
-	    if (toPos === void 0) {
+	    if (toPos === undefined) {
 	      toPos = this.displayValue.length;
 	    }
 	    return this.displayValue.slice(fromPos, toPos);
@@ -11882,10 +11937,10 @@
 
 	  /** Extracts tail in range */
 	  extractTail(fromPos, toPos) {
-	    if (fromPos === void 0) {
+	    if (fromPos === undefined) {
 	      fromPos = 0;
 	    }
-	    if (toPos === void 0) {
+	    if (toPos === undefined) {
 	      toPos = this.displayValue.length;
 	    }
 	    return new ContinuousTailDetails(this.extractInput(fromPos, toPos), fromPos);
@@ -11909,7 +11964,7 @@
 
 	  /** Appends char */
 	  _appendChar(ch, flags, checkTail) {
-	    if (flags === void 0) {
+	    if (flags === undefined) {
 	      flags = {};
 	    }
 	    const consistentState = this.state;
@@ -12013,10 +12068,10 @@
 	    return details;
 	  }
 	  remove(fromPos, toPos) {
-	    if (fromPos === void 0) {
+	    if (fromPos === undefined) {
 	      fromPos = 0;
 	    }
-	    if (toPos === void 0) {
+	    if (toPos === undefined) {
 	      toPos = this.displayValue.length;
 	    }
 	    this._value = this.displayValue.slice(0, fromPos) + this.displayValue.slice(toPos);
@@ -12054,7 +12109,7 @@
 
 	  /** Prepares string before mask processing */
 	  doPrepare(str, flags) {
-	    if (flags === void 0) {
+	    if (flags === undefined) {
 	      flags = {};
 	    }
 	    return ChangeDetails.normalize(this.prepare ? this.prepare(str, this, flags) : str);
@@ -12062,7 +12117,7 @@
 
 	  /** Prepares each char before mask processing */
 	  doPrepareChar(str, flags) {
-	    if (flags === void 0) {
+	    if (flags === undefined) {
 	      flags = {};
 	    }
 	    return ChangeDetails.normalize(this.prepareChar ? this.prepareChar(str, this, flags) : str);
@@ -12078,13 +12133,13 @@
 	    if (this.commit) this.commit(this.value, this);
 	  }
 	  splice(start, deleteCount, inserted, removeDirection, flags) {
-	    if (inserted === void 0) {
+	    if (inserted === undefined) {
 	      inserted = '';
 	    }
-	    if (removeDirection === void 0) {
+	    if (removeDirection === undefined) {
 	      removeDirection = DIRECTION.NONE;
 	    }
-	    if (flags === void 0) {
+	    if (flags === undefined) {
 	      flags = {
 	        input: true
 	      };
@@ -12148,10 +12203,10 @@
 	  /** */
 
 	  constructor(chunks, from) {
-	    if (chunks === void 0) {
+	    if (chunks === undefined) {
 	      chunks = [];
 	    }
-	    if (from === void 0) {
+	    if (from === undefined) {
 	      from = 0;
 	    }
 	    this.chunks = chunks;
@@ -12355,7 +12410,7 @@
 	  }
 	  _pushLeft(fn) {
 	    this.pushState();
-	    for (this.bindBlock(); 0 <= this.index; --this.index, this.offset = ((_this$block = this.block) == null ? void 0 : _this$block.displayValue.length) || 0) {
+	    for (this.bindBlock(); 0 <= this.index; --this.index, this.offset = ((_this$block = this.block) == null ? undefined : _this$block.displayValue.length) || 0) {
 	      var _this$block;
 	      if (fn()) return this.ok = true;
 	    }
@@ -12459,10 +12514,10 @@
 	    this._value = '';
 	  }
 	  remove(fromPos, toPos) {
-	    if (fromPos === void 0) {
+	    if (fromPos === undefined) {
 	      fromPos = 0;
 	    }
-	    if (toPos === void 0) {
+	    if (toPos === undefined) {
 	      toPos = this._value.length;
 	    }
 	    this._value = this._value.slice(0, fromPos) + this._value.slice(toPos);
@@ -12470,7 +12525,7 @@
 	    return new ChangeDetails();
 	  }
 	  nearestInputPos(cursorPos, direction) {
-	    if (direction === void 0) {
+	    if (direction === undefined) {
 	      direction = DIRECTION.NONE;
 	    }
 	    const minPos = 0;
@@ -12487,22 +12542,22 @@
 	    }
 	  }
 	  totalInputPositions(fromPos, toPos) {
-	    if (fromPos === void 0) {
+	    if (fromPos === undefined) {
 	      fromPos = 0;
 	    }
-	    if (toPos === void 0) {
+	    if (toPos === undefined) {
 	      toPos = this._value.length;
 	    }
 	    return this._isRawInput ? toPos - fromPos : 0;
 	  }
 	  extractInput(fromPos, toPos, flags) {
-	    if (fromPos === void 0) {
+	    if (fromPos === undefined) {
 	      fromPos = 0;
 	    }
-	    if (toPos === void 0) {
+	    if (toPos === undefined) {
 	      toPos = this._value.length;
 	    }
-	    if (flags === void 0) {
+	    if (flags === undefined) {
 	      flags = {};
 	    }
 	    return flags.raw && this._isRawInput && this._value.slice(fromPos, toPos) || '';
@@ -12514,7 +12569,7 @@
 	    return Boolean(this._value);
 	  }
 	  _appendChar(ch, flags) {
-	    if (flags === void 0) {
+	    if (flags === undefined) {
 	      flags = {};
 	    }
 	    if (this.isFilled) return new ChangeDetails();
@@ -12612,10 +12667,10 @@
 	    this.masked.reset();
 	  }
 	  remove(fromPos, toPos) {
-	    if (fromPos === void 0) {
+	    if (fromPos === undefined) {
 	      fromPos = 0;
 	    }
-	    if (toPos === void 0) {
+	    if (toPos === undefined) {
 	      toPos = this.value.length;
 	    }
 	    if (fromPos === 0 && toPos >= 1) {
@@ -12640,7 +12695,7 @@
 	    return Boolean(this.masked.value) || this.isOptional;
 	  }
 	  _appendChar(ch, flags) {
-	    if (flags === void 0) {
+	    if (flags === undefined) {
 	      flags = {};
 	    }
 	    if (this.isFilled) return new ChangeDetails();
@@ -12679,16 +12734,16 @@
 	    return this.masked.appendTail(tail);
 	  }
 	  extractInput(fromPos, toPos, flags) {
-	    if (fromPos === void 0) {
+	    if (fromPos === undefined) {
 	      fromPos = 0;
 	    }
-	    if (toPos === void 0) {
+	    if (toPos === undefined) {
 	      toPos = this.value.length;
 	    }
 	    return this.masked.extractInput(fromPos, toPos, flags);
 	  }
 	  nearestInputPos(cursorPos, direction) {
-	    if (direction === void 0) {
+	    if (direction === undefined) {
 	      direction = DIRECTION.NONE;
 	    }
 	    const minPos = 0;
@@ -12707,10 +12762,10 @@
 	    }
 	  }
 	  totalInputPositions(fromPos, toPos) {
-	    if (fromPos === void 0) {
+	    if (fromPos === undefined) {
 	      fromPos = 0;
 	    }
-	    if (toPos === void 0) {
+	    if (toPos === undefined) {
 	      toPos = this.value.length;
 	    }
 	    return this.value.slice(fromPos, toPos).length;
@@ -12737,7 +12792,7 @@
 	    var _flags$_beforeTailSta;
 	    return {
 	      ...flags,
-	      _beforeTailState: (flags == null || (_flags$_beforeTailSta = flags._beforeTailState) == null ? void 0 : _flags$_beforeTailSta.masked) || (flags == null ? void 0 : flags._beforeTailState)
+	      _beforeTailState: (flags == null || (_flags$_beforeTailSta = flags._beforeTailState) == null ? undefined : _flags$_beforeTailSta.masked) || (flags == null ? undefined : flags._beforeTailState)
 	    };
 	  }
 	  pad(flags) {
@@ -12798,7 +12853,7 @@
 	    super({
 	      ...MaskedPattern.DEFAULTS,
 	      ...opts,
-	      definitions: Object.assign({}, PatternInputDefinition.DEFAULT_DEFINITIONS, opts == null ? void 0 : opts.definitions)
+	      definitions: Object.assign({}, PatternInputDefinition.DEFAULT_DEFINITIONS, opts == null ? undefined : opts.definitions)
 	    });
 	  }
 	  updateOptions(opts) {
@@ -12858,7 +12913,7 @@
 	        }
 	      }
 	      let char = pattern[i];
-	      let isInput = (char in defs);
+	      let isInput = char in defs;
 	      if (char === MaskedPattern.STOP_CHAR) {
 	        this._stops.push(this._blocks.length);
 	        continue;
@@ -12975,7 +13030,7 @@
 	  _appendEager() {
 	    var _this$_mapPosToBlock;
 	    const details = new ChangeDetails();
-	    let startBlockIndex = (_this$_mapPosToBlock = this._mapPosToBlock(this.displayValue.length)) == null ? void 0 : _this$_mapPosToBlock.index;
+	    let startBlockIndex = (_this$_mapPosToBlock = this._mapPosToBlock(this.displayValue.length)) == null ? undefined : _this$_mapPosToBlock.index;
 	    if (startBlockIndex == null) return details;
 
 	    // TODO test if it works for nested pattern masks
@@ -12988,7 +13043,7 @@
 	    return details;
 	  }
 	  _appendCharRaw(ch, flags) {
-	    if (flags === void 0) {
+	    if (flags === undefined) {
 	      flags = {};
 	    }
 	    const blockIter = this._mapPosToBlock(this.displayValue.length);
@@ -12998,7 +13053,7 @@
 	      var _flags$_beforeTailSta;
 	      const blockDetails = block._appendChar(ch, {
 	        ...flags,
-	        _beforeTailState: (_flags$_beforeTailSta = flags._beforeTailState) == null || (_flags$_beforeTailSta = _flags$_beforeTailSta._blocks) == null ? void 0 : _flags$_beforeTailSta[bi]
+	        _beforeTailState: (_flags$_beforeTailSta = flags._beforeTailState) == null || (_flags$_beforeTailSta = _flags$_beforeTailSta._blocks) == null ? undefined : _flags$_beforeTailSta[bi]
 	      });
 	      details.aggregate(blockDetails);
 	      if (blockDetails.consumed) break; // go next char
@@ -13006,10 +13061,10 @@
 	    return details;
 	  }
 	  extractTail(fromPos, toPos) {
-	    if (fromPos === void 0) {
+	    if (fromPos === undefined) {
 	      fromPos = 0;
 	    }
-	    if (toPos === void 0) {
+	    if (toPos === undefined) {
 	      toPos = this.displayValue.length;
 	    }
 	    const chunkTail = new ChunksTailDetails();
@@ -13024,13 +13079,13 @@
 	    return chunkTail;
 	  }
 	  extractInput(fromPos, toPos, flags) {
-	    if (fromPos === void 0) {
+	    if (fromPos === undefined) {
 	      fromPos = 0;
 	    }
-	    if (toPos === void 0) {
+	    if (toPos === undefined) {
 	      toPos = this.displayValue.length;
 	    }
-	    if (flags === void 0) {
+	    if (flags === undefined) {
 	      flags = {};
 	    }
 	    if (fromPos === toPos) return '';
@@ -13060,7 +13115,7 @@
 	    this._blocks.slice(startBlockIndex, endBlockIndex).forEach(b => {
 	      if (!b.lazy || toBlockIndex != null) {
 	        var _blocks2;
-	        details.aggregate(b._appendPlaceholder((_blocks2 = b._blocks) == null ? void 0 : _blocks2.length));
+	        details.aggregate(b._appendPlaceholder((_blocks2 = b._blocks) == null ? undefined : _blocks2.length));
 	      }
 	    });
 	    return details;
@@ -13085,7 +13140,7 @@
 	    return this._blocks.slice(0, blockIndex).reduce((pos, b) => pos += b.displayValue.length, 0);
 	  }
 	  _forEachBlocksInRange(fromPos, toPos, fn) {
-	    if (toPos === void 0) {
+	    if (toPos === undefined) {
 	      toPos = this.displayValue.length;
 	    }
 	    const fromBlockIter = this._mapPosToBlock(fromPos);
@@ -13108,10 +13163,10 @@
 	    }
 	  }
 	  remove(fromPos, toPos) {
-	    if (fromPos === void 0) {
+	    if (fromPos === undefined) {
 	      fromPos = 0;
 	    }
-	    if (toPos === void 0) {
+	    if (toPos === undefined) {
 	      toPos = this.displayValue.length;
 	    }
 	    const removeDetails = super.remove(fromPos, toPos);
@@ -13121,7 +13176,7 @@
 	    return removeDetails;
 	  }
 	  nearestInputPos(cursorPos, direction) {
-	    if (direction === void 0) {
+	    if (direction === undefined) {
 	      direction = DIRECTION.NONE;
 	    }
 	    if (!this._blocks.length) return 0;
@@ -13184,10 +13239,10 @@
 	    return cursorPos;
 	  }
 	  totalInputPositions(fromPos, toPos) {
-	    if (fromPos === void 0) {
+	    if (fromPos === undefined) {
 	      fromPos = 0;
 	    }
-	    if (toPos === void 0) {
+	    if (toPos === undefined) {
 	      toPos = this.displayValue.length;
 	    }
 	    let total = 0;
@@ -13280,7 +13335,7 @@
 	    return [minstr, maxstr];
 	  }
 	  doPrepareChar(ch, flags) {
-	    if (flags === void 0) {
+	    if (flags === undefined) {
 	      flags = {};
 	    }
 	    let details;
@@ -13289,7 +13344,7 @@
 	    return [ch, details];
 	  }
 	  _appendCharRaw(ch, flags) {
-	    if (flags === void 0) {
+	    if (flags === undefined) {
 	      flags = {};
 	    }
 	    if (!this.autofix || this.value.length + 1 > this.maxLength) return super._appendCharRaw(ch, flags);
@@ -13500,7 +13555,7 @@
 	    }
 	  }
 	  _appendCharRaw(ch, flags) {
-	    if (flags === void 0) {
+	    if (flags === undefined) {
 	      flags = {};
 	    }
 	    const details = this._applyDispatch(ch, flags);
@@ -13510,13 +13565,13 @@
 	    return details;
 	  }
 	  _applyDispatch(appended, flags, tail) {
-	    if (appended === void 0) {
+	    if (appended === undefined) {
 	      appended = '';
 	    }
-	    if (flags === void 0) {
+	    if (flags === undefined) {
 	      flags = {};
 	    }
-	    if (tail === void 0) {
+	    if (tail === undefined) {
 	      tail = '';
 	    }
 	    const prevValueBeforeTail = flags.tail && flags._beforeTailState != null ? flags._beforeTailState._value : this.value;
@@ -13525,7 +13580,7 @@
 	    const tailValue = inputValue.slice(insertValue.length);
 	    const prevMask = this.currentMask;
 	    const details = new ChangeDetails();
-	    const prevMaskState = prevMask == null ? void 0 : prevMask.state;
+	    const prevMaskState = prevMask == null ? undefined : prevMask.state;
 
 	    // clone flags to prevent overwriting `_beforeTailState`
 	    this.currentMask = this.doDispatch(appended, {
@@ -13580,14 +13635,14 @@
 	    var _flags$_beforeTailSta, _flags$_beforeTailSta2;
 	    return {
 	      ...flags,
-	      _beforeTailState: ((_flags$_beforeTailSta = flags._beforeTailState) == null ? void 0 : _flags$_beforeTailSta.currentMaskRef) === this.currentMask && ((_flags$_beforeTailSta2 = flags._beforeTailState) == null ? void 0 : _flags$_beforeTailSta2.currentMask) || flags._beforeTailState
+	      _beforeTailState: ((_flags$_beforeTailSta = flags._beforeTailState) == null ? undefined : _flags$_beforeTailSta.currentMaskRef) === this.currentMask && ((_flags$_beforeTailSta2 = flags._beforeTailState) == null ? undefined : _flags$_beforeTailSta2.currentMask) || flags._beforeTailState
 	    };
 	  }
 	  doDispatch(appended, flags, tail) {
-	    if (flags === void 0) {
+	    if (flags === undefined) {
 	      flags = {};
 	    }
-	    if (tail === void 0) {
+	    if (tail === undefined) {
 	      tail = '';
 	    }
 	    return this.dispatch(appended, this, flags, tail);
@@ -13596,7 +13651,7 @@
 	    return super.doValidate(flags) && (!this.currentMask || this.currentMask.doValidate(this.currentMaskFlags(flags)));
 	  }
 	  doPrepare(str, flags) {
-	    if (flags === void 0) {
+	    if (flags === undefined) {
 	      flags = {};
 	    }
 	    let [s, details] = super.doPrepare(str, flags);
@@ -13608,7 +13663,7 @@
 	    return [s, details];
 	  }
 	  doPrepareChar(str, flags) {
-	    if (flags === void 0) {
+	    if (flags === undefined) {
 	      flags = {};
 	    }
 	    let [s, details] = super.doPrepareChar(str, flags);
@@ -13668,11 +13723,11 @@
 	  }
 	  get isComplete() {
 	    var _this$currentMask2;
-	    return Boolean((_this$currentMask2 = this.currentMask) == null ? void 0 : _this$currentMask2.isComplete);
+	    return Boolean((_this$currentMask2 = this.currentMask) == null ? undefined : _this$currentMask2.isComplete);
 	  }
 	  get isFilled() {
 	    var _this$currentMask3;
-	    return Boolean((_this$currentMask3 = this.currentMask) == null ? void 0 : _this$currentMask3.isFilled);
+	    return Boolean((_this$currentMask3 = this.currentMask) == null ? undefined : _this$currentMask3.isFilled);
 	  }
 	  remove(fromPos, toPos) {
 	    const details = new ChangeDetails();
@@ -13690,7 +13745,7 @@
 	      _rawInputValue: this.rawInputValue,
 	      compiledMasks: this.compiledMasks.map(m => m.state),
 	      currentMaskRef: this.currentMask,
-	      currentMask: (_this$currentMask4 = this.currentMask) == null ? void 0 : _this$currentMask4.state
+	      currentMask: (_this$currentMask4 = this.currentMask) == null ? undefined : _this$currentMask4.state
 	    };
 	  }
 	  set state(state) {
@@ -13756,7 +13811,7 @@
 	  }
 	  typedValueEquals(value) {
 	    var _this$currentMask5;
-	    return Boolean((_this$currentMask5 = this.currentMask) == null ? void 0 : _this$currentMask5.typedValueEquals(value));
+	    return Boolean((_this$currentMask5 = this.currentMask) == null ? undefined : _this$currentMask5.typedValueEquals(value));
 	  }
 	}
 	/** Currently chosen mask */
@@ -13824,7 +13879,7 @@
 	    super._update(eopts);
 	  }
 	  _appendCharRaw(ch, flags) {
-	    if (flags === void 0) {
+	    if (flags === undefined) {
 	      flags = {};
 	    }
 	    const matchFrom = Math.min(this.nearestInputPos(0, DIRECTION.FORCE_RIGHT), this.value.length);
@@ -13849,20 +13904,20 @@
 	    });
 	  }
 	  extractTail(fromPos, toPos) {
-	    if (fromPos === void 0) {
+	    if (fromPos === undefined) {
 	      fromPos = 0;
 	    }
-	    if (toPos === void 0) {
+	    if (toPos === undefined) {
 	      toPos = this.displayValue.length;
 	    }
 	    // just drop tail
 	    return new ContinuousTailDetails('', fromPos);
 	  }
 	  remove(fromPos, toPos) {
-	    if (fromPos === void 0) {
+	    if (fromPos === undefined) {
 	      fromPos = 0;
 	    }
-	    if (toPos === void 0) {
+	    if (toPos === undefined) {
 	      toPos = this.displayValue.length;
 	    }
 	    if (fromPos === toPos) return new ChangeDetails();
@@ -13973,7 +14028,7 @@
 	    return parts.join(this.radix);
 	  }
 	  doPrepareChar(ch, flags) {
-	    if (flags === void 0) {
+	    if (flags === undefined) {
 	      flags = {};
 	    }
 	    const [prepCh, details] = super.doPrepareChar(this._removeThousandsSeparators(this.scale && this.mapToRadix.length && (
@@ -13991,7 +14046,7 @@
 	    return [prepCh, details];
 	  }
 	  _separatorsCount(to, extendOnSeparators) {
-	    if (extendOnSeparators === void 0) {
+	    if (extendOnSeparators === undefined) {
 	      extendOnSeparators = false;
 	    }
 	    let count = 0;
@@ -14004,23 +14059,23 @@
 	    return count;
 	  }
 	  _separatorsCountFromSlice(slice) {
-	    if (slice === void 0) {
+	    if (slice === undefined) {
 	      slice = this._value;
 	    }
 	    return this._separatorsCount(this._removeThousandsSeparators(slice).length, true);
 	  }
 	  extractInput(fromPos, toPos, flags) {
-	    if (fromPos === void 0) {
+	    if (fromPos === undefined) {
 	      fromPos = 0;
 	    }
-	    if (toPos === void 0) {
+	    if (toPos === undefined) {
 	      toPos = this.displayValue.length;
 	    }
 	    [fromPos, toPos] = this._adjustRangeWithSeparators(fromPos, toPos);
 	    return this._removeThousandsSeparators(super.extractInput(fromPos, toPos, flags));
 	  }
 	  _appendCharRaw(ch, flags) {
-	    if (flags === void 0) {
+	    if (flags === undefined) {
 	      flags = {};
 	    }
 	    const prevBeforeTailValue = flags.tail && flags._beforeTailState ? flags._beforeTailState._value : this._value;
@@ -14078,10 +14133,10 @@
 	    return [from, to];
 	  }
 	  remove(fromPos, toPos) {
-	    if (fromPos === void 0) {
+	    if (fromPos === undefined) {
 	      fromPos = 0;
 	    }
-	    if (toPos === void 0) {
+	    if (toPos === undefined) {
 	      toPos = this.displayValue.length;
 	    }
 	    [fromPos, toPos] = this._adjustRangeWithSeparators(fromPos, toPos);
@@ -14158,7 +14213,7 @@
 	    return parts.join(this.radix);
 	  }
 	  doSkipInvalid(ch, flags, checkTail) {
-	    if (flags === void 0) {
+	    if (flags === undefined) {
 	      flags = {};
 	    }
 	    const dropFractional = this.scale === 0 && ch !== this.thousandsSeparator && (ch === this.radix || ch === MaskedNumber.UNMASKED_RADIX || this.mapToRadix.includes(ch));
@@ -14226,10 +14281,10 @@
 	};
 	/** Creates new pipe function depending on mask type, source and destination options */
 	function createPipe(arg, from, to) {
-	  if (from === void 0) {
+	  if (from === undefined) {
 	    from = PIPE_TYPE.MASKED;
 	  }
-	  if (to === void 0) {
+	  if (to === undefined) {
 	    to = PIPE_TYPE.MASKED;
 	  }
 	  const masked = createMask(arg);
@@ -14274,7 +14329,7 @@
 	    this.repeat = (_ref3 = (_ref4 = repeat != null ? repeat : block.repeat) != null ? _ref4 : this.repeat) != null ? _ref3 : Infinity; // TODO type
 
 	    super._update({
-	      mask: 'm'.repeat(Math.max(this.repeatTo === Infinity && ((_this$_blocks = this._blocks) == null ? void 0 : _this$_blocks.length) || 0, this.repeatFrom)),
+	      mask: 'm'.repeat(Math.max(this.repeatTo === Infinity && ((_this$_blocks = this._blocks) == null ? undefined : _this$_blocks.length) || 0, this.repeatFrom)),
 	      blocks: {
 	        m: block
 	      },
@@ -14295,18 +14350,18 @@
 	    }
 	  }
 	  _appendCharRaw(ch, flags) {
-	    if (flags === void 0) {
+	    if (flags === undefined) {
 	      flags = {};
 	    }
 	    const details = new ChangeDetails();
-	    for (let bi = (_this$_mapPosToBlock$ = (_this$_mapPosToBlock = this._mapPosToBlock(this.displayValue.length)) == null ? void 0 : _this$_mapPosToBlock.index) != null ? _this$_mapPosToBlock$ : Math.max(this._blocks.length - 1, 0), block, allocated;
+	    for (let bi = (_this$_mapPosToBlock$ = (_this$_mapPosToBlock = this._mapPosToBlock(this.displayValue.length)) == null ? undefined : _this$_mapPosToBlock.index) != null ? _this$_mapPosToBlock$ : Math.max(this._blocks.length - 1, 0), block, allocated;
 	    // try to get a block or
 	    // try to allocate a new block if not allocated already
 	    block = (_this$_blocks$bi = this._blocks[bi]) != null ? _this$_blocks$bi : allocated = !allocated && this._allocateBlock(bi); ++bi) {
 	      var _this$_mapPosToBlock$, _this$_mapPosToBlock, _this$_blocks$bi, _flags$_beforeTailSta;
 	      const blockDetails = block._appendChar(ch, {
 	        ...flags,
-	        _beforeTailState: (_flags$_beforeTailSta = flags._beforeTailState) == null || (_flags$_beforeTailSta = _flags$_beforeTailSta._blocks) == null ? void 0 : _flags$_beforeTailSta[bi]
+	        _beforeTailState: (_flags$_beforeTailSta = flags._beforeTailState) == null || (_flags$_beforeTailSta = _flags$_beforeTailSta._blocks) == null ? undefined : _flags$_beforeTailSta[bi]
 	      });
 	      if (blockDetails.skip && allocated) {
 	        // remove the last allocated block and break
@@ -14321,12 +14376,12 @@
 	  }
 	  _trimEmptyTail(fromPos, toPos) {
 	    var _this$_mapPosToBlock2, _this$_mapPosToBlock3;
-	    if (fromPos === void 0) {
+	    if (fromPos === undefined) {
 	      fromPos = 0;
 	    }
-	    const firstBlockIndex = Math.max(((_this$_mapPosToBlock2 = this._mapPosToBlock(fromPos)) == null ? void 0 : _this$_mapPosToBlock2.index) || 0, this.repeatFrom, 0);
+	    const firstBlockIndex = Math.max(((_this$_mapPosToBlock2 = this._mapPosToBlock(fromPos)) == null ? undefined : _this$_mapPosToBlock2.index) || 0, this.repeatFrom, 0);
 	    let lastBlockIndex;
-	    if (toPos != null) lastBlockIndex = (_this$_mapPosToBlock3 = this._mapPosToBlock(toPos)) == null ? void 0 : _this$_mapPosToBlock3.index;
+	    if (toPos != null) lastBlockIndex = (_this$_mapPosToBlock3 = this._mapPosToBlock(toPos)) == null ? undefined : _this$_mapPosToBlock3.index;
 	    if (lastBlockIndex == null) lastBlockIndex = this._blocks.length - 1;
 	    let removeCount = 0;
 	    for (let blockIndex = lastBlockIndex; firstBlockIndex <= blockIndex; --blockIndex, ++removeCount) {
@@ -14342,10 +14397,10 @@
 	    this._trimEmptyTail();
 	  }
 	  remove(fromPos, toPos) {
-	    if (fromPos === void 0) {
+	    if (fromPos === undefined) {
 	      fromPos = 0;
 	    }
-	    if (toPos === void 0) {
+	    if (toPos === undefined) {
 	      toPos = this.displayValue.length;
 	    }
 	    const removeDetails = super.remove(fromPos, toPos);
@@ -14353,7 +14408,7 @@
 	    return removeDetails;
 	  }
 	  totalInputPositions(fromPos, toPos) {
-	    if (fromPos === void 0) {
+	    if (fromPos === undefined) {
 	      fromPos = 0;
 	    }
 	    if (toPos == null && this.repeatTo === Infinity) return Infinity;

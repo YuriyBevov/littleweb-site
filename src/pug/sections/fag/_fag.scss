@@ -1,0 +1,6 @@
+.fag {
+  &__wrapper {
+    @extend %flex-align;
+    gap: 20px;
+  }
+}

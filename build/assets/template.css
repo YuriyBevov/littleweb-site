@@ -309,15 +309,15 @@ template {
 }
 
 /**
- * Swiper 11.1.4
+ * Swiper 11.2.1
  * Most modern mobile touch slider and framework with hardware accelerated transitions
  * https://swiperjs.com
  *
- * Copyright 2014-2024 Vladimir Kharlampidi
+ * Copyright 2014-2025 Vladimir Kharlampidi
  *
  * Released under the MIT License
  *
- * Released on: May 30, 2024
+ * Released on: January 10, 2025
  */
 @font-face {
   font-family: swiper-icons;
@@ -934,7 +934,7 @@ button.swiper-pagination-bullet {
   pointer-events: auto;
 }
 
-.swiper-cube {
+.swiper.swiper-cube {
   overflow: visible;
 }
 
@@ -998,7 +998,7 @@ button.swiper-pagination-bullet {
   backface-visibility: hidden;
 }
 
-.swiper-flip {
+.swiper.swiper-flip {
   overflow: visible;
 }
 
@@ -1030,7 +1030,7 @@ button.swiper-pagination-bullet {
   transition-property: transform, opacity, height;
 }
 
-.swiper-cards {
+.swiper.swiper-cards {
   overflow: visible;
 }
 
@@ -1431,7 +1431,7 @@ h6 {
   flex-wrap: wrap;
 }
 
-.contacts__item, .social__list, .nav__header, .header__bottom .container, .header__top .container, .main-link {
+.fag__wrapper, .contacts__item, .social__list, .nav__header, .header__bottom .container, .header__top .container, .main-link {
   display: flex;
   align-items: center;
 }
@@ -2476,12 +2476,13 @@ input[type=tel].invalid-control::placeholder {
 .accordeon__item-header {
   position: relative;
   cursor: pointer;
-  padding-right: 35px;
+  margin: calc(-1 * var(--gap-s));
+  padding: var(--gap-s);
 }
 .accordeon__item-header::after {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 14px;
+  right: 12px;
   content: "";
   width: 20px;
   height: 20px;
@@ -2611,4 +2612,8 @@ input[type=tel].invalid-control::placeholder {
 }
 .contacts__social {
   gap: 10px;
+}
+
+.fag__wrapper {
+  gap: 20px;
 }/*# sourceMappingURL=template.css.map */

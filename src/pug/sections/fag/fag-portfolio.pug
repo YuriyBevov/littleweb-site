@@ -1,0 +1,19 @@
+extends ../../layouts/base-section/base-section.pug
+include ../../components/links/main-link
+
+block variables
+  - sectionTitle = 'Наши работы'
+
+block content
+  include ../../content/portfolio-list
+  include ../../components/sliders/main-slider/main-slider
+
+  +main-slider({
+    cls: 'portfolio-slider',
+    options: {
+      navigation: true,
+      pagination: true
+    },
+    type: 'portfolio',
+    slides: portfolioList
+  })

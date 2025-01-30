@@ -1,0 +1,20 @@
+extends layouts/main-layout.pug
+
+block variables
+  -
+    const title = "littleweb.ru"
+    const description = "Разработка и продвижение сайтов"
+    const keywords = ""
+    //- Дополнительные файлы стили для КОНКРЕТНОЙ страницы
+    //- const styleFileNames = ['inner']
+
+block content
+  include ./sections/fag/fag-detail
+  include ./sections/fag/fag-about
+  include ./sections/fag/fag-features
+  include ./sections/fag/fag-offer
+  include ./sections/fag/fag-portfolio
+
+block modals
+  //- Модальные окна используемые ТОЛЬКО на этой странице
+  //-
