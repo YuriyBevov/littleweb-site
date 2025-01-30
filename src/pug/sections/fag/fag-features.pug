@@ -1,0 +1,14 @@
+extends ../../layouts/base-section/base-section.pug
+
+block variables
+  - sectionClass = "features"
+  - sectionTitle = 'Преимущества нашей компании'
+
+block content
+  include ../../content/feature-list
+  include ../../components/cards/info-card/info-card
+
+  ul.base-list
+    each feature in featureList
+      li
+        +info-card(feature)

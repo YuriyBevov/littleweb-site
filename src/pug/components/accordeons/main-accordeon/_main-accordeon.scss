@@ -15,12 +15,13 @@
     &-header {
       position: relative;
       cursor: pointer;
-      padding-right: 35px;
+      margin: calc(-1 * var(--gap-s));
+      padding: var(--gap-s);
 
       &::after {
         position: absolute;
-        top: 0;
-        right: 0;
+        top: 14px;
+        right: 12px;
         content: '';
         width: 20px;
         height: 20px;
