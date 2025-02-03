@@ -1,0 +1,10 @@
+.company-main {
+  @extend %flex-column;
+  gap: clamp(20px, 3vw, 30px);
+
+  li {
+    font-family: var(--secondary-font);
+    font-size: 16px;
+    font-weight: var(--fw-l);
+  }
+}

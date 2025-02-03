@@ -27,9 +27,10 @@ $border-radius: 10px;
 
   svg {
     fill: var(--primary);
-    height: 50px;
-    width: 50px;
-    min-height: 50px;
+    height: 100%;
+    // width: 100%;
+    // max-width: 90px;
+    max-height: 50px;
     aspect-ratio: 1 / 1;
   }
 
