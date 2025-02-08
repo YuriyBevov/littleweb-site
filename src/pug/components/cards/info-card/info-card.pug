@@ -4,14 +4,18 @@ mixin info-card(data)
       svg(width="50" height="50")
         use(xlink:href=`./assets/svg-sprite.svg#icon-${data.icon}`)
     .info-card__content
-        span.info-card-title!= data.title
-        span.info-card-text!= data.text
+      span.info-card-title!= data.title
+      span.info-card-text!= data.text
 
-        if data.note
-          small!= data.note
+      if data.note
+        small!= data.note
 
-        if data.price
-          .info-card-price
-            span!= data.price
-        if data.link
-          a(href= data.link).info-card-bottom-link!= data.linkText
+      if data.price
+        .info-card-price
+          span!= data.price
+    if data.link
+      a(href= data.link).info-card-bottom-link!= data.linkText
+    if data.linkSvg
+      a(href= data.linkSvg)
+        svg(width="85" height="34")
+          use(xlink:href=`./assets/svg-sprite.svg#icon-${data.linkText}`)

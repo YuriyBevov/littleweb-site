@@ -3,5 +3,25 @@
     @extend %list-reset;
     @extend %flex-column;
     gap: var(--gap-xxl);
+
+    &-item {
+      border: 1px solid white;
+      padding: var(--gap-m);
+      box-shadow: 0 0 60px rgb(51 51 51 / 85%);
+
+      @include media-up($desktop-width) {
+        padding: var(--gap-l);
+      }
+
+      .info-card {
+        flex-direction: row;
+        align-items: center;
+
+        @include media-down($tablet-width) {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    }
   }
 }
