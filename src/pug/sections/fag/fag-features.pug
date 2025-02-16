@@ -2,7 +2,8 @@ extends ../../layouts/base-section/base-section.pug
 
 block variables
   - sectionClass = "features"
-  - sectionTitle = 'Преимущества нашей компании'
+  - sectionTitle = 'Преимущества нашей <span>компании</span>'
+  - var useGrid = false
 
 block content
   include ../../content/feature-list

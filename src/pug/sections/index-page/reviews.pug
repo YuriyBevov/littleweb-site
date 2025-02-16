@@ -2,7 +2,8 @@ extends ../../layouts/base-section/base-section.pug
 include ../../components/main-btn/main-btn
 
 block variables
-  - sectionTitle = 'Отзывы наших клиентов'
+  - sectionClass = "reviews"
+  - sectionTitle = 'Отзывы наших <span>клиентов</span>'
 
 block content
   include ../../content/review-list
@@ -24,4 +25,5 @@ block content
     modal: 'reviews'
   })
 
+  include ../../modals/review-modal
 

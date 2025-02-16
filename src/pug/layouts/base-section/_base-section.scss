@@ -1,7 +1,37 @@
 .base-section {
   padding: clamp(50px, 6vw, 100px) 0;
 
+  &__container {
+    &--flex-column-center {
+      @extend %flex-column;
+      align-items: center;
+    }
+  }
+
   &__btn {
     margin-top: var(--gap-xl);
+  }
+
+  .main-btn {
+    grid-column: 1/2;
+    max-height: 40px;
+    margin-top: 0;
+
+    @include media-down($desktop-width) {
+      grid-column: auto;
+      order: 3;
+      margin-top: var(--gap-xl);
+    }
+  }
+
+  .accordeon {
+    grid-column: 2/3;
+    grid-row: 1/2;
+
+    @include media-down($desktop-width) {
+      grid-column: auto;
+      grid-row: auto;
+      order: 2;
+    }
   }
 }

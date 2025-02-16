@@ -2,7 +2,8 @@ extends ../../layouts/base-section/base-section.pug
 include ../../components/links/main-link
 
 block variables
-  - sectionTitle = 'Наши работы'
+  - sectionTitle = 'Наши <span>работы</span>'
+  - useGrid = false
 
 block content
   include ../../content/portfolio-list

@@ -1,0 +1,10 @@
+.offer {
+  .container {
+    @extend %flex-column;
+    align-items: center;
+  }
+
+  .base-title {
+    text-align: center;
+  }
+}

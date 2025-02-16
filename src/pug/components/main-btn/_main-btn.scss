@@ -11,6 +11,7 @@ $main-btn-outined-color: var(--primary);
 $main-btn-outlined-bg: transparent;
 $main-btn-outlined-border-color: var(--primary);
 
+%main-btn,
 .main-btn {
   @extend %btn-reset;
   @extend %flex-centered-content;

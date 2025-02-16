@@ -5,4 +5,5 @@ import '../pug/components/accordeons/main-accordeon/main-accordeon';
 import '../pug/components/sliders/main-slider/main-slider';
 import './modules/input-number-mask';
 import './modules/form-submit';
+import './modules/collapsed-text';
 // import './modules/grid-lines';

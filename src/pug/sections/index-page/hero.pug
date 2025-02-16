@@ -3,19 +3,18 @@ include ../../components/links/main-link
 
 section.page-top-section.hero
   .container
-    h1.main-title Создание и продвижение сайтов под ключ
+    h1.main-title Создание и продвижение сайтов <span>под ключ</span>
 
     p.main-text Разработаем и запустим проект, отвечающий специфике Вашего бизнеса, выведем его в ТОП поисковых систем Яндекс и Google.
 
-    .btn-row
-      +main-btn({
-        class: 'main-btn--outlined',
-        text: 'Связаться с нами',
-        modal: 'callback'
-      })
+    +main-btn({
+      class: 'main-btn--outlined',
+      text: 'Связаться с нами',
+      modal: 'callback'
+    })
 
-      //- +main-link({
-      //-   href: 'brief.html',
-      //-   text: 'Заполнить бриф',
-      //-   class: 'main-btn'
-      //- })
+    //- +main-link({
+    //-   href: 'brief.html',
+    //-   text: 'Заполнить бриф',
+    //-   class: 'main-btn'
+    //- })
