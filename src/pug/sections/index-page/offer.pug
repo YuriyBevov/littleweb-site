@@ -1,7 +1,9 @@
 extends ../../layouts/base-section/base-section.pug
 
 block variables
-  - sectionTitle = 'Давайте работать над вашим проектом вместе!'
+  - sectionClass = "offer"
+  - containerClass = ""
+  - sectionTitle = 'Давайте работать над вашим проектом <span>вместе!</span>'
 
 block content
   p.base-text Оставьте заявку и мы свяжемся с Вами в ближайшее время !
@@ -25,8 +27,15 @@ block content
           label: 'Телефон:',
           dataType: 'phone',
           required: true
+        },
+
+        {
+          type: 'email',
+          id: 'offer_user_email',
+          label: 'E-mail:',
+          dataType: 'email',
+          required: true
         }
       ]
     ]
-  })
-
+  })         

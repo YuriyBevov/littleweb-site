@@ -47,19 +47,28 @@ h6 {
   font-weight: var(--main-title-fw);
   margin-bottom: 1em;
   color: var(--main-title-color);
+
+  span {
+    color: var(--white);
+  }
 }
 
 .base-title {
   display: block;
   font-size: var(--base-title-fs);
-  font-weight: var(--base-title-fw);
-  margin-bottom: clamp(calc(var(--gap-xxl) * 1.1), 7vw, var(--gap-xxxl));
+  font-weight: var(--base-title-fr);
+  margin-bottom: clamp(calc(var(--gap-xl) * 1.1), 7vw, var(--gap-xxl));
   color: var(--base-title-color);
+
+  span {
+    color: var(--white);
+  }
 }
 
 .main-text {
   display: block;
-  font-size: var(--main-text-fs);
+  font-family: var(--secondary-font);
+  font-size: var(--fs-sm);
   line-height: 1.5;
   color: var(--main-text-color);
 }
@@ -80,6 +89,16 @@ h6 {
 
 .text-center {
   text-align: center;
+}
+
+.white-text {
+  color: var(--white);
+}
+
+.modal-text {
+  font-family: var(--secondary-font);
+  font-size: 16px;
+  font-weight: var(--fw-l);
 }
 
 .ff {

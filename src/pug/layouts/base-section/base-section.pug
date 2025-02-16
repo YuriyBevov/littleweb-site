@@ -1,12 +1,13 @@
 block variables
   - sectionClass = ''
+  - containerClass = ''
   - sectionTitle = ''
   - sectionText  = ''
 
 section.base-section(class= sectionClass)
-  .container
+  .container(class= containerClass)
     if sectionTitle
       h2.base-title!= sectionTitle
     if sectionText
-      h2.base-text!= sectionText
+      span.base-text!= sectionText
     block content

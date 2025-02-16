@@ -9,7 +9,7 @@
 
   &__item {
     border-radius: 4px;
-    border: 1px solid var(--white);
+    border: 2px solid var(--white);
     padding: var(--gap-s);
 
     &-header {
@@ -17,6 +17,7 @@
       cursor: pointer;
       margin: calc(-1 * var(--gap-s));
       padding: var(--gap-s);
+      padding-right: var(--gap-xl);
 
       &::after {
         position: absolute;
@@ -49,7 +50,7 @@
 
     &.expanded {
       .accordeon__item-header::after {
-        transform: rotate(180deg);
+        transform: rotate(45deg);
       }
 
       .accordeon__item-content {

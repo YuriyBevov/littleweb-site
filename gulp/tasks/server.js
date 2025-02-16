@@ -8,7 +8,7 @@ export const server = () => {
   browserSync.init({
     open: false,
     cors: true,
-    port: 3000,
+    port: 4000,
 
     server: {
       baseDir: BUILD_PATH,

@@ -2,7 +2,8 @@ extends ../../layouts/base-section/base-section.pug
 include ../../components/main-btn/main-btn
 
 block variables
-  - sectionTitle = 'Наши контакты'
+  - sectionTitle = 'Наши <span>контакты</span>'
+  - var useGrid = false
 block content
   .contacts__main
     a(href="tel:+79062723744").contacts__item

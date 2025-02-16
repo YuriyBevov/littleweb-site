@@ -1,0 +1,7 @@
+.questions {
+  @include media-up($tablet-lg-width) {
+    .accordeon {
+      width: 80%;
+    }
+  }
+}

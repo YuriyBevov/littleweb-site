@@ -6,6 +6,7 @@
   }
 
   input[type='text'],
+  input[type='email'],
   input[type='tel'] {
     width: initial;
     max-width: initial;
@@ -13,7 +14,7 @@
   }
 
   button[type='submit'] {
-    margin: 1.5em 0;
+    margin: 1.5em auto;
     width: 100%;
 
     @include media-up($mobile-width) {

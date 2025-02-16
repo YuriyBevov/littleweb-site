@@ -3,14 +3,18 @@ include ../../main-btn/main-btn
 mixin review-card(review)
   .review-card
     .review-card__header
-      span!= review.text
-
-      +main-btn({
-        class: 'review-card__opener-btn main-btn--outlined',
-        type: 'button',
-        modal: 'full-review',
-        text: 'Весь отзыв',
-      })
+      div.review-card__ratings 
+        div.review-card__ratings-item
+          img(src='./assets/images/icon-star.svg' alt="rating" width="20" height="20")
+        div.review-card__ratings-item
+          img(src='./assets/images/icon-star.svg' alt="rating" width="20" height="20")
+        div.review-card__ratings-item
+          img(src='./assets/images/icon-star.svg' alt="rating" width="20" height="20")
+        div.review-card__ratings-item
+          img(src='./assets/images/icon-star.svg' alt="rating" width="20" height="20")
+        div.review-card__ratings-item
+          img(src='./assets/images/icon-star.svg' alt="rating" width="20" height="20")
+    .review-card__content(data-collapsed-text="120" data-expanded-text!= review.text data-collapsed-btn-text="Смотреть весь отзыв")!= review.text    
 
     .review-card__footer
       if review.user.name

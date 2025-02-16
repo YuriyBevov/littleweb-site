@@ -5,21 +5,51 @@
   font-family: var(--secondary-font);
   width: 100%;
   height: 100%;
-  border: 1px solid white;
+  border: 2px solid white;
   padding: var(--gap-m);
 
   @include media-up($desktop-width) {
     padding: var(--gap-l);
   }
 
+  &__content {
+    font-size: 14px;
+
+    button {
+      @extend %main-btn;
+
+      font-size: 14px;
+      font-weight: 300;
+      padding: 0;
+      margin-top: var(--gap-m);
+      min-height: fit-content;
+      background-color: transparent;
+      color: var(--primary);
+    }
+  }
+
+  &__ratings {
+    @extend %flex-align;
+    gap: var(--base-gap);
+    margin-bottom: var(--fs-sm);
+
+    &-item {
+      width: 100%;
+      height: 100%;
+      max-width: 20px;
+      max-height: 20px;
+    }
+  }
+
   &__header {
     @extend %flex-column;
 
     span {
-      font-style: italic;
+      // font-style: italic;
       font-weight: var(--fw-l);
+      font-size: 16px;
 
-      @include text-truncate(3);
+      // @include text-truncate(3);
     }
 
     .main-btn {
@@ -35,12 +65,17 @@
     gap: 5px;
     margin-top: auto;
 
-    small {
-      font-size: 0.6em;
+    span {
+      font-weight: var(--fw-r);
+      font-size: 18px;
+      color: var(--white);
+      text-transform: uppercase;
     }
-  }
 
-  &__opener-btn {
-    display: none;
+    small {
+      font-weight: var(--fw-l);
+      font-size: 14px;
+      color: var(--primary);
+    }
   }
 }
