@@ -14,12 +14,12 @@
   }
 
   button[type='submit'] {
-    margin: 1.5em auto;
+    margin: 1.5em 0;
     width: 100%;
 
     @include media-up($mobile-width) {
       width: calc(50% - 8px);
-      max-width: 220px;
+      // max-width: 220px;
     }
   }
 

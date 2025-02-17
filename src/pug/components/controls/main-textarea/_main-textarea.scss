@@ -1,0 +1,48 @@
+$textarea-text-max-width: 100%;
+$textarea-text-box-shadow: none;
+$textarea-text-font-size: 12px;
+$textarea-text-border: 2px solid;
+$textarea-text-color: var(--primary);
+$textarea-text-bg: transparent;
+$textarea-text-border-radius: 30px;
+$textarea-text-border-color: var(--primary);
+$textarea-text-placeholder-color: var(--primary);
+$textarea-text-invalid-color: var(--danger);
+
+textarea {
+  @extend %btn-reset;
+  @extend %flex-centered-content;
+
+  width: 100%;
+  max-width: $textarea-text-max-width;
+  min-height: 80px;
+  padding: 10px 20px;
+  font-family: var(--secondary-font);
+  font-size: $textarea-text-font-size;
+  background: $textarea-text-bg;
+  box-shadow: $textarea-text-box-shadow;
+  border: $textarea-text-border;
+  border-color: $textarea-text-border-color;
+  border-radius: $textarea-text-border-radius;
+  color: $textarea-text-color;
+  margin-top: var(--gap-m);
+
+  &::placeholder {
+    color: $textarea-text-placeholder-color;
+  }
+
+  @include media-up($mobile-width) {
+    font-size: 14px;
+  }
+
+  &.invalid-control {
+    color: $textarea-text-invalid-color;
+    border-color: $textarea-text-invalid-color;
+
+    &::placeholder {
+      color: $textarea-text-invalid-color;
+    }
+
+    @extend %shaker;
+  }
+}

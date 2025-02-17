@@ -1,4 +1,5 @@
 include ../../controls/main-input/main-input
+include ../../controls/main-textarea/main-textarea
 include ../../main-btn/main-btn
 
 mixin callback-form(data)
@@ -16,6 +17,13 @@ mixin callback-form(data)
             dataType: ctrl.dataType,
             required: ctrl.required
           })
+    //- Отдельная проверка на textarea
+    if data.textarea
+      +main-textarea({
+        label: data.textarea.label,
+        id: data.textarea.id,
+        required: data.textarea.required
+      })
 
     +main-btn({
       type: 'submit',

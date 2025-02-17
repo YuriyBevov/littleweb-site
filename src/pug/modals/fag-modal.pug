@@ -1,8 +1,8 @@
 extends ../layouts/modals/main-modal
 
 block variables
-  - modalId = "review"
-  - modalClasses = "review-modal"
+  - modalId = "fag"
+  - modalClasses = "fag-modal"
 
 block modalContent
   span.modal-title Заполните форму и мы обязательно свяжемся с Вами
@@ -32,7 +32,7 @@ block modalContent
     ],
     textarea: {
           id: 'callback_user_message',
-          label: 'Отзыв:',
+          label: 'Сообщение:',
           required: true
         }
   })
