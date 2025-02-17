@@ -4,7 +4,7 @@ import { limitStr } from '../helpers/utils/limitStr';
 const collapsedItems = document.querySelectorAll('[data-collapsed-text]');
 
 if (collapsedItems.length) {
-  const reviewModal = document.querySelector('.review-modal');
+  const reviewModal = document.querySelector('.expanded-text-modal');
 
   collapsedItems.forEach((item) => {
     item.innerHTML = limitStr(item.innerHTML, item.dataset.collapsedText);

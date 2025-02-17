@@ -7,4 +7,9 @@
   .base-title {
     text-align: center;
   }
+
+  .callback-form button[type='submit'] {
+    margin: 1.5em auto;
+    width: fit-content;
+  }
 }

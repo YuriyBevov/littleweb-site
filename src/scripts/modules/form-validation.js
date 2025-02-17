@@ -37,6 +37,19 @@ export const formValidation = (form) => {
       } else {
         setValidStatus(field);
       }
+    } else if (field['type'] === 'email') {
+      if (field.value.trim().length < 21) {
+        setInvalidStatus(field);
+      } else {
+        setValidStatus(field);
+      }
+    } else if (field.tagName === 'TEXTAREA') {
+      // Проверка для textarea
+      if (field.value.trim().length < 5) {
+        setInvalidStatus(field);
+      } else {
+        setValidStatus(field);
+      }
     }
   });
 
