@@ -38,7 +38,7 @@ export const formValidation = (form) => {
         setValidStatus(field);
       }
     } else if (field['type'] === 'email') {
-      if (field.value.trim().length < 21) {
+      if (field.value.trim().length < 5) {
         setInvalidStatus(field);
       } else {
         setValidStatus(field);

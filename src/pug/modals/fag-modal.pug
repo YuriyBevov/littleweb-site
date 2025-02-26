@@ -11,19 +11,19 @@ block modalContent
 
   +callback-form({
     submitBtnText: 'Отправить',
-    formName: 'Заказать звонок',
+    formName: 'Задать вопрос',
     rows: [
       [
         {
           type: 'text',
-          id: 'callback_user_name',
+          id: 'fag_user_name',
           label: 'Имя:',
           required: true
         },
 
         {
           type: 'tel',
-          id: 'callback_user_phone',
+          id: 'fag_user_phone',
           label: 'Телефон:',
           dataType: 'phone',
           required: true
@@ -31,8 +31,9 @@ block modalContent
       ]
     ],
     textarea: {
-          id: 'callback_user_message',
-          label: 'Сообщение:',
+          name: "textarea",
+          id: 'fag_user_message',
+          label: 'Вопрос:',
           required: true
         }
   })

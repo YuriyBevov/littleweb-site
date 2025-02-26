@@ -11,19 +11,19 @@ block modalContent
 
   +callback-form({
     submitBtnText: 'Отправить',
-    formName: 'Заказать звонок',
+    formName: 'Оставить отзыв',
     rows: [
       [
         {
           type: 'text',
-          id: 'callback_user_name',
+          id: 'review_user_name',
           label: 'Имя:',
           required: true
         },
 
         {
           type: 'tel',
-          id: 'callback_user_phone',
+          id: 'review_user_phone',
           label: 'Телефон:',
           dataType: 'phone',
           required: true
@@ -31,7 +31,7 @@ block modalContent
       ]
     ],
     textarea: {
-          id: 'callback_user_message',
+          id: 'review_user_message',
           label: 'Отзыв:',
           required: true
         }

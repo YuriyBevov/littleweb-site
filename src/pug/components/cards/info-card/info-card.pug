@@ -15,7 +15,3 @@ mixin info-card(data)
           span!= data.price
     if data.link
       a(href= data.link).info-card-bottom-link!= data.linkText
-    if data.linkSvg
-      a(href= data.linkSvg)
-        svg(width="85" height="34")
-          use(xlink:href=`./assets/svg-sprite.svg#icon-${data.linkText}`)

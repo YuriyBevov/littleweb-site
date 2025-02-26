@@ -1,2 +1,2 @@
 mixin main-textarea(data)
-  textarea( id= data.id ? data.id : '' name= data.label placeholder= data.label data-required= data.required ? "true" : null)
+  textarea(id=data.id ? data.id : '' name=data.name placeholder=data.label data-required=(data.required ? "true" : null))
