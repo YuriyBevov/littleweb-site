@@ -7,7 +7,7 @@ section.services-main.page-top-section
   .container
     h1.main-title Наши услуги
 
-    ul.services-main__list
+    ul.base-list
       each service in serviceList
-        li.services-main__list-item
+        li
           +info-card(service)

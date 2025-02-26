@@ -12,6 +12,7 @@ $textarea-text-invalid-color: var(--danger);
 textarea {
   @extend %btn-reset;
   @extend %flex-centered-content;
+  resize: none;
 
   width: 100%;
   max-width: $textarea-text-max-width;

@@ -1,23 +1,27 @@
 .portfolio-card {
   @extend %flex-column;
-
+  border: 2px solid white;
+  padding: var(--gap-xl);
+  box-shadow: 0 0 60px rgba(51, 51, 51, 0.85);
   gap: var(--gap-s);
 
   &__title {
     display: inline-block;
-    font-family: var(--secondary-font);
+    font-family: var(--primary-font);
+    font-size: var(--fs-md);
   }
 
   &__text {
     display: inline-block;
     font-family: var(--secondary-font);
+    font-size: 16px;
     font-weight: var(--fw-l);
-    font-style: italic;
-    font-size: 14px;
+    margin-bottom: auto;
+    @include text-truncate(4);
   }
 
   &__link {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: var(--fw-l);
     color: var(--primary);
 
