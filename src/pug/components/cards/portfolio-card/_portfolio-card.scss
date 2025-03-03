@@ -4,6 +4,7 @@
   padding: var(--gap-xl);
   box-shadow: 0 0 60px rgba(51, 51, 51, 0.85);
   gap: var(--gap-s);
+  height: 100%;
 
   &__title {
     display: inline-block;
@@ -40,6 +41,7 @@
 
   &__footer {
     @extend %flex-column;
+    height: 100%;
 
     gap: var(--gap-s);
   }

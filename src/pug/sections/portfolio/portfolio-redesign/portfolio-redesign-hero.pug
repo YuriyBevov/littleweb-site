@@ -1,0 +1,15 @@
+include ../../../components/main-btn/main-btn
+include ../../../components/links/main-link
+
+section.page-top-section.portfolio-single-hero
+  .container
+    .portfolio-single-hero__content      
+        h1.main-title <span>Редизайн для стоматологической</span> клиники
+
+        p.main-text Редизайн сайта – это процесс полной переработки существующего дизайна сайта с целью устранения ошибок, улучшения функциональных возможностей, изменения айдентики и внешнего вида. В ходе редизайна учитываются такие факторы, как контент площадки, пользовательский опыт, SEO-оптимизация, адаптивность под мобильные устройства и другие параметры.
+        +main-btn({
+        class: 'main-btn--outlined',
+        text: 'Связаться с нами',
+        modal: 'callback'
+        })
+    img(src=`./assets/images/mock/banner.png` alt= "banner.png" width="700" height="460")    
