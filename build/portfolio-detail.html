@@ -12,16 +12,9 @@
       content="ie=edge"
     >
     <title>
-      littleweb.ru
     </title>
-    <meta
-      name="description"
-      content="Разработка и продвижение сайтов"
-    >
-    <meta
-      name="keywords"
-      content
-    >
+    <meta name="description">
+    <meta name="keywords">
     <link
       rel="stylesheet"
       href="./assets/template.min.css"
@@ -276,136 +269,250 @@
       </div>
     </header>
     <main>
-      <section class="company-main">
+      <section class="page-top-section portfolio-single-hero">
         <div class="container">
-          <h1 class="main-title">
-            О компании
-          </h1>
-          <h2>
-            Мы создаем сайты, которые работают на ваш бизнес
-          </h2>
-          <p>
-            Наша веб-студия — это команда профессионалов, которые создают современные, удобные и эффективные сайты для бизнеса. Мы знаем, что ваш сайт — это не просто визитная карточка, а мощный инструмент для привлечения клиентов и увеличения прибыли.
-          </p>
-          <h3>
-            Что мы предлагаем?
-          </h3>
-          <ul class="company-main__list">
-            <li class="company-main__list-item">
-              <strong>
-                Разработка сайтов под ключ
-              </strong>
-              — от идеи до запуска.
-            </li>
-            <li class="company-main__list-item">
-              <strong>
-                Дизайн и UX/UI
-              </strong>
-              — создаем удобные интерфейсы, которые привлекают и удерживают внимание.
-            </li>
-            <li class="company-main__list-item">
-              <strong>
-                SEO-продвижение
-              </strong>
-              — обеспечиваем высокие позиции в поиске и привлекаем органический трафик.
-            </li>
-            <li class="company-main__list-item">
-              <strong>
-                Поддержка и доработка
-              </strong>
-              — следим за работой сайта, обновляем и улучшаем его.
-            </li>
-          </ul>
-          <ul class="company-main__list">
-            <li class="company-main__list-item">
-              <strong>
-                Опыт
-              </strong>
-              — более 10 лет в разработке сайтов.
-            </li>
-            <li class="company-main__list-item">
-              <strong>
-                Индивидуальный подход
-              </strong>
-              — подбираем решения под ваш бизнес.
-            </li>
-            <li class="company-main__list-item">
-              <strong>
-                Современные технологии
-              </strong>
-              — используем передовые инструменты и тренды.
-            </li>
-            <li class="company-main__list-item">
-              <strong>
-                Поддержка и доработка
-              </strong>
-              — следим за работой сайта, обновляем и улучшаем его.
-            </li>
-          </ul>
-        </div>
-      </section>
-      <section class="base-section offer">
-        <div class="container">
-          <h2 class="base-title">
-            Давайте работать над вашим проектом
-            <span>
-              вместе!
-            </span>
-          </h2>
-          <p class="base-text">
-            Оставьте заявку и мы свяжемся с Вами в ближайшее время !
-          </p>
-          <form
-            class="callback-form"
-            action="mail.php"
-          >
-            <input
-              type="hidden"
-              name="Заполненная форма:"
-              value="Оставить заявку"
-            >
-            <input
-              class="g-recaptcha-response"
-              type="hidden"
-              name="recaptcha"
-            >
-            <fieldset class="flex-row">
-              <input
-                type="text"
-                id="offer_user_name"
-                name="Имя:"
-                placeholder="Имя:"
-                data-required="true"
-              >
-              <input
-                type="tel"
-                id="offer_user_phone"
-                name="Телефон:"
-                data-type="phone"
-                placeholder="Телефон:"
-                data-required="true"
-              >
-              <input
-                type="email"
-                id="offer_user_email"
-                name="E-mail:"
-                data-type="email"
-                placeholder="E-mail:"
-                data-required="true"
-              >
-            </fieldset>
+          <div class="portfolio-single-hero__content">
+            <h1 class="main-title">
+              <span>
+                Редизайн для стоматологической
+              </span>
+              клиники
+            </h1>
+            <p class="main-text">
+              Редизайн сайта – это процесс полной переработки существующего дизайна сайта с целью устранения ошибок, улучшения функциональных возможностей, изменения айдентики и внешнего вида. В ходе редизайна учитываются такие факторы, как контент площадки, пользовательский опыт, SEO-оптимизация, адаптивность под мобильные устройства и другие параметры.
+            </p>
             <button
-              class="main-btn"
-              type="submit"
+              class="main-btn--outlined main-btn"
+              type="button"
+              data-modal-opener="callback"
             >
               <span>
-                Отправить
+                Связаться с нами
               </span>
             </button>
-            <small>
-              *Отправляя форму Вы соглашаетесь с условиями обработки персональных данных.
-            </small>
-          </form>
+          </div>
+          <img
+            src="./assets/images/mock/banner.png"
+            alt="banner.png"
+            width="700"
+            height="460"
+          >
+        </div>
+      </section>
+      <section class="base-section">
+        <div class="container">
+          <h2 class="base-title">
+            <span>
+              О
+            </span>
+            Компании
+          </h2>
+          <p class="main-text">
+            Клиника “Нисо” – это современный стоматологический центр, расположенный в сердце Санкт-Петербурга, предлагающий полный спектр услуг по уходу за зубами и деснами. Наша миссия – обеспечить высочайшее качество лечения и индивидуальный подход к каждому пациенту, создавая комфортную и дружелюбную атмосферу. Клиника “Нисо” – это ваш надежный партнер в заботе о здоровье зубов и красивой улыбке. Доверьтесь профессионалам и почувствуйте разницу в подходе и качестве обслуживания!
+          </p>
+        </div>
+      </section>
+      <section class="base-section">
+        <div class="container">
+          <h2 class="base-title">
+            <span>
+              Задачи
+            </span>
+            Проекта
+          </h2>
+          <p class="main-text">
+            В рамках проекта по редизайну сайта стоматологической клиники “Нисо” в Санкт-Петербурге были поставлены следующие задачи:
+          </p>
+          <ol>
+            <li>
+              Увеличение количества текста, описывающего предлагаемые услуги.
+            </li>
+            <li>
+              Добавление и улучшение визуальных материалов:
+              <p>
+                Увеличение количества фотографий, иллюстрирующих процесс лечения и состояние до/после.
+              </p>
+              <p>
+                Уменьшение размера фотографий для ускорения загрузки страниц.
+              </p>
+            </li>
+            <li>
+              Оптимизация навигации:
+              <p>
+                Редизайн системы навигации для облегчения перехода между страницами сайта.
+              </p>
+              <p>
+                Обеспечение доступа к ключевым разделам не более чем за четыре-пять кликов.
+              </p>
+            </li>
+            <li>
+              Редизайн цветовой палитры сайта:
+              <p>
+                Обновление дизайна в соответствии с фирменным стилем и современными тенденциями.
+              </p>
+            </li>
+            <li>
+              Обеспечение корректного отображения сайта в разных браузерах:
+              <p>
+                Адаптация программного кода для устранения искажений дизайна.
+              </p>
+            </li>
+          </ol>
+          <p class="main-text">
+            Эти задачи направлены на улучшение пользовательского опыта, повышение информативности сайта и усиление позиций клиники “Нисо” на рынке стоматологических услуг.
+          </p>
+        </div>
+      </section>
+      <section class="base-section portfolio-single-works">
+        <div class="container">
+          <h2 class="base-title">
+            <span>
+              Проделанные
+            </span>
+            работы
+          </h2>
+          <div class="portfolio-single-works__grid">
+            <div class="portfolio-single-works__grid-content">
+              <p class="main-text">
+                В рамках проекта по редизайну сайта стоматологической клиники “Нисо” были выполнены следующие работы:
+              </p>
+              <ol>
+                <li>
+                  Изменение структуры и навигации сайта:
+                  <p>
+                    - Переработана структура меню для более интуитивного и удобного доступа к основным разделам.
+                  </p>
+                  <p>
+                    - Внедрены новые фильтры и рубрики для облегчения поиска информации.
+                  </p>
+                </li>
+                <li>
+                  Актуализация контента:
+                  <p>
+                    - Проведена ревизия всех текстов на сайте, удалены устаревшие рубрики и разделы.
+                  </p>
+                  <p>
+                    - Обновлены описания услуг, добавлены новые фотографии до и после лечения.
+                  </p>
+                </li>
+                <li>
+                  Оптимизация визуальной составляющей:
+                  <p>
+                    - Заменены старые изображения на более современные и качественные.
+                  </p>
+                  <p>
+                    - Внедрены анимированные элементы для улучшения взаимодействия с пользователем и повышения конверсии.
+                  </p>
+                </li>
+                <li>
+                  Оптимизация функциональности:
+                  <p>
+                    - Проведена тщательная работа над HTML-кодом для улучшения юзабилити.
+                  </p>
+                  <p>
+                    - Внедрены новые модули и улучшены существующие для повышения удобства использования сайта.
+                  </p>
+                </li>
+                <li>
+                  Адаптивная верстка:
+                  <p>
+                    - Сайт адаптирован для корректного отображения на всех устройствах, включая мобильные гаджеты.
+                  </p>
+                  <p>
+                    - Проведена проверка отображения на экранах с разрешением 600x800 пикселей и других стандартных размерах.
+                  </p>
+                </li>
+              </ol>
+            </div>
+            <div class="portfolio-single-works__grid-img">
+              <img
+                src="./assets/images/mock/section_img.png"
+                alt="section_img"
+                width="500"
+                height="580"
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="base-section">
+        <div class="container">
+          <h2 class="base-title">
+            <span>
+              Дизайн и верстка
+            </span>
+            сайта
+          </h2>
+          <p class="main-text">
+            Сайт стоматологической клиники “Нисо” был разработан с использованием современных инструментов и технологий, чтобы обеспечить пациентам удобный и информативный ресурс. Весь процесс создания сайта можно разделить на несколько ключевых этапов, начиная с дизайна и заканчивая финальной версткой и программированием.
+          </p>
+          <p class="main-text">
+            Первоначально дизайн сайта был создан в программе Figma, которая позволяет дизайнерам и разработчикам совместно работать над проектом. После утверждения всех макетов в Figma, проект был передан разработчику для дальнейшей работы.
+          </p>
+          <p class="main-text">
+            Для этого использовались специальные инструменты экспорта, которые позволяют сохранить все слои и компоненты дизайна в формате, совместимом с программами для разработки.
+          </p>
+          <p class="main-text">
+            Разработчик использовал программу Visual Studio Code для работы с кодом и верстки сайта. Visual Studio Code предоставляет удобный интерфейс и множество расширений, которые помогают в написании и отладке кода. 
+          </p>
+          <ul class="tools__list">
+            <li class="tools__list-item">
+              <a
+                class="main-link"
+                href="services-detail.html"
+              >
+                <svg
+                  width="60"
+                  height="60"
+                >
+                  <use xlink:href="./assets/svg-sprite.svg#icon-figma">
+                  </use>
+                </svg>
+              </a>
+            </li>
+            <li class="tools__list-item">
+              <a
+                class="main-link"
+                href="services-detail.html"
+              >
+                <svg
+                  width="60"
+                  height="60"
+                >
+                  <use xlink:href="./assets/svg-sprite.svg#icon-framer">
+                  </use>
+                </svg>
+              </a>
+            </li>
+            <li class="tools__list-item">
+              <a
+                class="main-link"
+                href="services-detail.html"
+              >
+                <svg
+                  width="60"
+                  height="60"
+                >
+                  <use xlink:href="./assets/svg-sprite.svg#icon-js">
+                  </use>
+                </svg>
+              </a>
+            </li>
+            <li class="tools__list-item">
+              <a
+                class="main-link"
+                href="services-detail.html"
+              >
+                <svg
+                  width="60"
+                  height="60"
+                >
+                  <use xlink:href="./assets/svg-sprite.svg#icon-ps">
+                  </use>
+                </svg>
+              </a>
+            </li>
+          </ul>
         </div>
       </section>
     </main>
