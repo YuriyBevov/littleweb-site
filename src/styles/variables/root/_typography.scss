@@ -3,12 +3,14 @@
   --secondary-font: 'Montserrat', sans-serif;
 
   // font sizes
-  --fs-xl: clamp(36px, 5vw, 64px);
-  --fs-lg: clamp(24px, 6vw, 52px);
-  // --fs-lg: clamp(24px, 6vw, 52px);
-  --fs-md: clamp(16px, 2.8vw, 24px);
-  --fs-sm: clamp(14px, 2.4vw, 18px);
-  --fs-xs: 12px;
+  --fs-xl: clamp(32px, 5vw, 56px);
+  --fs-lg: clamp(28px, 4vw, 48px);
+  --fs-md: clamp(24px, 3vw, 40px);
+  --fs-sm: clamp(20px, 2.4vw, 32px);
+
+  --fs-h5: clamp(16px, 2.4vw, 24px);
+
+  --fs-xs: 16px;
   --fs-xxs: 10px;
 
   // font weights

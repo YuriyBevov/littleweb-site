@@ -105,3 +105,24 @@ picture {
     flex-grow: 1;
   }
 }
+
+.base-title-block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-m);
+  margin-bottom: var(--gap-xxl);
+
+  :is(h1, h2, h3, h4, h5, h6, p) {
+    margin: 0;
+  }
+
+  p {
+    font-family: var(--secondary-font);
+  }
+}
+
+.content-page {
+  :is(p, small) {
+    font-family: var(--secondary-font);
+  }
+}
