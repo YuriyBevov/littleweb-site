@@ -41,6 +41,44 @@ h6 {
   font-size: var(--fs-xs);
 }
 
+ol,
+ul {
+  margin: 0;
+  margin-bottom: var(--gap-xxl);
+
+  li {
+    font-family: var(--secondary-font);
+  }
+}
+
+blockquote {
+  margin: 0;
+  padding-left: 28px;
+  font-family: var(--secondary-font);
+  border-left: 4px solid var(--primary);
+  margin-bottom: var(--gap-xxl);
+}
+
+.table-overlay {
+  overflow-x: scroll;
+}
+
+table {
+  border-collapse: collapse;
+  font-family: var(--secondary-font);
+
+  thead {
+    td {
+      color: var(--primary);
+    }
+  }
+
+  td {
+    padding: 30px 24px;
+    border: 2px solid #fffce1;
+  }
+}
+
 .main-title {
   display: block;
   // font-size: var(--main-title-fs);
