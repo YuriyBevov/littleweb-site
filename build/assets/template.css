@@ -2081,6 +2081,80 @@ textarea.invalid-control::placeholder {
   font-size: 14px;
 }
 
+.project-modal {
+  max-width: 1000px;
+  height: 54vh;
+  overflow: hidden;
+  overflow-y: auto;
+}
+.project-modal::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../assets/images/mac-bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.project-modal .modal-content {
+  position: absolute;
+  height: 100%;
+  max-height: 470px;
+  width: 100%;
+  max-width: 740px;
+  top: 78px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  overflow: hidden;
+  overflow-y: auto;
+  border: none;
+  padding: 0;
+  scrollbar-width: none; /* Для Firefox */
+  -ms-overflow-style: none;
+}
+.project-modal .element-with-scroll::-webkit-scrollbar {
+  display: none; /* Полностью скрывает скроллбар */
+}
+
+.mobile-project-modal {
+  max-width: 800px;
+  height: 80vh;
+  overflow: hidden;
+  overflow-y: auto;
+  background-image: url("../assets/images/mobile-bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  /* Скрываем скроллбар в WebKit-браузерах (Chrome, Edge, Safari) */
+}
+.mobile-project-modal .modal-closer {
+  right: 70px;
+}
+.mobile-project-modal .modal-content {
+  position: absolute;
+  height: 100%;
+  max-height: 801px;
+  width: 100%;
+  max-width: 372px;
+  top: 66px;
+  left: 212px;
+  z-index: 1;
+  overflow: hidden;
+  overflow-y: auto;
+  border: none;
+  padding: 0;
+  border-radius: 60px;
+  scrollbar-width: none; /* Для Firefox */
+  -ms-overflow-style: none;
+}
+.mobile-project-modal .element-with-scroll::-webkit-scrollbar {
+  display: none; /* Полностью скрывает скроллбар */
+}
+
 :root {
   --header-top-bg-color: #252323;
   --header-bg-color: var(--dark);

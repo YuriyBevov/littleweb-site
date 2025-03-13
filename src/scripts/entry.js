@@ -6,4 +6,6 @@ import '../pug/components/sliders/main-slider/main-slider';
 import './modules/input-number-mask';
 import './modules/form-submit';
 import './modules/collapsed-text';
+import './modules/view-project';
+import './modules/view-mobile-project';
 // import './modules/grid-lines';
