@@ -29,6 +29,7 @@ $mobile-view-width: 1360px;
     a {
       font-size: var(--fs-s);
       padding: var(--gap-xs);
+      font-family: var(--primary-font);
 
       &.current {
         color: var(--primary);

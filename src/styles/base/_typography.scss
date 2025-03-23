@@ -15,67 +15,92 @@ p {
   margin-top: 0;
   margin-bottom: 1.5em;
   font-weight: var(--fw-r);
+  font-family: var(--secondary-font);
 }
 
 h1 {
-  font-size: var(--fs-lg);
+  font-size: var(--fs-xl);
 }
 
 h2 {
-  font-size: var(--fs-md);
+  font-size: var(--fs-lg);
 }
 
 h3 {
-  font-size: var(--fs-sm);
+  font-size: var(--fs-md);
 }
 
 h4 {
-  font-size: var(--fs-xs);
+  font-size: var(--fs-sm);
 }
 
 h5 {
-  font-size: var(--fs-xs);
+  font-size: var(--fs-h5);
 }
 
 h6 {
   font-size: var(--fs-xs);
 }
 
+ol,
+ul {
+  margin: 0;
+  margin-bottom: var(--gap-xxl);
+
+  li {
+    font-family: var(--secondary-font);
+  }
+}
+
+blockquote {
+  margin: 0;
+  padding-left: 28px;
+  font-family: var(--secondary-font);
+  border-left: 4px solid var(--primary);
+  margin-bottom: var(--gap-xxl);
+}
+
+small {
+  display: inline-block;
+  margin-bottom: 1.5em;
+  font-family: var(--secondary-font);
+  color: var(--main-title-color);
+}
+
 .main-title {
   display: block;
-  font-size: var(--main-title-fs);
   font-weight: var(--main-title-fw);
   margin-bottom: 1em;
-  color: var(--main-title-color);
+  color: var(--white);
+  font-family: var(--primary-font);
 
   span {
-    color: var(--white);
+    color: var(--main-title-color);
   }
 }
 
 .base-title {
   display: block;
-  font-size: var(--base-title-fs);
   font-weight: var(--base-title-fr);
   margin-bottom: clamp(calc(var(--gap-xl) * 1.1), 7vw, var(--gap-xxl));
-  color: var(--base-title-color);
+  color: var(--white);
+  font-family: var(--primary-font);
 
   span {
-    color: var(--white);
+    color: var(--base-title-color);
   }
 }
 
 .main-text {
   display: block;
   font-family: var(--secondary-font);
-  font-size: var(--fs-sm);
   line-height: 1.5;
   color: var(--main-text-color);
 }
 
 .base-text {
   display: block;
-  font-size: var(--base-text-fs);
+  // font-size: var(--base-text-fs);
   color: var(--base-text-color);
 }
 
@@ -85,6 +110,10 @@ h6 {
 
 .text-underlined {
   text-decoration: underline;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
 }
 
 .text-center {
