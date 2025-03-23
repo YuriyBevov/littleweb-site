@@ -6,8 +6,9 @@ block variables
 
 section.base-section(class= sectionClass)
   .container(class= containerClass)
-    if sectionTitle
-      h2.base-title!= sectionTitle
-    if sectionText
-      span.base-text!= sectionText
+    div.base-title-block
+      if sectionTitle
+        h2.base-title!= sectionTitle
+      if sectionText
+        span.base-text!= sectionText
     block content

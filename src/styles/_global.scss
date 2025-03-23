@@ -27,7 +27,8 @@ body {
   position: relative;
   display: flex;
   flex-direction: column;
-  font-family: var(--primary-font);
+  // font-family: var(--primary-font);
+  font-family: var(--secondary-font);
   font-weight: var(--fw-r);
   line-height: 1.5;
   letter-spacing: 0.1em;
@@ -71,12 +72,36 @@ address {
   font-style: normal;
 }
 
-.hidden {
-  display: none !important;
-}
-
 picture {
   display: flex;
+}
+
+.table {
+  &-overlay {
+    overflow-x: scroll;
+  }
+
+  &-base {
+    thead {
+      td {
+        color: var(--primary);
+      }
+    }
+
+    td {
+      padding: 30px 24px;
+      border: 2px solid #fffce1;
+    }
+  }
+}
+
+table {
+  border-collapse: collapse;
+  font-family: var(--secondary-font);
+}
+
+.hidden {
+  display: none !important;
 }
 
 .hidden-laptop-down {
@@ -103,5 +128,16 @@ picture {
 
   .main-btn {
     flex-grow: 1;
+  }
+}
+
+.base-title-block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-m);
+  margin-bottom: var(--gap-xxl);
+
+  :is(h1, h2, h3, h4, h5, h6, p) {
+    margin: 0;
   }
 }

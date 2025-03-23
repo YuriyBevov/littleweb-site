@@ -26,6 +26,7 @@ $main-btn-outlined-border-color: var(--primary);
   border-color: $main-btn-border-color;
   border-radius: $main-btn-border-radius;
   color: $main-btn-color;
+  font-family: var(--primary-font);
 
   &--outlined {
     color: $main-btn-outined-color;

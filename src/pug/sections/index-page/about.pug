@@ -4,12 +4,13 @@ include ../../components/main-btn/main-btn
 block variables
   - sectionClass = "about"
   - sectionTitle = 'Что мы <span>делаем</span>'
+  - sectionText = 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem eaque dignissimos vel eius repellat consequatur, minima atque a eum voluptates accusantium quas dicta et nostrum ratione. Ex iusto labore optio!'
 
 block content
   include ../../content/about-list
   include ../../components/cards/info-card/info-card
 
-  ul.base-list
+  ul.base-list.base-list--3cols
     each about in aboutList
       li
         +info-card(about)
