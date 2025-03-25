@@ -43,7 +43,7 @@ $border-radius: 10px;
 
   &-title {
     font-family: var(--primary-font);
-    font-size: var(--fs-md);
+    font-size: var(--base-cart-title-fs);
   }
 
   &-text {
@@ -60,9 +60,9 @@ $border-radius: 10px;
     }
   }
 
-  .info-card-bottom-link {
-    padding: var(--gap-s) 0;
+  &-bottom-link {
     color: var(--primary);
+    font-family: var(--primary-font);
   }
 
   &--vertical {
@@ -78,6 +78,7 @@ $border-radius: 10px;
     color: var(--white);
     margin-left: calc(-1 * (var(--gap-l) + 10px));
     box-shadow: 2px 0px 10px rgba(145, 245, 245, 0.5);
+    font-family: var(--primary-font);
 
     @include media-down($mobile-width) {
       padding: 10px calc(var(--gap-l) + var(--container-offset));
