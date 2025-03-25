@@ -1,7 +1,28 @@
 .questions {
-  @include media-up($tablet-lg-width) {
-    .accordeon {
-      width: 80%;
+  .accordeon {
+    grid-column: auto;
+    grid-row: auto;
+    order: 1;
+  }
+  &-wrapper {
+    display: grid;
+    grid-template-columns: 6fr 3fr;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: var(--gap-xxl);
+
+    @include media-down($tablet-lg-width) {
+      grid-template-columns: 1fr;
+    }
+
+    img {
+      max-width: 620px;
+      max-height: 360px;
+      order: 2;
+
+      @include media-down($tablet-lg-width) {
+        display: none;
+      }
     }
   }
 }

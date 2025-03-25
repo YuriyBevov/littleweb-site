@@ -1,3 +1,5 @@
+include ../../../components/main-btn/main-btn
+
 section.base-section.portfolio-single-view
   .container 
     h2.base-title <span>Просмотр</span> проекта 
@@ -6,12 +8,23 @@ section.base-section.portfolio-single-view
       .portfolio-single-view__grid-item  
         .portfolio-single-view__grid-item-img  
           img(src="./assets/images/view.png" alt="section_img" width="500" height="580" data-project-img="./assets/images/view.png")  
-          .portfolio-single-view__grid-item-btn 
-            img(src="./assets/images/click.svg" alt="click_img" width="40" height="40") 
-            p Кликните для просмотра проекта на десктопной версии
+          +main-btn({
+            class: "portfolio-btn",
+            text: 'Кликните для просмотра проекта на десктопной версии',
+            modal: 'project-modal',
+            icon: "click",
+            iconW: 40,
+            iconH: 40
+          })
       .portfolio-single-view__grid-item  
         .portfolio-single-view__grid-item-img  
           img(src="./assets/images/view.png" alt="section_img" width="500" height="580" data-mobile-project-img="./assets/images/view.png")  
-          .portfolio-single-view__grid-item-btn 
-            img(src="./assets/images/click.svg" alt="click_img" width="40" height="40") 
-            p Кликните для просмотра проекта на мобильной версии
+          +main-btn({
+            class: "portfolio-mobile-btn",
+            text: 'Кликните для просмотра проекта на мобильной версии',
+            modal: 'mobile-project-modal',
+            iconW: 40,
+            iconH: 40,
+            icon: "click"
+          })
+          
