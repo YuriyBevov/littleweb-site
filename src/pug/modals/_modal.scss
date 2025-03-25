@@ -81,43 +81,45 @@
 }
 
 .project-modal {
-  max-width: 1000px;
-  height: 54vh;
-  overflow: hidden;
-  overflow-y: auto;
+  max-width: 1440px;
+  height: 80vh;
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('../assets/images/mac-bg.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
+  .modal-closer {
+    z-index: 100;
   }
 
   .modal-content {
-    position: absolute;
-    height: 100%;
-    max-height: 470px;
     width: 100%;
-    max-width: 740px;
-    top: 78px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
-    overflow: hidden;
-    overflow-y: auto;
-    border: none;
-    padding: 0;
-    scrollbar-width: none; /* Для Firefox */
-    -ms-overflow-style: none;
+    height: auto;
   }
 
-  .element-with-scroll::-webkit-scrollbar {
+  .tablet-image {
+    position: relative;
+    width: 85%;
+    margin: 0 auto;
+
+    img {
+      height: fit-content;
+      max-width: fit-content;
+      margin: 0 auto;
+      display: block;
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  .tablet-screen {
+    position: absolute;
+    top: 11%;
+    left: 13%;
+    width: 74%;
+    height: 75%;
+    overflow: hidden;
+    overflow-y: auto;
+    z-index: 2;
+  }
+
+  .tablet-screen::-webkit-scrollbar {
     display: none; /* Полностью скрывает скроллбар */
   }
 }
@@ -126,36 +128,50 @@
   max-width: 800px;
   height: 80vh;
 
-  overflow: hidden;
-  overflow-y: auto;
-  background-image: url('../assets/images/mobile-bg.png');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-
   .modal-closer {
-    right: 70px;
+    z-index: 100;
   }
 
   .modal-content {
-    position: absolute;
-    height: 100%;
-    max-height: 801px;
     width: 100%;
-    max-width: 372px;
-    top: 66px;
-    left: 212px;
-    z-index: 1;
+    height: auto;
+  }
+
+  .mobile-image {
+    position: relative;
+    width: 85%;
+    margin: 0 auto;
+
+    img {
+      height: fit-content;
+      max-width: fit-content;
+      margin: 0 auto;
+      display: block;
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  .mobile-screen {
+    position: absolute;
+    top: 6%;
+    left: 27%;
+    width: 47%;
+    height: 88%;
     overflow: hidden;
     overflow-y: auto;
-    border: none;
-    padding: 0;
-    border-radius: 60px;
-    scrollbar-width: none; /* Для Firefox */
-    -ms-overflow-style: none;
+    z-index: 2;
+    border-radius: 41px;
+
+    @include media-down($tablet-width) {
+      border-radius: 34px;
+    }
+    @include media-down($mobile-width) {
+      border-radius: 20px;
+    }
   }
-  /* Скрываем скроллбар в WebKit-браузерах (Chrome, Edge, Safari) */
-  .element-with-scroll::-webkit-scrollbar {
+  // /* Скрываем скроллбар в WebKit-браузерах (Chrome, Edge, Safari) */
+  .mobile-screen::-webkit-scrollbar {
     display: none; /* Полностью скрывает скроллбар */
   }
 }

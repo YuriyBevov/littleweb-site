@@ -197,44 +197,6 @@
           }
         }
       }
-
-      .portfolio-single-view__grid-item-btn {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        align-items: center;
-        z-index: 30;
-        width: 100%;
-        max-width: 400px;
-        scale: 1;
-        cursor: pointer;
-        transition: scale 0.3s ease; /* Плавный переход для эффекта hover */
-        transform-origin: left; /* Точка масштабирования — центр элемента */
-
-        &:hover {
-          scale: 1.1;
-        }
-
-        img {
-          position: static;
-          max-width: 40px;
-          max-height: 40px;
-          z-index: 10;
-        }
-
-        p {
-          font-family: var(--secondary-font);
-          font-weight: var(--fw-b);
-          font-size: 18px;
-          line-height: 1.5;
-          color: var(--secondary);
-          text-align: center;
-        }
-      }
     }
 
     &-item:last-child {
@@ -286,42 +248,44 @@
           border-radius: 30px;
         }
       }
-      .portfolio-single-view__grid-item-btn {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        align-items: center;
-        z-index: 30;
-        width: 100%;
-        max-width: 200px;
-        scale: 1;
-        cursor: pointer;
-        transition: scale 0.3s ease; /* Плавный переход для эффекта hover */
-        transform-origin: left; /* Точка масштабирования — центр элемента */
+    }
+  }
 
-        &:hover {
-          scale: 1.1;
-        }
+  .main-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    z-index: 30;
+    width: 100%;
+    max-width: 200px;
+    min-height: fit-content;
+    scale: 1;
+    cursor: pointer;
+    transition: scale 0.3s ease; /* Плавный переход для эффекта hover */
+    transform-origin: left; /* Точка масштабирования — центр элемента */
+    font-family: var(--secondary-font);
+    font-weight: var(--fw-b);
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--secondary);
+    text-align: center;
+    border: none;
+    background-color: transparent;
 
-        img {
-          position: static;
-          width: 40px;
-          height: 40px;
-          z-index: 10;
-        }
+    &:hover {
+      scale: 1.1;
+    }
 
-        p {
-          font-family: var(--secondary-font);
-          font-weight: var(--fw-b);
-          font-size: 12px;
-          line-height: 1.5;
-          color: var(--secondary);
-          text-align: center;
-        }
+    svg {
+      width: 40px;
+      height: 40px;
+      use {
+        fill: var(--white);
       }
     }
   }
