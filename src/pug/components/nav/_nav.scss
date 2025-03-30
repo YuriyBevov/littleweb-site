@@ -1,4 +1,4 @@
-$mobile-view-width: 1360px;
+$mobile-view-width: 1024px;
 
 .nav {
   &__header {
@@ -120,6 +120,25 @@ $mobile-view-width: 1360px;
       background-color: rgb(0 0 0 / 90%);
       z-index: 10;
       animation: fade-in 0.2s linear;
+
+      .company-worktime {
+        flex-direction: column;
+        margin-bottom: 30px;
+      }
+
+      .social {
+        display: flex;
+        justify-content: center;
+        order: 3;
+      }
+
+      .header__callback-btn {
+        display: block;
+      }
+
+      .company-worktime--alt {
+        align-items: center;
+      }
     }
 
     &__wrapper {
@@ -128,10 +147,12 @@ $mobile-view-width: 1360px;
       right: 0;
       display: flex;
       flex-direction: column;
-      width: 90dvw;
+      width: 100%;
+      // width: 90dvw;
+      // height: fit-content;
       height: 100%;
       min-height: 100dvh;
-      max-width: 700px;
+      // max-width: 700px;
       background-color: var(--dark);
       overflow-y: auto;
       padding: var(--gap-s) clamp(24px, 5vw, 40px) clamp(24px, 5vw, 40px);
@@ -139,27 +160,28 @@ $mobile-view-width: 1360px;
 
     &__list {
       flex-flow: column nowrap;
+      align-items: center;
       height: fit-content;
       width: 100%;
-      margin: auto 0;
+      // margin: auto 0;
       padding: clamp(24px, 5vw, 40px) 0;
 
       &-item > a {
         position: relative;
-        font-size: var(--fs-md);
+        font-size: 16px;
         justify-content: flex-start;
-        padding-left: 1.4em;
+        // padding-left: 1.4em;
 
-        &::before {
-          position: absolute;
-          top: 50%;
-          left: 0;
-          transform: translateY(-50%);
-          content: '';
-          width: 1em;
-          height: 0.15em;
-          background-color: var(--white);
-        }
+        // &::before {
+        //   position: absolute;
+        //   top: 50%;
+        //   left: 0;
+        //   transform: translateY(-50%);
+        //   content: '';
+        //   width: 1em;
+        //   height: 0.15em;
+        //   background-color: var(--white);
+        // }
 
         &.current::before {
           background-color: var(--primary);

@@ -56,7 +56,7 @@
     <header class="header">
       <div class="header__top">
         <div class="container">
-          <span class="company-worktime">
+          <span class="company-worktime company-worktime--alt">
             г. Санкт-Петербург
             <b>
               Пн - Пт : 10:00 - 19:00
@@ -166,26 +166,19 @@
                   </a>
                 </li>
                 <li class="nav__list-item">
-                  <a href="services-main.html">
-                    Услуги
+                  <a href="services-detail.html">
+                    Разработка сайтов
                   </a>
-                  <ul>
-                    <li>
-                      <a href="#">
-                        Услуга 1
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        Услуга 2
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        Услуга 3
-                      </a>
-                    </li>
-                  </ul>
+                </li>
+                <li class="nav__list-item">
+                  <a href="services-detail.html">
+                    WEB-дизайн
+                  </a>
+                </li>
+                <li class="nav__list-item">
+                  <a href="services-detail.html">
+                    Продвижение сайтов
+                  </a>
                 </li>
                 <li class="nav__list-item">
                   <a href="faq.html">
@@ -198,8 +191,32 @@
                   </a>
                 </li>
               </ul>
+              <button
+                class="header__callback-mobile-btn main-btn--outlined main-btn"
+                type="button"
+                data-modal-opener="callback"
+              >
+                <span>
+                  Заказать звонок
+                </span>
+              </button>
               <div class="social">
                 <ul class="social__list">
+                  <li>
+                    <a
+                      href="tel:+79062723744"
+                      rel="noopener nofollow norefferer"
+                      target="_blank"
+                    >
+                      <svg
+                        width="34"
+                        height="34"
+                      >
+                        <use xlink:href="./assets/svg-sprite.svg#icon-social-phone">
+                        </use>
+                      </svg>
+                    </a>
+                  </li>
                   <li>
                     <a
                       href="mailto:info@littleweb.ru"
@@ -210,7 +227,7 @@
                         width="34"
                         height="34"
                       >
-                        <use xlink:href="./assets/svg-sprite.svg#icon-icon-mail.svg">
+                        <use xlink:href="./assets/svg-sprite.svg#icon-social-mail">
                         </use>
                       </svg>
                     </a>
@@ -225,29 +242,14 @@
                         width="34"
                         height="34"
                       >
-                        <use xlink:href="./assets/svg-sprite.svg#icon-icon-tg.svg">
-                        </use>
-                      </svg>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://wa.me/79062723744"
-                      rel="noopener nofollow norefferer"
-                      target="_blank"
-                    >
-                      <svg
-                        width="34"
-                        height="34"
-                      >
-                        <use xlink:href="./assets/svg-sprite.svg#icon-icon-whatsapp.svg">
+                        <use xlink:href="./assets/svg-sprite.svg#icon-social-tg">
                         </use>
                       </svg>
                     </a>
                   </li>
                 </ul>
               </div>
-              <span class="company-worktime">
+              <span class="company-worktime company-worktime--alt">
                 г. Санкт-Петербург
                 <b>
                   Пн - Пт : 10:00 - 19:00
@@ -346,12 +348,14 @@
       </section>
       <section class="base-section offer">
         <div class="container">
-          <h2 class="base-title">
-            Давайте работать над вашим проектом
-            <span>
-              вместе!
-            </span>
-          </h2>
+          <div class="base-title-block">
+            <h2 class="base-title">
+              Давайте работать над вашим проектом
+              <span>
+                вместе!
+              </span>
+            </h2>
+          </div>
           <p class="base-text">
             Оставьте заявку и мы свяжемся с Вами в ближайшее время !
           </p>
@@ -515,7 +519,7 @@
             </ul>
           </div>
           <div class="footer__contacts">
-            <span class="company-worktime">
+            <span class="company-worktime company-worktime--alt">
               г. Санкт-Петербург
               <b>
                 Пн - Пт : 10:00 - 19:00

@@ -60,8 +60,16 @@
   &__callback-btn {
     display: none;
 
-    @include media-up($tablet-width) {
+    @include media-up($laptop-width) {
       display: flex;
+    }
+  }
+
+  &__callback-mobile-btn {
+    display: none;
+    @include media-down($laptop-width) {
+      display: block;
+      margin: 0 auto;
     }
   }
 }
