@@ -34,4 +34,8 @@ $main-btn-outlined-border-color: var(--primary);
     background-color: $main-btn-outlined-bg;
     border-color: $main-btn-outlined-border-color;
   }
+
+  span {
+    white-space: nowrap;
+  }
 }

@@ -21,27 +21,32 @@ mixin nav(data)
                   each inner in link.inner
                     li
                       a(href= inner.href)!= inner.text
+        +main-btn({
+          class: 'header__callback-mobile-btn main-btn--outlined',
+          text: 'Заказать звонок',
+          modal: 'callback'
+        })             
 
         +social({
           list: [
             {
+              href: 'tel:+79062723744',
+              name: 'phone',
+              icon: 'social-phone',
+              iconW: 24,
+              iconH: 24
+            },
+            {
               href: 'mailto:info@littleweb.ru',
-              name: 'mail',
-              icon: 'icon-mail.svg',
+              name: 'telegram',
+              icon: 'social-mail',
               iconW: 24,
               iconH: 24
             },
             {
               href: 'https://telegram.me/+79062723744',
               name: 'telegram',
-              icon: 'icon-tg.svg',
-              iconW: 24,
-              iconH: 24
-            },
-            {
-              href: 'https://wa.me/79062723744',
-              name: 'whatsapp',
-              icon: 'icon-whatsapp.svg',
+              icon: 'social-tg',
               iconW: 24,
               iconH: 24
             },
