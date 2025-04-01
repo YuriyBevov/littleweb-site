@@ -29,6 +29,12 @@ header.header
         ]
       })
 
+      +main-btn({
+        class: 'header__callback-btn main-btn--outlined',
+        text: 'Заказать звонок',
+        modal: 'callback'
+      })
+
   .header__bottom
     .container
       +main-logo(true)
@@ -37,7 +43,11 @@ header.header
         links: [
           {
             href: 'company.html',
-            text: 'О компании'
+            text: 'О компании',
+            inner: [
+            {  href: 'company.html',
+              text: 'Разработка сайтов О компании!!!!!', }
+            ]
           },
           {
             href: 'services-detail.html',
@@ -66,12 +76,6 @@ header.header
       //-   icon: 'search',
       //-   modal: 'search'
       //- })
-
-      +main-btn({
-        class: 'header__callback-btn main-btn--outlined',
-        text: 'Заказать звонок',
-        modal: 'callback'
-      })
 
       +main-btn({
         text: 'Меню',
