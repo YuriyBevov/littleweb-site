@@ -166,10 +166,11 @@ $mobile-view-width: 1024px;
       // margin: auto 0;
       padding: clamp(24px, 5vw, 40px) 0;
 
-      &-item > a {
+      &-item a {
         position: relative;
         font-size: 16px;
-        justify-content: flex-start;
+        text-align: center;
+        // justify-content: flex-start;
         // padding-left: 1.4em;
 
         // &::before {
