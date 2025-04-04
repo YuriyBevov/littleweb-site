@@ -82,7 +82,7 @@
 
 .project-modal {
   max-width: 1440px;
-  height: 100vh;
+  // height: 100vh;
   max-height: 100dvh;
 
   .modal-closer {
@@ -127,7 +127,7 @@
 
 .mobile-project-modal {
   max-width: 800px;
-  height: 100vh;
+  // height: 100vh;
   max-height: 100dvh;
 
   .modal-closer {
@@ -156,10 +156,10 @@
 
   .mobile-screen {
     position: absolute;
-    top: 3%;
-    left: 24%;
-    width: 51%;
-    height: 94%;
+    top: 6%;
+    left: 27%;
+    width: 46%;
+    height: 88%;
     overflow: hidden;
     overflow-y: auto;
     z-index: 2;
