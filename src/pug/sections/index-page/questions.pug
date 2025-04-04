@@ -9,13 +9,14 @@ block content
   include ../../content/question-list
   include ../../components/accordeons/main-accordeon/main-accordeon
 
-  .questions-wrapper
+  +main-accordeon(questionList)
+  //- .questions-wrapper
     +main-accordeon(questionList)
-    img(src='./assets/images/fag_img.png' alt="fag_img" width="620" height="360")
+    //- img(src='./assets/images/fag_img.png' alt="fag_img" width="620" height="360")
 
-  +main-btn({
-    class: 'main-btn--outlined base-section__btn',
-    text: 'Задать вопрос',
-    modal: 'fag'
-  })
+  //- +main-btn({
+  //-   class: 'main-btn--outlined base-section__btn',
+  //-   text: 'Задать вопрос',
+  //-   modal: 'fag'
+  //- })
 

@@ -4,6 +4,18 @@
     grid-row: auto;
     order: 1;
   }
+
+  .container {
+    display: grid;
+    @extend .base-list--2cols;
+    column-gap: 34px;
+    row-gap: 20px;
+  }
+
+  .base-title {
+    line-height: 1;
+  }
+
   &-wrapper {
     display: grid;
     grid-template-columns: 6fr 3fr;

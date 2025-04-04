@@ -82,7 +82,8 @@
 
 .project-modal {
   max-width: 1440px;
-  height: 80vh;
+  height: 100vh;
+  max-height: 100dvh;
 
   .modal-closer {
     z-index: 100;
@@ -110,10 +111,10 @@
 
   .tablet-screen {
     position: absolute;
-    top: 11%;
+    top: 8%;
     left: 13%;
     width: 74%;
-    height: 75%;
+    height: 79%;
     overflow: hidden;
     overflow-y: auto;
     z-index: 2;
@@ -126,7 +127,8 @@
 
 .mobile-project-modal {
   max-width: 800px;
-  height: 80vh;
+  height: 100vh;
+  max-height: 100dvh;
 
   .modal-closer {
     z-index: 100;
@@ -154,10 +156,10 @@
 
   .mobile-screen {
     position: absolute;
-    top: 6%;
-    left: 27%;
-    width: 47%;
-    height: 88%;
+    top: 3%;
+    left: 24%;
+    width: 51%;
+    height: 94%;
     overflow: hidden;
     overflow-y: auto;
     z-index: 2;
