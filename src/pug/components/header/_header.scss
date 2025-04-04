@@ -7,7 +7,7 @@
   position: sticky;
   top: 0;
   background-color: var(--header-bg-color);
-  z-index: 20;
+  z-index: 100;
 
   @include media-up($mobile-width) {
     top: -61px;
