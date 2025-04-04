@@ -39,7 +39,19 @@
     }
 
     .company-worktime {
+      display: none;
       margin-right: auto;
+
+      @include media-down(1200px) {
+        display: flex;
+      }
+    }
+    .main-logo {
+      margin-right: auto;
+
+      @include media-down(1200px) {
+        display: none;
+      }
     }
   }
 
@@ -53,7 +65,12 @@
     }
 
     .main-logo {
+      display: none;
       margin-right: auto;
+
+      @include media-down(1200px) {
+        display: flex;
+      }
     }
   }
 

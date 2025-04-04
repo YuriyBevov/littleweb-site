@@ -73,6 +73,7 @@ small {
   margin-bottom: 1em;
   color: var(--white);
   font-family: var(--primary-font);
+  word-break: break-word;
 
   span {
     color: var(--main-title-color);
@@ -85,6 +86,7 @@ small {
   margin-bottom: clamp(calc(var(--gap-xl) * 1.1), 7vw, var(--gap-xxl));
   color: var(--white);
   font-family: var(--primary-font);
+  word-break: break-word;
 
   span {
     color: var(--base-title-color);
