@@ -59,7 +59,7 @@
 
     @include media-down($desktop-width) {
       grid-template-columns: 1fr;
-      gap: var(--gap-m);
+      gap: var(--gap-xxl);
     }
 
     &-item:first-child {

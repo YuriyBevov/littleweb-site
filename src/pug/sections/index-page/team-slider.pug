@@ -1,0 +1,20 @@
+extends ../../layouts/base-section/base-section.pug
+include ../../components/links/main-link
+
+block variables
+  - sectionClass = "team-list"
+  - sectionTitle = 'Кто будет работать <span>над проектом</span>' 
+
+block content
+  include ../../content/team-list
+  include ../../components/sliders/team-slider/team-slider
+
+  +team-slider({
+    cls: 'team-slider',
+    options: {
+      navigation: true,
+      pagination: true
+    },
+    type: 'team',
+    slides: teamList
+  })

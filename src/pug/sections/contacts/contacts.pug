@@ -1,31 +1,76 @@
-extends ../../layouts/base-section/base-section.pug
 include ../../components/main-btn/main-btn
+include ../../components/forms/service-detail-form/service-detail-form
 
-block variables
-  - sectionTitle = 'Наши <span>контакты</span>'
-  - var useGrid = false
 block content
-  .contacts__main
-    a(href="tel:+79062723744").contacts__item
-      svg(width="40" height="40")
-        use(xlink:href=`./assets/svg-sprite.svg#icon-phone-simple`)
-      | +7 (906) 272-37-44
-    span.contacts__item
-      svg(width="40" height="40")
-        use(xlink:href=`./assets/svg-sprite.svg#icon-pin-simple`)
-      | г. Санкт-Петербург
-    a(href="mailto:info@littleweb.ru").contacts__item
-      svg(width="40" height="40")
-        use(xlink:href=`./assets/svg-sprite.svg#icon-mail-simple`)
-      | info@littleweb.ru
-    span.contacts__item
-      svg(width="40" height="40")
-        use(xlink:href=`./assets/svg-sprite.svg#icon-calendar-simple`)
-      | Пн - пт: 10:00 - 19:00
-  .contacts__social
-    a(href="https://wa.me/+79062723744" target="_blank" rel="noopener nofolow norefferer" aria-label="whatsapp").contacts__item
-      svg(width="40" height="40")
-        use(xlink:href=`./assets/svg-sprite.svg#icon-whatsapp-simple`)
-    a(href="https://telegram.me/+79062723744" target="_blank" rel="noopener nofolow norefferer" aria-label="telegram").contacts__item
-      svg(width="40" height="40")
-        use(xlink:href=`./assets/svg-sprite.svg#icon-tg-simple`)
+ .contacts
+  .container
+    .contacts__side
+      .base-title-block
+         h2.base-title Наши <span>контакты</span>
+         span Мы всегда рады помочь вам с разработкой и продвижением вашего сайта. Если у вас есть вопросы, предложения или вы хотите обсудить проект, не стесняйтесь обращаться к нам.
+      .contacts__main
+        a(href="tel:+79062723744").contacts__item
+          svg(width="40" height="40")
+            use(xlink:href=`./assets/svg-sprite.svg#icon-phone-simple`)
+          .contacts__item-content
+            span Телефон:
+            span +7 (906) 272-37-44
+        span.contacts__item
+          svg(width="40" height="40")
+            use(xlink:href=`./assets/svg-sprite.svg#icon-pin-simple`)
+          .contacts__item-content  
+            span Адрес:
+            span г. Санкт-Петербург
+        a(href="mailto:info@littleweb.ru").contacts__item
+          svg(width="40" height="40")
+            use(xlink:href=`./assets/svg-sprite.svg#icon-mail-simple`)
+          .contacts__item-content  
+            span E-mail:
+            span info@littleweb.ru
+        span.contacts__item
+          svg(width="40" height="40")
+            use(xlink:href=`./assets/svg-sprite.svg#icon-calendar-simple`)
+          .contacts__item-content  
+            span График работы:
+            span Пн - пт: 10:00 - 19:00
+      .contacts__social
+        span Связаться с нами:
+        .contacts__social-content
+          a(href="https://wa.me/+79062723744" target="_blank" rel="noopener nofolow norefferer" aria-label="whatsapp").contacts__item
+            svg(width="40" height="40")
+              use(xlink:href=`./assets/svg-sprite.svg#icon-whatsapp-simple`)
+          a(href="https://telegram.me/+79062723744" target="_blank" rel="noopener nofolow norefferer" aria-label="telegram").contacts__item
+            svg(width="40" height="40")
+              use(xlink:href=`./assets/svg-sprite.svg#icon-tg-simple`)
+      span Команда LittleWeb готова помочь вам создать уникальный и эффективный сайт, который будет выделяться на фоне конкурентов. Ждем вашего обращения!        
+
+    +service-detail-form({
+      submitBtnText: 'Отправить',
+      formName: 'Оставить заявку',
+      rows: [
+        [
+          {
+            type: 'text',
+            id: 'offer_user_name',
+            label: 'Имя:',
+            required: true
+          },
+
+          {
+            type: 'tel',
+            id: 'offer_user_phone',
+            label: 'Телефон:',
+            dataType: 'phone',
+            required: true
+          },
+
+          {
+            type: 'email',
+            id: 'offer_user_email',
+            label: 'E-mail:',
+            dataType: 'email',
+            required: true
+          }
+        ]
+      ]
+    })          

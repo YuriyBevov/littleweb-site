@@ -1,0 +1,30 @@
+include ../../controls/main-input/main-input
+include ../../main-btn/main-btn
+
+mixin service-detail-form(data)
+  .service-detail-form  
+    .service-detail-form__title  Закажите <span>прямо сейчас!</span>
+    span.service-detail-form__desc Оставьте заявку и мы свяжемся с Вами в ближайшее время!
+
+    form(action="mail.php" )
+      input(type="hidden" name="Заполненная форма:" value= data.formName)
+      input(type="hidden" name="recaptcha").g-recaptcha-response
+
+      each row in data.rows
+        fieldset.flex-row
+          each ctrl in row
+            +main-input({
+              type: ctrl.type,
+              label: ctrl.label,
+              id: ctrl.id,
+              dataType: ctrl.dataType,
+              required: ctrl.required
+            })
+
+      small *Отправляя форму Вы соглашаетесь с условиями обработки персональных данных.
+
+      +main-btn({
+        type: 'submit',
+        text: 'Заказать сейчас',
+      })
+

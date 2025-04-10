@@ -1,0 +1,48 @@
+include ../../content/services-detail-list
+include ../../components/cards/info-card/info-card
+include ../../components/forms/service-detail-form/service-detail-form
+
+section.services-detail-item.page-top-section
+  .container
+    .services-detail-item__content
+      .base-title-block 
+        h1.main-title Сайт - <span>визитка</span>
+
+        p.main-text Сайт-визитка — это простой веб-сайт, содержащий основную информацию о компании, человеке или проекте. Обычно такой сайт состоит из нескольких страниц и предназначен для предоставления базовых сведений о деятельности, контактах, услугах или товарах.
+
+      .services-detail-item__price Стоимость : <span>от 20 000 руб</span>      
+      ul.base-list
+        each service in serviceDetailList
+          li
+            +info-card(service)
+
+    +service-detail-form({
+      submitBtnText: 'Отправить',
+      formName: 'Оставить заявку',
+      rows: [
+        [
+          {
+            type: 'text',
+            id: 'offer_user_name',
+            label: 'Имя:',
+            required: true
+          },
+
+          {
+            type: 'tel',
+            id: 'offer_user_phone',
+            label: 'Телефон:',
+            dataType: 'phone',
+            required: true
+          },
+
+          {
+            type: 'email',
+            id: 'offer_user_email',
+            label: 'E-mail:',
+            dataType: 'email',
+            required: true
+          }
+        ]
+      ]
+    })  

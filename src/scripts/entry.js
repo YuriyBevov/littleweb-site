@@ -3,6 +3,8 @@ import './modules/nav';
 import './modules/modals';
 import '../pug/components/accordeons/main-accordeon/main-accordeon';
 import '../pug/components/sliders/main-slider/main-slider';
+import '../pug/components/sliders/about-slider/about-slider';
+import '../pug/components/sliders/team-slider/team-slider';
 import './modules/input-number-mask';
 import './modules/form-submit';
 import './modules/collapsed-text';

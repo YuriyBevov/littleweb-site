@@ -17,10 +17,10 @@
     margin: 1.5em 0;
     width: 100%;
 
-    @include media-up($mobile-width) {
-      width: calc(50% - 8px);
-      // max-width: 220px;
-    }
+    // @include media-up($mobile-width) {
+    //   width: calc(50% - 8px);
+    //   // max-width: 220px;
+    // }
   }
 
   small {
