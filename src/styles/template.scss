@@ -12,6 +12,8 @@
 @import '../pug/components/controls/main-input/main-input';
 @import '../pug/components/controls/main-textarea/main-textarea';
 @import '../pug/components/sliders/main-slider/main-slider';
+@import '../pug/components/sliders/about-slider/about-slider';
+@import '../pug/components/sliders/team-slider/team-slider';
 
 // layouts
 @import '../pug/layouts/base-section/base-section';
@@ -30,13 +32,16 @@
 @import '../pug/components/cards/info-card/info-card';
 @import '../pug/components/cards/review-card/review-card';
 @import '../pug/components/cards/portfolio-card/portfolio-card';
+@import '../pug/components/cards/team-card/team-card';
 @import '../pug/components/forms/callback-form/callback-form';
+@import '../pug/components/forms/service-detail-form/service-detail-form';
 @import '../pug/components/accordeons/main-accordeon/main-accordeon';
 @import '../pug/components/footer/footer';
 
 // sections
 @import '../pug/sections/services/services-main';
 @import '../pug/sections/services/services-detail';
+@import '../pug/sections/services/services-detail-item';
 @import '../pug/sections/contacts/contacts';
 @import '../pug/sections/fag/fag';
 @import '../pug/sections/company/company';

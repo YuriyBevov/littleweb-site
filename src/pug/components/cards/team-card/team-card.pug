@@ -1,0 +1,8 @@
+include ../../links/main-link
+
+mixin team-card(data)
+  .team-card
+    img(src=`./assets/images/mock/${data.img.name}` alt= data.img.alt width="400" height="366")
+    .team-card__footer
+      span.team-card__title!= data.title
+      span.team-card__text!= data.text

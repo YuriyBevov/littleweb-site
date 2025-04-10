@@ -1,0 +1,48 @@
+.team-card {
+  position: relative;
+  border: 2px solid white;
+  padding: var(--gap-xl);
+  box-shadow: 0 0 60px rgba(51, 51, 51, 0.85);
+  gap: var(--gap-s);
+  height: 100%;
+  width: 100%;
+  min-height: 360px;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    object-fit: contain;
+    z-index: 1;
+  }
+
+  &__title {
+    display: inline-block;
+    font-family: var(--primary-font);
+    font-size: var(--base-cart-title-fs);
+  }
+
+  &__text {
+    display: inline-block;
+    font-family: var(--secondary-font);
+    font-size: 16px;
+    font-weight: var(--fw-l);
+    margin-bottom: auto;
+    @include text-truncate(4);
+  }
+
+  &__footer {
+    @extend %flex-column;
+    text-align: center;
+    height: auto;
+    width: 100%;
+    padding: 24px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    gap: var(--gap-s);
+    z-index: 2;
+  }
+}

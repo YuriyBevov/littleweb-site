@@ -67,6 +67,7 @@
     .main-logo {
       display: none;
       margin-right: auto;
+      opacity: 1;
 
       @include media-down(1200px) {
         display: flex;
@@ -77,14 +78,14 @@
   &__callback-btn {
     display: none;
 
-    @include media-up($laptop-width) {
+    @include media-up(1200px) {
       display: flex;
     }
   }
 
   &__callback-mobile-btn {
     display: none;
-    @include media-down($laptop-width) {
+    @include media-down(1200px) {
       display: block;
       margin: 0 auto;
     }

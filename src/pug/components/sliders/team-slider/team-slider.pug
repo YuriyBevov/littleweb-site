@@ -1,18 +1,12 @@
-include ../../cards/review-card/review-card
-include ../../cards/portfolio-card/portfolio-card
-include ../../cards/info-card/info-card
+include ../../cards/team-card/team-card
 
-mixin main-slider(data)
-  .swiper.main-slider(class= data.cls ? data.cls : null)
+mixin team-slider(data)
+  .swiper.team-slider(class= data.cls ? data.cls : null)
     .swiper-wrapper
       each slide in data.slides
         .swiper-slide
-          if data.type === 'review'
-            +review-card(slide)
-          if data.type === 'portfolio'
-            +portfolio-card(slide)
-          if data.type === 'about'
-            +info-card(slide)
+          if data.type === 'team'
+            +team-card(slide)
 
     .swiper-controls
       if data.options.pagination

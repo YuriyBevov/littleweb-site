@@ -1,0 +1,20 @@
+extends ../../layouts/base-section/base-section.pug
+include ../../components/links/main-link
+
+block variables
+  - sectionClass = "about-list"
+  - sectionTitle = 'Другие <span>услуги</span>' 
+
+block content
+  include ../../content/about-slider-list
+  include ../../components/sliders/about-slider/about-slider
+
+  +about-slider({
+    cls: 'about-slider',
+    options: {
+      navigation: true,
+      pagination: true
+    },
+    type: 'about',
+    slides: aboutSliderList
+  })

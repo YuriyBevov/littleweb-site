@@ -1,0 +1,40 @@
+.services-detail-item {
+  .main-title {
+    line-height: 1;
+  }
+  .container {
+    display: grid;
+    grid-template-columns: 6fr 3fr;
+    gap: var(--gap-xl);
+
+    @include media-down(1100px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .base-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    li {
+      padding: 0;
+      box-shadow: none;
+      border: none;
+    }
+
+    .info-card {
+      flex-direction: row;
+    }
+  }
+
+  &__price {
+    font-family: var(--primary-font);
+    font-size: 20px;
+    margin-bottom: clamp(20px, 3vw, 40px);
+
+    span {
+      color: var(--main-title-color);
+    }
+  }
+}

@@ -86,12 +86,16 @@
   max-height: 100dvh;
 
   .modal-closer {
+    top: 0;
+    right: 100px;
     z-index: 100;
   }
 
   .modal-content {
     width: 100%;
     height: auto;
+    background-color: transparent;
+    border: none;
   }
 
   .tablet-image {
@@ -131,12 +135,16 @@
   max-height: 100dvh;
 
   .modal-closer {
+    top: 20px;
+    right: clamp(60px, 20vw, 180px);
     z-index: 100;
   }
 
   .modal-content {
     width: 100%;
     height: auto;
+    background-color: transparent;
+    border: none;
   }
 
   .mobile-image {
