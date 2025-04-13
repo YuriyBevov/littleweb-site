@@ -140,10 +140,23 @@ table {
   :is(h1, h2, h3, h4, h5, h6, p) {
     margin: 0;
   }
+
+  @media screen and (max-width: 768px) {
+    :is(h1, h2, h3, h4, h5, h6, p) {
+      line-height: 1.2;
+    }
+  }
 }
 .lw-separator {
-  max-width: 330px;
-  max-height: 24px;
   display: block;
-  margin: 0 auto;
+  text-align: center;
+
+  img {
+    max-width: 320px;
+    margin: 0 auto;
+
+    @media screen and (max-width: 768px) {
+      max-width: 270px;
+    }
+  }
 }
