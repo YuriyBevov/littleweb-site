@@ -4,7 +4,7 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: var(--gap-xl);
-  margin-bottom: var(--gap-xxl);
+  // margin-bottom: var(--gap-xxl);
 
   @include media-up($tablet-lg-width) {
     grid-template-columns: repeat(2, 1fr);
