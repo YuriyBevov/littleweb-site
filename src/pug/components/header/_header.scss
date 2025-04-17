@@ -10,11 +10,11 @@
   z-index: 100;
 
   @include media-up($mobile-width) {
-    top: -61px;
+    top: -57px;
   }
 
-  @include media-up($tablet-width) {
-    top: -58px;
+  @include media-up(1200px) {
+    top: -78px;
   }
 
   &__top {

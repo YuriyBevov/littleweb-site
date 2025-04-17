@@ -36,6 +36,17 @@ body {
   background-color: var(--site-bg-color);
   color: var(--site-text-color);
 
+  // &::before {
+  //   content: '';
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   right: 0;
+  //   bottom: 0;
+  //   z-index: -1;
+  //   background-image: url('../assets/images/bg.svg');
+  // }
+
   &.body-locked {
     overflow: hidden;
   }
@@ -117,7 +128,7 @@ table {
 }
 
 .page-top-section {
-  padding: clamp(40px, 8vw, 80px) 0;
+  padding-bottom: clamp(40px, 8vw, 80px);
 }
 
 .btn-row {
