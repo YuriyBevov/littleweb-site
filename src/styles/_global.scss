@@ -146,7 +146,7 @@ table {
   display: flex;
   flex-direction: column;
   gap: var(--gap-m);
-  margin-bottom: var(--gap-xxl);
+  margin-bottom: clamp(var(--gap-m), 2vw, var(--gap-xxl));
 
   :is(h1, h2, h3, h4, h5, h6, p) {
     margin: 0;
@@ -159,15 +159,34 @@ table {
   }
 }
 .lw-separator {
-  display: block;
-  text-align: center;
+  position: relative;
+  margin-bottom: 25px;
 
-  img {
+  &::after {
+    content: '';
+    position: absolute;
     max-width: 320px;
+    height: 25px;
+    background-image: url('./images/separator.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
     margin: 0 auto;
+    left: 0;
+    right: 0;
+    bottom: -25px;
 
     @media screen and (max-width: 768px) {
-      max-width: 270px;
+      max-width: 220px;
+      height: 20px;
     }
   }
+
+  // img {
+  //   max-width: 320px;
+  //   margin: 0 auto;
+
+  //   @media screen and (max-width: 768px) {
+  //     max-width: 270px;
+  //   }
+  // }
 }
