@@ -1,0 +1,14 @@
+extends ../../layouts/base-section/base-section.pug
+
+block variables
+  - sectionClass = "whatInPriceList"
+  - sectionTitle = 'какие работы входят в <span>стоимость</span>'
+
+block content
+  include ../../content/what-in-price-list
+  include ../../components/cards/info-card/info-card
+
+  ul.base-list.base-list--2cols
+    each whatInPrice in whatInPriceList
+      li
+        +info-card(whatInPrice)

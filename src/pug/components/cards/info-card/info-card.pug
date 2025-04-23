@@ -5,7 +5,8 @@ mixin info-card(data)
         use(xlink:href=`./assets/svg-sprite.svg#icon-${data.icon}`)
     .info-card__content
       span.info-card-title!= data.title
-      span.info-card-text!= data.text
+      if data.text
+        span.info-card-text!= data.text
 
       if data.note
         small!= data.note
@@ -13,5 +14,7 @@ mixin info-card(data)
       if data.price
         .info-card-price
           span!= data.price
+      if data.content    
+       .info-card__content-list!= data.content    
     if data.link
       a(href= data.link).info-card-bottom-link!= data.linkText

@@ -20,7 +20,10 @@ export function sendForm(form) {
 
     const currentModal = form.closest('.modal');
 
-    new Modal(currentModal).refresh();
+    // new Modal(currentModal).refresh();
+    if (form.closest('.modal')) {
+      new Modal(form.closest('.modal')).refresh();
+    }
 
     new Modal(successModal).show();
   }
