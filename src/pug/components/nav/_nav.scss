@@ -184,22 +184,9 @@ $mobile-view-width: 1200px;
 
       &-item a {
         position: relative;
-        font-size: 16px;
+        font-size: 14px;
         justify-content: flex-start;
-        // text-align: center;
-        // justify-content: flex-start;
-        // padding-left: 1.4em;
-
-        // &::before {
-        //   position: absolute;
-        //   top: 50%;
-        //   left: 0;
-        //   transform: translateY(-50%);
-        //   content: '';
-        //   width: 1em;
-        //   height: 0.15em;
-        //   background-color: var(--white);
-        // }
+        padding-block: var(--gap-xs);
 
         &.current::before {
           background-color: var(--primary);
