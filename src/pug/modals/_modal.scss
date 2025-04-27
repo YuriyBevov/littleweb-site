@@ -81,27 +81,28 @@
 }
 
 .project-modal {
-  max-width: 1440px;
+  max-width: 1100px;
   // height: 100vh;
   max-height: 100dvh;
+  padding-left: 30px;
 
   .modal-closer {
     top: 0;
-    right: 100px;
+    right: 70px;
     z-index: 100;
   }
 
   .modal-content {
-    width: 100%;
+    width: fit-content;
     height: auto;
     background-color: transparent;
     border: none;
+    padding: 0;
   }
 
   .tablet-image {
     position: relative;
-    width: 85%;
-    margin: 0 auto;
+    width: 100%;
 
     img {
       height: fit-content;
@@ -130,55 +131,62 @@
 }
 
 .mobile-project-modal {
-  max-width: 800px;
-  // height: 100vh;
-  max-height: 100dvh;
+  max-width: 430px;
+  height: 85vh;
+  padding: 0;
 
   .modal-closer {
-    top: 20px;
-    right: clamp(60px, 20vw, 180px);
+    top: 0;
+    right: 0;
     z-index: 100;
   }
 
   .modal-content {
-    width: 100%;
-    height: auto;
+    width: fit-content;
+    height: inherit;
     background-color: transparent;
     border: none;
   }
 
   .mobile-image {
     position: relative;
-    width: 85%;
-    margin: 0 auto;
+    // width: 85%;
+    // margin: 0 auto;
+    width: 100%;
+    height: auto;
 
     img {
-      height: fit-content;
-      max-width: fit-content;
-      margin: 0 auto;
+      height: 100%;
+      // height: fit-content;
+      // max-width: fit-content;
+      // margin: 0 auto;
       display: block;
       position: relative;
       z-index: 1;
+      object-fit: contain;
     }
   }
 
   .mobile-screen {
     position: absolute;
-    top: 6%;
-    left: 27%;
-    width: 46%;
-    height: 88%;
+    top: 3.2%;
+    left: 7%;
+    width: 85%;
+    height: 94%;
     overflow: hidden;
     overflow-y: auto;
     z-index: 2;
     border-radius: 41px;
 
-    @include media-down($tablet-width) {
-      border-radius: 34px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
-    @include media-down($mobile-width) {
-      border-radius: 20px;
-    }
+
+    // @include media-down($tablet-width) {
+    //   border-radius: 34px;
+    // }
   }
   // /* Скрываем скроллбар в WebKit-браузерах (Chrome, Edge, Safari) */
   .mobile-screen::-webkit-scrollbar {
