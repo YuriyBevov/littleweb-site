@@ -24,6 +24,7 @@ $border-radius: 10px;
       ul {
         margin: 0;
         list-style: none;
+        padding: 0;
       }
 
       ul li {
@@ -33,11 +34,12 @@ $border-radius: 10px;
         padding: 0;
         margin-bottom: 10px;
         text-wrap: auto;
+        padding-left: 20px;
 
         &::before {
           content: '';
           position: absolute;
-          left: -20px;
+          left: 0;
           top: 50%;
           transform: translateY(-50%);
           width: 10px;
