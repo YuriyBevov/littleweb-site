@@ -71,7 +71,7 @@ small {
   display: block;
   font-weight: var(--main-title-fw);
   margin-bottom: 1em;
-  color: var(--white);
+  // color: var(--white);
   font-family: var(--primary-font);
   word-break: break-word;
 
@@ -84,7 +84,7 @@ small {
   display: block;
   font-weight: var(--base-title-fr);
   margin-bottom: clamp(calc(var(--gap-xl) * 1.1), 7vw, var(--gap-xxl));
-  color: var(--white);
+  // color: var(--white);
   font-family: var(--primary-font);
   word-break: break-word;
 

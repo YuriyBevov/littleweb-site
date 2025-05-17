@@ -5,5 +5,7 @@ block variables
   - modalClasses = "error-modal"
 
 block modalContent
-  span.modal-title К сожалению, что-то пошло не так..
-  span.modal-text Попробуйте снова..
+  svg(width="20" height="20")
+    use(xlink:href="./assets/svg-sprite.svg#icon-error")
+  span.modal-title Ошибка !
+  span.modal-text Перезагрузите страницу и попробуйте снова!

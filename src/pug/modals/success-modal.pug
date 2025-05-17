@@ -5,5 +5,7 @@ block variables
   - modalClasses = "success-modal"
 
 block modalContent
-  span.modal-title Спасибо !
-  span.modal-text Мы свяжемся в вами в ближайшее время!
+  svg(width="20" height="20")
+    use(xlink:href="./assets/svg-sprite.svg#icon-success")
+  span.modal-title Спасибо! Вы успешно <span>отправили заявку</span>
+  span.modal-text Мы свяжемся c вами в ближайшее время!
