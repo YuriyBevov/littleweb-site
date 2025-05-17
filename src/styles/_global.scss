@@ -145,7 +145,7 @@ table {
 .base-title-block {
   display: flex;
   flex-direction: column;
-  gap: var(--gap-m);
+  gap: 30px;
   margin-bottom: clamp(var(--gap-m), 2vw, var(--gap-xxl));
 
   :is(h1, h2, h3, h4, h5, h6, p) {

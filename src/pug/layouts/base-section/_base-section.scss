@@ -34,4 +34,27 @@
       order: 2;
     }
   }
+
+  ol {
+    li {
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--site-text-color);
+      margin-bottom: 20px;
+      ul {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding-left: 20px;
+        li {
+          list-style: disc;
+          font-family: var(--secondary-font);
+          line-height: 1.5;
+          color: var(--main-text-color);
+          font-weight: 400;
+          font-size: 16px;
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
 }
